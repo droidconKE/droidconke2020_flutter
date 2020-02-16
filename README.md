@@ -2,7 +2,7 @@
   <a href="https://github.com/droidconKE/droidconKE2020App">
     <img src="https://raw.githubusercontent.com/droidconKE/iconPack/master/androidIcon/android-icon-144x144.png" alt="droidconKE2020">
   </a>
-  <h3 align="center">droidcon2020 Conference App</h3>
+  <h3 align="center">DroidconKE 2020 Conference App</h3>
   <p align="center">
     The official  <a href="https://droidcon.co.ke/">DroidconKE 2020 Conference</a> App. Made with <a href="http://www.flutter.dev/">Flutter</a> for Android and iOS (Web and Desktop TBD)
     <br>
@@ -38,23 +38,24 @@ A BLoC stands as a middleman between a source of data in your app (e.g an API re
 
 
 #### Directory Structure
-    android/      contains Android specific build files and resources
-    ios/          contains iOS specific build files and resources
-    assets/       contains resource files like images and fonts
-    lib/          contains source files for the app    
-      blocs/        contains BLoC definition files
-      models/       contains data class files 
-      screens/      contains full screen widgets
-      services/     contains service classes with specific functions like making `http` calls
-      widgets/      contains reusable component widgets
-      utils/        contains any misceleneous utility classes and functions
+    android/        contains Android specific build files and resources
+    assets/         contains resource files like images and fonts
+    ios/            contains iOS specific build files and resources
+    lib/            contains source files for the app    
+      blocs/            contains BLoC definition files
+      models/           contains data class files 
+      screens/          contains full screen widgets
+      services/         contains service classes with specific functions like making `http` calls
+      widgets/          contains reusable component widgets
+      utils/            contains any misceleneous utility classes and functions
+    test/           contains test files
 
 #### Dependencies
 
 ## CREDITS
 ### Contributors
 <a href="https://github.com/droidconKE/droidconke2020_flutter/graphs/contributors">
-  <img src="https://contributors-img.firebaseapp.com/image?repo=droidconKE/droidconke2020_flutter" />
+  <img src="https://contributors-img.firebaseapp.com/image?repo=droidconKE/droidconke2020_flutter" alt="Contributors"/>
 </a>
 
 Made with [contributors-img](https://contributors-img.firebaseapp.com).
