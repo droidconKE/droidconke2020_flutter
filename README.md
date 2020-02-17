@@ -44,6 +44,7 @@ A BLoC stands as a middleman between a source of data in your app (e.g an API re
     lib/            contains source files for the app    
       blocs/            contains BLoC definition files
       models/           contains data class files 
+      providers/        contains all provider classes
       screens/          contains full screen widgets
       services/         contains service classes with specific functions like making `http` calls
       widgets/          contains reusable component widgets
