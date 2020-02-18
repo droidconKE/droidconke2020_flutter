@@ -1,7 +1,9 @@
+import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/screens/about_screen.dart';
 import 'package:droidconke2020_flutter/screens/feed_screen.dart';
 import 'package:droidconke2020_flutter/screens/home_screen.dart';
 import 'package:droidconke2020_flutter/screens/sessions_screen.dart';
+import 'package:droidconke2020_flutter/widgets/afrikon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,23 +12,53 @@ class TabScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        backgroundColor: Colors.black,
-        activeColor: Colors.yellow,
+        backgroundColor: Palette.darkBlack,
+        activeColor: Palette.yellow,
+        inactiveColor: Palette.gray,
+        iconSize: 25,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            activeIcon: Afrikon(
+              'home',
+              color: Palette.yellow,
+            ),
+            icon: Afrikon(
+              'home',
+              color: Palette.gray,
+            ),
             title: Text("Home"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
+            activeIcon: Afrikon(
+              'bell',
+              color: Palette.yellow,
+            ),
+            icon: Afrikon(
+              'bell',
+              color: Palette.gray,
+            ),
             title: Text("Feed"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.access_time),
+            activeIcon: Afrikon(
+              'time',
+              color: Palette.yellow,
+            ),
+            icon: Afrikon(
+              'time',
+              color: Palette.gray,
+            ),
             title: Text("Sessions"),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            activeIcon: Afrikon(
+              'flower',
+              color: Palette.yellow,
+            ),
+            icon: Afrikon(
+              'flower',
+              color: Palette.gray,
+            ),
             title: Text("About"),
           ),
         ],
