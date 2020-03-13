@@ -1,9 +1,9 @@
 import 'package:droidconke2020_flutter/config/palette.dart';
-import 'package:droidconke2020_flutter/screens/about_screen.dart';
-import 'package:droidconke2020_flutter/screens/feed_screen.dart';
-import 'package:droidconke2020_flutter/screens/home_screen.dart';
-import 'package:droidconke2020_flutter/screens/sessions_screen.dart';
-import 'package:droidconke2020_flutter/widgets/afrikon.dart';
+import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
+import 'package:droidconke2020_flutter/ui/feed/feed_screen.dart';
+import 'package:droidconke2020_flutter/ui/home_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions_screen.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

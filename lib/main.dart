@@ -1,6 +1,6 @@
 import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
-import 'package:droidconke2020_flutter/widgets/tab_scaffold.dart';
+import 'package:droidconke2020_flutter/ui/shared/tab_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -52,9 +52,19 @@ class MaterialAppWidget extends StatelessWidget {
         accentColor: Palette.green,
         scaffoldBackgroundColor: darkTheme ? Palette.black : Palette.lightGray,
         errorColor: Palette.red,
+        cardTheme: CardTheme(
+          elevation: 2,
+          margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(10),
+            ),
+          ),
+        ),
         textTheme: TextTheme(
           title: GoogleFonts.robotoSlab(
-            color: darkTheme ? Theme.of(context).primaryColor : Palette.black,
+            // color: darkTheme ? Theme.of(context).primaryColor : Palette.black,
+            color: Palette.purple,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
