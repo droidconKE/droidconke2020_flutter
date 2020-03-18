@@ -28,7 +28,7 @@ class FeaturedSpeakers extends StatelessWidget {
         GridView.builder(
           shrinkWrap: true,
           primary: true,
-          // physics: NeverScrollableScrollPhysics(),
+          physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             crossAxisSpacing: 10,

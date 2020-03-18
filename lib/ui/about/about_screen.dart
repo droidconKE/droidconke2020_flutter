@@ -42,7 +42,7 @@ class AboutScreen extends StatelessWidget {
                     GridView.builder(
                       shrinkWrap: true,
                       primary: true,
-                      // physics: NeverScrollableScrollPhysics(),
+                      physics: NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 10,
