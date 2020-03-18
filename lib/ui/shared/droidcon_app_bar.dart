@@ -1,9 +1,16 @@
+import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
 import 'package:flutter/material.dart';
 
 class DroidconAppBar extends StatelessWidget {
   final String title;
+  final bool isHome;
 
-  const DroidconAppBar({Key key, this.title}) : super(key: key);
+  const DroidconAppBar({
+    Key key,
+    this.title,
+    this.isHome = false,
+  })  : assert(isHome || title != null),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +22,13 @@ class DroidconAppBar extends StatelessWidget {
           width: 27,
           height: 27,
         ),
-        Text(
-          title,
-          style: Theme.of(context).textTheme.title,
-        ),
+        if (!isHome)
+          Text(
+            title,
+            style: Theme.of(context).textTheme.title,
+          ),
+        if(isHome)
+          AppBarFeedbackButton(),
         InkWell(
           borderRadius: BorderRadius.circular(15),
           child: Container(

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1336" height="728" viewBox="0 0 1336 728">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.13" x2="0.865" y2="1.278" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#68dea4"/>
+      <stop offset="1" stop-color="#843d95"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_361" data-name="Group 361" transform="translate(0.492 -0.029)">
+    <g id="Group_14" data-name="Group 14" transform="translate(0 0)">
+      <g id="Group_13" data-name="Group 13" transform="translate(12.067 48.267)" opacity="0.17">
+        <rect id="Rectangle_27" data-name="Rectangle 27" width="1190" height="209" rx="27" transform="translate(0.442 160.762)" fill="url(#linear-gradient)"/>
+        <rect id="Rectangle_28" data-name="Rectangle 28" width="990" height="213" rx="27" transform="translate(100.442 357.762)" fill="url(#linear-gradient)"/>
+        <rect id="Rectangle_29" data-name="Rectangle 29" width="780" height="221" rx="27" transform="translate(100.442 -0.238)" fill="url(#linear-gradient)"/>
+      </g>
+      <ellipse id="Ellipse_17" data-name="Ellipse 17" cx="26" cy="32.5" rx="26" ry="32.5" transform="translate(1013.508 84.029)" fill="#68dea4"/>
+      <circle id="Ellipse_21" data-name="Ellipse 21" cx="42" cy="42" r="42" transform="translate(446.508 0.029)" fill="#68dea4"/>
+      <ellipse id="Ellipse_23" data-name="Ellipse 23" cx="44.5" cy="42" rx="44.5" ry="42" transform="translate(160.508 644.029)" fill="#68dea4"/>
+      <ellipse id="Ellipse_22" data-name="Ellipse 22" cx="36.5" cy="38.5" rx="36.5" ry="38.5" transform="translate(-0.492 567.029)" fill="#ffd54a"/>
+      <ellipse id="Ellipse_24" data-name="Ellipse 24" cx="42.5" cy="42" rx="42.5" ry="42" transform="translate(1250.508 149.029)" fill="#843d95"/>
+      <ellipse id="Ellipse_19" data-name="Ellipse 19" cx="32.5" cy="32" rx="32.5" ry="32" transform="translate(357.508 531.029)" fill="#68dea4"/>
+      <ellipse id="Ellipse_18" data-name="Ellipse 18" cx="32" cy="30" rx="32" ry="30" transform="translate(209.508 286.029)" fill="#843d95"/>
+      <circle id="Ellipse_20" data-name="Ellipse 20" cx="30" cy="30" r="30" transform="translate(804.508 668.029)" fill="#843d95"/>
+      <path id="Polygon_6" data-name="Polygon 6" d="M57.135,0l57.135,102.844H0Z" transform="translate(769.937 188.383) rotate(30)" fill="#ffd54a"/>
+      <path id="Polygon_7" data-name="Polygon 7" d="M39.995,0,79.99,68.563H0Z" transform="translate(159.503 112.931) rotate(-90)" fill="#68dea4"/>
+      <path id="Polygon_8" data-name="Polygon 8" d="M39.995,0,79.99,68.563H0Z" transform="translate(1199.369 410.035) rotate(90)" fill="#ffd54a"/>
+      <path id="Polygon_9" data-name="Polygon 9" d="M39.995,0,79.99,68.563H0Z" transform="translate(536.597 661.431) rotate(-90)" fill="#68dea4"/>
+    </g>
+    <g id="Layer_2" data-name="Layer 2" transform="translate(370.048 84.468)">
+      <g id="Layer_1" data-name="Layer 1" transform="translate(0 0)">
+        <rect id="Rectangle_30" data-name="Rectangle 30" width="571" height="572" transform="translate(0.46 -0.438)" fill="none"/>
+        <path id="Path_37" data-name="Path 37" d="M562.175,378.978c-14.17-2.514-42.966-10.284-45.708-11.427a154.38,154.38,0,0,1-84.218-50.393,259.5,259.5,0,0,1-28.8-46.394c-15.655-31.082-28-63.992-47.994-92.331s-49.822-52.45-84.446-54.622a268.655,268.655,0,0,0-48.679,4.342A125.7,125.7,0,0,1,158,120.383,118.5,118.5,0,0,1,106.8,71.589,204.773,204.773,0,0,1,91.835,40.507c-2.4-5.942-4.571-12.341-6.514-18.626-.686-2.4-1.486-8.342-2.628-13.141a79.99,79.99,0,0,1-61.249,28.8A86.5,86.5,0,0,1,.19,34.565c.914,2.057,1.828,3.885,1.943,4.342,3.085,7.542,6.171,15.084,9.6,22.854a464.181,464.181,0,0,0,22.854,44.223,197,197,0,0,0,66.963,70.277h.8a201.117,201.117,0,0,0,95.645,23.768c33.139.914,66.277-2.971,99.416-5.256a30.968,30.968,0,0,1,19.083,2.971,30.739,30.739,0,0,1,9.256,12.113c25.6,49.022,45.708,103.53,92.1,137.125C459.1,376.35,509.267,388.577,559.2,396.461a8.8,8.8,0,0,0,10.17-7.656h0a8.684,8.684,0,0,0-7.2-9.827Z" transform="translate(2.838 91.029)" fill="#191d1d"/>
+        <path id="Path_38" data-name="Path 38" d="M82.161,17.031h0S41.937-17.251,0,43.084A74.619,74.619,0,0,0,82.161,17.031Z" transform="translate(0.856 76.339)" fill="#191d1d"/>
+      </g>
+    </g>
+  </g>
+</svg>

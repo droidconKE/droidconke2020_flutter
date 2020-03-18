@@ -1,8 +1,8 @@
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
 import 'package:droidconke2020_flutter/ui/feed/feed_screen.dart';
-import 'package:droidconke2020_flutter/ui/home_screen.dart';
-import 'package:droidconke2020_flutter/ui/sessions_screen.dart';
+import 'package:droidconke2020_flutter/ui/home/home_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions/sessions_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

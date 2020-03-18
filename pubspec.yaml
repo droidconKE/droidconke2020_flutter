@@ -4,24 +4,24 @@ description: The official DroidconKE 2020 Conference App made with Flutter.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_stetho: ^0.6.0-dev.1
-  dio: ^3.0.8
+  dio: ^3.0.9
   freezed_annotation:
   rxdart: ^0.23.1
   provider: ^4.0.4
-  shared_preferences: ^0.5.6+1
-  google_fonts: ^0.3.9
-  flutter_svg: ^0.17.1
+  shared_preferences: ^0.5.6+3
+  google_fonts: ^0.3.10
+  flutter_svg: ^0.17.3+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  freezed: ^0.6.1
+  freezed: ^0.10.1
   build_runner:
   # flutter packages pub run build_runner watch --delete-conflicting-outputs
 

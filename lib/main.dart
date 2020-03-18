@@ -36,18 +36,7 @@ class MaterialAppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'DroidconKE 2020',
       theme: ThemeData(
-        primarySwatch: MaterialColor(Palette.purple.value, {
-          50: Color(0xFFf0e8f2),
-          100: Color(0xFFdac5df),
-          200: Color(0xFFc29eca),
-          300: Color(0xFFa977b5),
-          400: Color(0xFF965aa5),
-          500: Color(0xFF843d95),
-          600: Color(0xFF7c378d),
-          700: Color(0xFF712f82),
-          800: Color(0xFF672778),
-          900: Color(0xFF541a67),
-        }),
+        primarySwatch: Palette.purple,
         brightness: brightness,
         accentColor: Palette.green,
         scaffoldBackgroundColor: darkTheme ? Palette.black : Palette.lightGray,
