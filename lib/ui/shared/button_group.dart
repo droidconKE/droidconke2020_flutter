@@ -84,9 +84,9 @@ class ButtonGroupButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        padding: EdgeInsets.all(4),
-        height: 50,
-        width: 45,
+        padding: EdgeInsets.all(5),
+        // height: 60,
+        // width: 50,
         decoration: BoxDecoration(
             color: active ? Palette.yellow : Palette.green[100],
             borderRadius: BorderRadius.circular(5)),

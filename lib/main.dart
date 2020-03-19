@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<ThemeBloc>.value(value: themeBloc),
+        Provider<DateTime>(create: (_) => DateTime(2020, 8, 6)),
         StreamProvider<Brightness>(
           initialData: Brightness.light,
           create: (context) => themeBloc.brightness,
@@ -70,8 +71,9 @@ class MaterialAppWidget extends StatelessWidget {
             fontSize: 11,
           ),
           overline: GoogleFonts.roboto(
-            color: Palette.green,
+            color: Palette.green[900],
             fontSize: 12,
+            letterSpacing: .5,
           ),
           subhead: GoogleFonts.robotoSlab(
             fontSize: 16,

@@ -1,14 +1,17 @@
 import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
+import 'package:droidconke2020_flutter/ui/shared/countdown_timer.dart';
 import 'package:flutter/material.dart';
 
 class DroidconAppBar extends StatelessWidget {
   final String title;
   final bool isHome;
+  final bool isBeforeEvent;
 
   const DroidconAppBar({
     Key key,
     this.title,
     this.isHome = false,
+    this.isBeforeEvent = true,
   })  : assert(isHome || title != null),
         super(key: key);
 
@@ -27,8 +30,8 @@ class DroidconAppBar extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.title,
           ),
-        if(isHome)
-          AppBarFeedbackButton(),
+        if (isHome && isBeforeEvent) CountdownTimer(),
+        if (isHome && !isBeforeEvent) AppBarFeedbackButton(onTap: (){},),
         InkWell(
           borderRadius: BorderRadius.circular(15),
           child: Container(

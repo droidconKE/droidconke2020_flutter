@@ -33,7 +33,7 @@ class FeaturedSpeakers extends StatelessWidget {
             crossAxisCount: 4,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            childAspectRatio: .7,
+            childAspectRatio: .65,
           ),
           itemCount: 4,
           itemBuilder: (context, index) {

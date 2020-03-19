@@ -1,4 +1,5 @@
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/shared/passport_photo.dart';
 import 'package:flutter/material.dart';
 
 class Passport extends StatelessWidget {
@@ -14,6 +15,8 @@ class Passport extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         var width = constraints.biggest.width;
+        var imageFrameSize = width * .75;
+        var imageSize = width * .70;
         return Container(
           width: width,
           alignment: Alignment.center,
@@ -26,31 +29,10 @@ class Passport extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   color: Palette.green[100],
                 ),
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    Container(
-                      height: 46,
-                      width: 46,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(23),
-                        color: Palette.green,
-                      ),
-                    ),
-                    Container(
-                      height: 44,
-                      width: 44,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(22),
-                        color: Colors.white,
-                        image: DecorationImage(
-                          image: image,
-                          alignment: Alignment.center,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ],
+                child: PassportPhoto(
+                  imageFrameSize: imageFrameSize,
+                  imageSize: imageSize,
+                  image: image,
                 ),
                 alignment: Alignment.center,
               ),
