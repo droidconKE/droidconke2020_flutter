@@ -12,28 +12,36 @@ class DroidconAppBar extends StatelessWidget {
     this.title,
     this.isHome = false,
     this.isBeforeEvent = true,
-  })  : assert(isHome || title != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
+        if (Navigator.of(context).canPop())
+          InkWell(
+            // child: Afrikon("left"), // FIXME: Afrikon not working
+            child: Icon(Icons.arrow_back),
+            onTap: () => Navigator.of(context).pop(),
+          ),
         Image.asset(
           "assets/images/logo.png",
           width: 27,
           height: 27,
         ),
-        if (!isHome)
+        if (title != null)
           Text(
             title,
             style: Theme.of(context).textTheme.title,
           ),
         if (isHome && isBeforeEvent) CountdownTimer(),
-        if (isHome && !isBeforeEvent) AppBarFeedbackButton(onTap: (){},),
-        InkWell(
-          borderRadius: BorderRadius.circular(15),
+        if (isHome && !isBeforeEvent)
+          AppBarFeedbackButton(
+            onTap: () {},
+          ),
+        GestureDetector(
+          // borderRadius: BorderRadius.circular(15),
           child: Container(
             height: 28,
             width: 28,
