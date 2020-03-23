@@ -1,3 +1,4 @@
+import 'package:droidconke2020_flutter/ui/about/team_member_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/passport.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +10,16 @@ class AboutScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Image.network(
-                "https://techweez.com/wp-content/uploads/2019/08/DroidconKE-2019-1365x1024.jpg",
-                width: double.infinity,
+              Container(
+                height: 250,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      "https://techweez.com/wp-content/uploads/2019/08/DroidconKE-2019-1365x1024.jpg",
+                    ),
+                    fit: BoxFit.cover,
+                  )
+                ),
               ),
               SizedBox(height: 20),
               Container(
@@ -44,19 +52,25 @@ class AboutScreen extends StatelessWidget {
                       primary: true,
                       physics: NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 5,
-                        childAspectRatio: 0.7
-                      ),
+                          crossAxisCount: 3,
+                          crossAxisSpacing: 30,
+                          mainAxisSpacing: 5,
+                          childAspectRatio: 0.6),
                       itemCount: 30,
                       itemBuilder: (context, index) {
-                        return Passport(
-                          image: NetworkImage(
-                            "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png",
+                        return GestureDetector(
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => TeamMemberScreen(),
+                            ),
                           ),
-                          title: "Name",
-                          subtitle: "Description that is very very long",
+                          child: Passport(
+                            image: NetworkImage(
+                              "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png",
+                            ),
+                            title: "Name",
+                            subtitle: "Description that is very very long",
+                          ),
                         );
                       },
                     ),

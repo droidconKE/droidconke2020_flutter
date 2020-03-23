@@ -113,6 +113,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  clipboard_manager:
+    dependency: "direct main"
+    description:
+      name: clipboard_manager
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.4"
   code_builder:
     dependency: transitive
     description:
@@ -127,6 +134,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.14.11"
+  community_material_icon:
+    dependency: "direct main"
+    description:
+      name: community_material_icon
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.5.95"
   convert:
     dependency: transitive
     description:
@@ -204,7 +218,7 @@ packages:
       name: freezed
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.10.1"
+    version: "0.10.3"
   freezed_annotation:
     dependency: "direct main"
     description:

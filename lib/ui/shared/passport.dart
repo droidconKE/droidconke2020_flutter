@@ -6,15 +6,26 @@ class Passport extends StatelessWidget {
   final String title;
   final String subtitle;
   final ImageProvider image;
+  final double size;
+  final double backgroundOpacity;
+  final Color frameColor;
 
-  const Passport({Key key, this.title, this.subtitle, @required this.image})
-      : super(key: key);
+  const Passport({
+    Key key,
+    this.title,
+    this.subtitle,
+    @required this.image,
+    this.size,
+    this.backgroundOpacity = 1,
+    this.frameColor,
+  })  : assert(backgroundOpacity <= 1),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        var width = constraints.biggest.width;
+        var width = size ?? constraints.biggest.width;
         var imageFrameSize = width * .75;
         var imageSize = width * .70;
         return Container(
@@ -27,12 +38,13 @@ class Passport extends StatelessWidget {
                 height: width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: Palette.green[100],
+                  color: Palette.green[100].withOpacity(backgroundOpacity),
                 ),
                 child: PassportPhoto(
                   imageFrameSize: imageFrameSize,
                   imageSize: imageSize,
                   image: image,
+                  frameColor: frameColor,
                 ),
                 alignment: Alignment.center,
               ),

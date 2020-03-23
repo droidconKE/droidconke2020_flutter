@@ -7,11 +7,13 @@ class PassportPhoto extends StatelessWidget {
     @required this.imageFrameSize,
     @required this.imageSize,
     @required this.image,
+    this.frameColor,
   }) : super(key: key);
 
   final double imageFrameSize;
   final double imageSize;
   final ImageProvider image;
+  final Color frameColor;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class PassportPhoto extends StatelessWidget {
           width: imageFrameSize,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(imageFrameSize / 2),
-            color: Palette.green,
+            color: frameColor ?? Palette.green,
           ),
         ),
         Container(
