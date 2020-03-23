@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -63,8 +64,9 @@ class FeaturedSessions extends StatelessWidget {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
+                              //FIXME: Use Afrikon
                               Icon(
-                                Icons.access_time,
+                                CommunityMaterialIcons.clock,
                                 color: Palette.green,
                                 size: 10,
                               ),
@@ -76,8 +78,9 @@ class FeaturedSessions extends StatelessWidget {
                               Expanded(
                                 child: Container(),
                               ),
+                              //FIXME: Use Afrikon
                               Icon(
-                                Icons.access_time,
+                                CommunityMaterialIcons.directions,
                                 color: Palette.green,
                                 size: 10,
                               ),

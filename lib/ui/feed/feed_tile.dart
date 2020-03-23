@@ -1,3 +1,5 @@
+import 'package:community_material_icon/community_material_icon.dart';
+import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
 
 class FeedTile extends StatelessWidget {
@@ -35,9 +37,11 @@ class FeedTile extends StatelessWidget {
               children: <Widget>[
                 Row(
                   children: <Widget>[
+                    //FIXME: Use Afrikon
                     Icon(
-                      Icons.access_time,
+                      CommunityMaterialIcons.clock,
                       size: Theme.of(context).textTheme.caption.fontSize,
+                      color: Theme.of(context).textTheme.caption.color,
                     ),
                     SizedBox(width: 5),
                     Text(
@@ -46,8 +50,11 @@ class FeedTile extends StatelessWidget {
                     ),
                   ],
                 ),
-                //Afrikon("share"), //FIXME: Afrocon doesn't work
-                Icon(Icons.reply),
+                //Afrikon("share"), //FIXME: Use Afrikon
+                Icon(
+                  CommunityMaterialIcons.share,
+                  color: Palette.gray,
+                ),
               ],
             ),
           ],

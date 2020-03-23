@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
 import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
@@ -75,14 +76,15 @@ class SessionCard extends StatelessWidget {
                         return Row(
                           children: <Widget>[
                             Icon(
-                              Icons.android,
+                              CommunityMaterialIcons.android_head,
                               color: Theme.of(context).textTheme.overline.color,
-                              size:
-                                  Theme.of(context).textTheme.overline.fontSize,
+                              size: 16,
                             ),
                             SizedBox(width: 3),
-                            Text(s.name,
-                                style: Theme.of(context).textTheme.overline),
+                            Text(
+                              s.name,
+                              style: Theme.of(context).textTheme.overline,
+                            ),
                           ],
                         );
                       }).toList(),
@@ -93,7 +95,7 @@ class SessionCard extends StatelessWidget {
               SizedBox(width: 20),
               InkWell(
                 child: Icon(
-                  Icons.star_border,
+                  CommunityMaterialIcons.star_outline,
                   size: 32,
                   color: Palette.gray[100],
                 ),

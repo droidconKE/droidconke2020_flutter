@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -38,8 +39,9 @@ class CallToAction extends StatelessWidget {
                   ),
                 ],
               ),
+              //FIXME: Use Afrikon
               Icon(
-                Icons.play_arrow,
+                CommunityMaterialIcons.play,
                 color: Theme.of(context).primaryColor,
                 size: 36,
               ),

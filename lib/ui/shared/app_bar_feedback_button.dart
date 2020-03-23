@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,8 +22,9 @@ class AppBarFeedbackButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            //FIXME: Use Afrikon
             Icon(
-              Icons.tag_faces,
+              CommunityMaterialIcons.emoticon_happy_outline,
               color: Palette.purple,
               size: 20,
             ),
@@ -35,8 +37,9 @@ class AppBarFeedbackButton extends StatelessWidget {
               ),
             ),
             SizedBox(width: 30),
+            //FIXME: Use Afrikon
             Icon(
-              Icons.send,
+              CommunityMaterialIcons.send,
               color: Palette.purple,
               size: 20,
             ),

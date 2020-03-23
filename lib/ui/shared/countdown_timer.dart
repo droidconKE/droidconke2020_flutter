@@ -1,3 +1,4 @@
+import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class CountdownTimer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Icon(
-            Icons.access_time,
+            CommunityMaterialIcons.clock,
             color: Palette.green[900],
             size: 20,
           ),

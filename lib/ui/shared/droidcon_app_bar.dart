@@ -1,3 +1,5 @@
+import 'package:community_material_icon/community_material_icon.dart';
+import 'package:droidconke2020_flutter/ui/feedback/event_feedback_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
 import 'package:droidconke2020_flutter/ui/shared/countdown_timer.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class DroidconAppBar extends StatelessWidget {
         if (Navigator.of(context).canPop())
           InkWell(
             // child: Afrikon("left"), // FIXME: Afrikon not working
-            child: Icon(Icons.arrow_back),
+            child: Icon(CommunityMaterialIcons.arrow_left),
             onTap: () => Navigator.of(context).pop(),
           ),
         InkWell(
@@ -32,7 +34,7 @@ class DroidconAppBar extends StatelessWidget {
             height: 27,
           ),
           onTap: () {
-            while(Navigator.of(context).canPop()){
+            while (Navigator.of(context).canPop()) {
               Navigator.of(context).pop();
             }
           },
@@ -45,16 +47,20 @@ class DroidconAppBar extends StatelessWidget {
         if (isHome && isBeforeEvent) CountdownTimer(),
         if (isHome && !isBeforeEvent)
           AppBarFeedbackButton(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return EventFeedbackScreen();
+              }));
+            },
           ),
         GestureDetector(
           // borderRadius: BorderRadius.circular(15),
           child: Container(
             height: 28,
             width: 28,
-
+            //FIXME: Use Afrikon 'man'
             child: Icon(
-              Icons.account_circle,
+              CommunityMaterialIcons.account_circle,
               color: Theme.of(context).primaryColor,
             ), // Afrikon("man", height: 21,),
 
