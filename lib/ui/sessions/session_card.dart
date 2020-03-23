@@ -1,5 +1,6 @@
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
+import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class SessionCard extends StatelessWidget {
@@ -11,7 +12,15 @@ class SessionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) {
+              return SessionDetailScreen();
+            },
+          ),
+        );
+      },
       child: Card(
         margin: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
         child: Padding(
@@ -68,7 +77,8 @@ class SessionCard extends StatelessWidget {
                             Icon(
                               Icons.android,
                               color: Theme.of(context).textTheme.overline.color,
-                              size: Theme.of(context).textTheme.overline.fontSize,
+                              size:
+                                  Theme.of(context).textTheme.overline.fontSize,
                             ),
                             SizedBox(width: 3),
                             Text(s.name,
@@ -87,7 +97,7 @@ class SessionCard extends StatelessWidget {
                   size: 32,
                   color: Palette.gray[100],
                 ),
-                onTap: (){},
+                onTap: () {},
               ),
             ],
           ),
