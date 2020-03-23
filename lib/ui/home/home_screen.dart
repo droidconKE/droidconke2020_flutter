@@ -9,18 +9,20 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
+  static final String routeName = 'home';
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
 
-
   @override
   Widget build(BuildContext context) {
     /*final theme = Provider.of<Brightness>(context);
     final themeBloc = Provider.of<ThemeBloc>(context);*/
-    bool isBeforeEvent = DateTime.now().isBefore(Provider.of<DateTime>(context));
+    bool isBeforeEvent =
+        DateTime.now().isBefore(Provider.of<DateTime>(context));
 
     return Scaffold(
       body: SafeArea(
@@ -93,8 +95,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Divider(color: Palette.purple[100]),
               ),
-              if (isBeforeEvent)
-                KeynoteSpeaker(),
+              if (isBeforeEvent) KeynoteSpeaker(),
               if (!isBeforeEvent)
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -103,7 +104,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     subtitle: "View upcoming sessions.",
                   ),
                 ),
-
               if (!isBeforeEvent)
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
@@ -114,7 +114,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: FeaturedSpeakers(),
                 ),
-
               /*FlatButton(
                 child: Text("Toggle Theme"),
                 onPressed: () {

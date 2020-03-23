@@ -4,6 +4,8 @@ import 'package:droidconke2020_flutter/ui/shared/twitter_handle_copy.dart';
 import 'package:flutter/material.dart';
 
 class SpeakerDetailScreen extends StatelessWidget {
+  static final String routeName = 'speaker-detail';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

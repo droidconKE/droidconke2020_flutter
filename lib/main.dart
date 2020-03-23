@@ -1,5 +1,12 @@
 import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
+import 'package:droidconke2020_flutter/ui/about/team_member_screen.dart';
+import 'package:droidconke2020_flutter/ui/feed/feed_screen.dart';
+import 'package:droidconke2020_flutter/ui/home/home_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions/sessions_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/tab_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -87,6 +94,15 @@ class MaterialAppWidget extends StatelessWidget {
           ),
         ),
       ),
+      routes: {
+        AboutScreen.routeName: (context) => AboutScreen(),
+        TeamMemberScreen.routeName: (context) => TeamMemberScreen(),
+        FeedScreen.routeName: (context) => FeedScreen(),
+        HomeScreen.routeName: (context) => HomeScreen(),
+        SessionDetailScreen.routeName: (context) => SessionDetailScreen(),
+        SessionsScreen.routeName: (context) => SessionsScreen(),
+        SpeakerDetailScreen.routeName: (context) => SpeakerDetailScreen(),
+      },
       home: TabScaffold(),
     );
   }

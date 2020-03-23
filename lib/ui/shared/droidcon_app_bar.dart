@@ -25,10 +25,17 @@ class DroidconAppBar extends StatelessWidget {
             child: Icon(Icons.arrow_back),
             onTap: () => Navigator.of(context).pop(),
           ),
-        Image.asset(
-          "assets/images/logo.png",
-          width: 27,
-          height: 27,
+        InkWell(
+          child: Image.asset(
+            "assets/images/logo.png",
+            width: 27,
+            height: 27,
+          ),
+          onTap: () {
+            while(Navigator.of(context).canPop()){
+              Navigator.of(context).pop();
+            }
+          },
         ),
         if (title != null)
           Text(

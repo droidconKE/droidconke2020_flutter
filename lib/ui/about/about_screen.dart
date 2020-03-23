@@ -3,6 +3,8 @@ import 'package:droidconke2020_flutter/ui/shared/passport.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {
+  static final String routeName = 'about';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
