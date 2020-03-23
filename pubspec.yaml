@@ -20,7 +20,7 @@ dependencies:
   url_launcher: ^5.4.2
   community_material_icon:
   clipboard_manager: ^0.0.4
-
+  flutter_form_builder: ^3.8.1
 
 dev_dependencies:
   flutter_test:
