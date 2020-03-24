@@ -1,5 +1,5 @@
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -86,7 +86,11 @@ class EventFeedbackScreen extends StatelessWidget {
                                       ),
                             ),
                             SizedBox(width: 20),
-                            Icon(CommunityMaterialIcons.send),
+                            Afrikon(
+                              'send',
+                              color: Colors.white,
+                              height: 15,
+                            ),
                           ],
                         ),
                         shape: RoundedRectangleBorder(

@@ -1,5 +1,6 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,11 +72,10 @@ class FeaturedSessions extends StatelessWidget {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              //FIXME: Use Afrikon
-                              Icon(
-                                CommunityMaterialIcons.clock,
+                              Afrikon(
+                                "time",
                                 color: Palette.green,
-                                size: 10,
+                                height: 10,
                               ),
                               SizedBox(width: 5),
                               Text(
@@ -85,11 +85,10 @@ class FeaturedSessions extends StatelessWidget {
                               Expanded(
                                 child: Container(),
                               ),
-                              //FIXME: Use Afrikon
-                              Icon(
-                                CommunityMaterialIcons.directions,
+                              Afrikon(
+                                'direction',
                                 color: Palette.green,
-                                size: 10,
+                                height: 10,
                               ),
                               SizedBox(width: 5),
                               Text(

@@ -2,6 +2,7 @@ import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
 import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 
 class SessionCard extends StatelessWidget {
@@ -94,9 +95,9 @@ class SessionCard extends StatelessWidget {
               ),
               SizedBox(width: 20),
               InkWell(
-                child: Icon(
-                  CommunityMaterialIcons.star_outline,
-                  size: 32,
+                child: Afrikon(
+                  'star-outline',
+                  height: 32,
                   color: Palette.gray[100],
                 ),
                 onTap: () {},

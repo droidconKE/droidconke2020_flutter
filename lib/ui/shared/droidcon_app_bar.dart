@@ -1,5 +1,6 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/ui/feedback/event_feedback_screen.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
 import 'package:droidconke2020_flutter/ui/shared/countdown_timer.dart';
 import 'package:flutter/cupertino.dart';
@@ -25,8 +26,7 @@ class DroidconAppBar extends StatelessWidget {
       children: <Widget>[
         if (Navigator.of(context).canPop())
           InkWell(
-            // child: Afrikon("left"), // FIXME: Afrikon not working
-            child: Icon(CommunityMaterialIcons.arrow_left),
+            child: Afrikon('left'),
             onTap: () => Navigator.of(context).pop(),
           ),
         InkWell(
@@ -61,9 +61,8 @@ class DroidconAppBar extends StatelessWidget {
           child: Container(
             height: 28,
             width: 28,
-            //FIXME: Use Afrikon 'man'
-            child: Icon(
-              CommunityMaterialIcons.account_circle,
+            child: Afrikon(
+              'man',
               color: Theme.of(context).primaryColor,
             ), // Afrikon("man", height: 21,),
 

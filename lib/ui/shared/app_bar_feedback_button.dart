@@ -1,5 +1,6 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -22,11 +23,10 @@ class AppBarFeedbackButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            //FIXME: Use Afrikon
-            Icon(
-              CommunityMaterialIcons.emoticon_happy_outline,
+            Afrikon(
+              'smiley-outline',
               color: Palette.purple,
-              size: 20,
+              height: 20,
             ),
             SizedBox(width: 30),
             Text(
@@ -37,11 +37,10 @@ class AppBarFeedbackButton extends StatelessWidget {
               ),
             ),
             SizedBox(width: 30),
-            //FIXME: Use Afrikon
-            Icon(
-              CommunityMaterialIcons.send,
+            Afrikon(
+              'send',
               color: Palette.purple,
-              size: 20,
+              height: 20,
             ),
           ],
         ),

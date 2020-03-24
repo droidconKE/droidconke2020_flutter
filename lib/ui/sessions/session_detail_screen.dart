@@ -1,6 +1,7 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -61,10 +62,10 @@ class SessionDetailScreen extends StatelessWidget {
                         ),
                         Row(
                           children: <Widget>[
-                            Icon(
-                              CommunityMaterialIcons.directions,
+                            Afrikon(
+                              'direction',
                               color: Palette.green,
-                              size: 16,
+                              height: 16,
                             ),
                             SizedBox(width: 5),
                             Text(
@@ -133,7 +134,7 @@ class SessionDetailScreen extends StatelessWidget {
                         Expanded(
                           child: Container(),
                         ),
-                        Icon(CommunityMaterialIcons.star_outline),
+                        Afrikon('star-outline'),
                       ],
                     ),
                     InkWell(
@@ -179,8 +180,8 @@ class SessionDetailScreen extends StatelessWidget {
           onPressed: () {},
           backgroundColor: Colors.white,
           mini: true,
-          child: Icon(
-            CommunityMaterialIcons.share,
+          child: Afrikon(
+            'share',
             color: Palette.purple,
           ),
         ),
