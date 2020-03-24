@@ -13,19 +13,33 @@ class _$SessionTearOff {
   const _$SessionTearOff();
 
   _Session call(
-      {String title,
+      {int id,
+      String title,
       String description,
       String slug,
       String session_format,
       String session_level,
-      List<Speaker> speakers}) {
+      List<Speaker> speakers,
+      List<Room> rooms,
+      bool is_serviceSession,
+      String start_date_time,
+      String start_time,
+      String end_date_time,
+      String end_time}) {
     return _Session(
+      id: id,
       title: title,
       description: description,
       slug: slug,
       session_format: session_format,
       session_level: session_level,
       speakers: speakers,
+      rooms: rooms,
+      is_serviceSession: is_serviceSession,
+      start_date_time: start_date_time,
+      start_time: start_time,
+      end_date_time: end_date_time,
+      end_time: end_time,
     );
   }
 }
@@ -34,12 +48,19 @@ class _$SessionTearOff {
 const $Session = _$SessionTearOff();
 
 mixin _$Session {
+  int get id;
   String get title;
   String get description;
   String get slug;
   String get session_format;
   String get session_level;
   List<Speaker> get speakers;
+  List<Room> get rooms;
+  bool get is_serviceSession;
+  String get start_date_time;
+  String get start_time;
+  String get end_date_time;
+  String get end_time;
 
   $SessionCopyWith<Session> get copyWith;
 }
@@ -48,12 +69,19 @@ abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res>;
   $Res call(
-      {String title,
+      {int id,
+      String title,
       String description,
       String slug,
       String session_format,
       String session_level,
-      List<Speaker> speakers});
+      List<Speaker> speakers,
+      List<Room> rooms,
+      bool is_serviceSession,
+      String start_date_time,
+      String start_time,
+      String end_date_time,
+      String end_time});
 }
 
 class _$SessionCopyWithImpl<$Res> implements $SessionCopyWith<$Res> {
@@ -65,14 +93,22 @@ class _$SessionCopyWithImpl<$Res> implements $SessionCopyWith<$Res> {
 
   @override
   $Res call({
+    Object id = freezed,
     Object title = freezed,
     Object description = freezed,
     Object slug = freezed,
     Object session_format = freezed,
     Object session_level = freezed,
     Object speakers = freezed,
+    Object rooms = freezed,
+    Object is_serviceSession = freezed,
+    Object start_date_time = freezed,
+    Object start_time = freezed,
+    Object end_date_time = freezed,
+    Object end_time = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
       description:
           description == freezed ? _value.description : description as String,
@@ -85,6 +121,19 @@ class _$SessionCopyWithImpl<$Res> implements $SessionCopyWith<$Res> {
           : session_level as String,
       speakers:
           speakers == freezed ? _value.speakers : speakers as List<Speaker>,
+      rooms: rooms == freezed ? _value.rooms : rooms as List<Room>,
+      is_serviceSession: is_serviceSession == freezed
+          ? _value.is_serviceSession
+          : is_serviceSession as bool,
+      start_date_time: start_date_time == freezed
+          ? _value.start_date_time
+          : start_date_time as String,
+      start_time:
+          start_time == freezed ? _value.start_time : start_time as String,
+      end_date_time: end_date_time == freezed
+          ? _value.end_date_time
+          : end_date_time as String,
+      end_time: end_time == freezed ? _value.end_time : end_time as String,
     ));
   }
 }
@@ -94,12 +143,19 @@ abstract class _$SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       __$SessionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String title,
+      {int id,
+      String title,
       String description,
       String slug,
       String session_format,
       String session_level,
-      List<Speaker> speakers});
+      List<Speaker> speakers,
+      List<Room> rooms,
+      bool is_serviceSession,
+      String start_date_time,
+      String start_time,
+      String end_date_time,
+      String end_time});
 }
 
 class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
@@ -112,14 +168,22 @@ class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object id = freezed,
     Object title = freezed,
     Object description = freezed,
     Object slug = freezed,
     Object session_format = freezed,
     Object session_level = freezed,
     Object speakers = freezed,
+    Object rooms = freezed,
+    Object is_serviceSession = freezed,
+    Object start_date_time = freezed,
+    Object start_time = freezed,
+    Object end_date_time = freezed,
+    Object end_time = freezed,
   }) {
     return _then(_Session(
+      id: id == freezed ? _value.id : id as int,
       title: title == freezed ? _value.title : title as String,
       description:
           description == freezed ? _value.description : description as String,
@@ -132,19 +196,41 @@ class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
           : session_level as String,
       speakers:
           speakers == freezed ? _value.speakers : speakers as List<Speaker>,
+      rooms: rooms == freezed ? _value.rooms : rooms as List<Room>,
+      is_serviceSession: is_serviceSession == freezed
+          ? _value.is_serviceSession
+          : is_serviceSession as bool,
+      start_date_time: start_date_time == freezed
+          ? _value.start_date_time
+          : start_date_time as String,
+      start_time:
+          start_time == freezed ? _value.start_time : start_time as String,
+      end_date_time: end_date_time == freezed
+          ? _value.end_date_time
+          : end_date_time as String,
+      end_time: end_time == freezed ? _value.end_time : end_time as String,
     ));
   }
 }
 
 class _$_Session implements _Session {
   _$_Session(
-      {this.title,
+      {this.id,
+      this.title,
       this.description,
       this.slug,
       this.session_format,
       this.session_level,
-      this.speakers});
+      this.speakers,
+      this.rooms,
+      this.is_serviceSession,
+      this.start_date_time,
+      this.start_time,
+      this.end_date_time,
+      this.end_time});
 
+  @override
+  final int id;
   @override
   final String title;
   @override
@@ -157,16 +243,30 @@ class _$_Session implements _Session {
   final String session_level;
   @override
   final List<Speaker> speakers;
+  @override
+  final List<Room> rooms;
+  @override
+  final bool is_serviceSession;
+  @override
+  final String start_date_time;
+  @override
+  final String start_time;
+  @override
+  final String end_date_time;
+  @override
+  final String end_time;
 
   @override
   String toString() {
-    return 'Session(title: $title, description: $description, slug: $slug, session_format: $session_format, session_level: $session_level, speakers: $speakers)';
+    return 'Session(id: $id, title: $title, description: $description, slug: $slug, session_format: $session_format, session_level: $session_level, speakers: $speakers, rooms: $rooms, is_serviceSession: $is_serviceSession, start_date_time: $start_date_time, start_time: $start_time, end_date_time: $end_date_time, end_time: $end_time)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Session &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.description, description) ||
@@ -182,18 +282,42 @@ class _$_Session implements _Session {
                     .equals(other.session_level, session_level)) &&
             (identical(other.speakers, speakers) ||
                 const DeepCollectionEquality()
-                    .equals(other.speakers, speakers)));
+                    .equals(other.speakers, speakers)) &&
+            (identical(other.rooms, rooms) ||
+                const DeepCollectionEquality().equals(other.rooms, rooms)) &&
+            (identical(other.is_serviceSession, is_serviceSession) ||
+                const DeepCollectionEquality()
+                    .equals(other.is_serviceSession, is_serviceSession)) &&
+            (identical(other.start_date_time, start_date_time) ||
+                const DeepCollectionEquality()
+                    .equals(other.start_date_time, start_date_time)) &&
+            (identical(other.start_time, start_time) ||
+                const DeepCollectionEquality()
+                    .equals(other.start_time, start_time)) &&
+            (identical(other.end_date_time, end_date_time) ||
+                const DeepCollectionEquality()
+                    .equals(other.end_date_time, end_date_time)) &&
+            (identical(other.end_time, end_time) ||
+                const DeepCollectionEquality()
+                    .equals(other.end_time, end_time)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(slug) ^
       const DeepCollectionEquality().hash(session_format) ^
       const DeepCollectionEquality().hash(session_level) ^
-      const DeepCollectionEquality().hash(speakers);
+      const DeepCollectionEquality().hash(speakers) ^
+      const DeepCollectionEquality().hash(rooms) ^
+      const DeepCollectionEquality().hash(is_serviceSession) ^
+      const DeepCollectionEquality().hash(start_date_time) ^
+      const DeepCollectionEquality().hash(start_time) ^
+      const DeepCollectionEquality().hash(end_date_time) ^
+      const DeepCollectionEquality().hash(end_time);
 
   @override
   _$SessionCopyWith<_Session> get copyWith =>
@@ -202,13 +326,22 @@ class _$_Session implements _Session {
 
 abstract class _Session implements Session {
   factory _Session(
-      {String title,
+      {int id,
+      String title,
       String description,
       String slug,
       String session_format,
       String session_level,
-      List<Speaker> speakers}) = _$_Session;
+      List<Speaker> speakers,
+      List<Room> rooms,
+      bool is_serviceSession,
+      String start_date_time,
+      String start_time,
+      String end_date_time,
+      String end_time}) = _$_Session;
 
+  @override
+  int get id;
   @override
   String get title;
   @override
@@ -221,6 +354,18 @@ abstract class _Session implements Session {
   String get session_level;
   @override
   List<Speaker> get speakers;
+  @override
+  List<Room> get rooms;
+  @override
+  bool get is_serviceSession;
+  @override
+  String get start_date_time;
+  @override
+  String get start_time;
+  @override
+  String get end_date_time;
+  @override
+  String get end_time;
   @override
   _$SessionCopyWith<_Session> get copyWith;
 }
