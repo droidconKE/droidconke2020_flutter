@@ -1,6 +1,7 @@
 import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 
 class TwitterHandleCopy extends StatelessWidget {
@@ -65,10 +66,10 @@ class TwitterHandleCopy extends StatelessWidget {
                             .body2
                             .copyWith(color: Palette.green),
                       ),
-                      Icon(
-                        CommunityMaterialIcons.content_copy,
+                      Afrikon(
+                        'copy-outline',
                         color: Theme.of(context).textTheme.body1.color,
-                        size: 16,
+                        height: 16,
                       ),
                     ],
                   ),

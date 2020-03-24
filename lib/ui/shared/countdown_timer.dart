@@ -1,5 +1,6 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 
 class CountdownTimer extends StatelessWidget {
@@ -25,10 +26,10 @@ class CountdownTimer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            CommunityMaterialIcons.clock,
+          Afrikon(
+            'time',
             color: Palette.green[900],
-            size: 20,
+            height: 20,
           ),
           SizedBox(width: 30),
           TimerPeriod(
