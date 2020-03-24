@@ -1,6 +1,8 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class FeaturedSessions extends StatelessWidget {
   @override
@@ -11,9 +13,14 @@ class FeaturedSessions extends StatelessWidget {
           children: <Widget>[
             Text("Sessions", style: Theme.of(context).textTheme.subhead),
             Expanded(child: Container()),
-            Text(
-              "Veiw All",
-              style: TextStyle(color: Palette.purple, fontSize: 12),
+            InkWell(
+              child: Text(
+                "Veiw All",
+                style: TextStyle(color: Palette.purple, fontSize: 12),
+              ),
+              onTap: (){
+                Provider.of<CupertinoTabController>(context, listen: false).index = 2;
+              },
             ),
             SizedBox(width: 10),
             Chip(
