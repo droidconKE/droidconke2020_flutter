@@ -2,7 +2,9 @@ import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/ui/feedback/event_feedback_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
 import 'package:droidconke2020_flutter/ui/shared/countdown_timer.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DroidconAppBar extends StatelessWidget {
   final String title;
@@ -37,6 +39,7 @@ class DroidconAppBar extends StatelessWidget {
             while (Navigator.of(context).canPop()) {
               Navigator.of(context).pop();
             }
+            Provider.of<CupertinoTabController>(context, listen: false).index = 0;
           },
         ),
         if (title != null)

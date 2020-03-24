@@ -8,6 +8,7 @@ import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/sessions_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/tab_scaffold.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<ThemeBloc>.value(value: themeBloc),
-        Provider<DateTime>(create: (_) => DateTime(2020, 8, 6)),
+        Provider<DateTime>(create: (_) => DateTime(2020, 1, 6)),
+        ListenableProvider<CupertinoTabController>(create: (_) => CupertinoTabController()),
         StreamProvider<Brightness>(
           initialData: Brightness.light,
           create: (context) => themeBloc.brightness,

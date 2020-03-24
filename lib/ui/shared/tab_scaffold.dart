@@ -6,11 +6,13 @@ import 'package:droidconke2020_flutter/ui/sessions/sessions_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TabScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
+      controller: Provider.of<CupertinoTabController>(context),
       tabBar: CupertinoTabBar(
         backgroundColor: Palette.darkBlack,
         activeColor: Palette.yellow,
