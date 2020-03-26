@@ -1,3 +1,4 @@
+import 'package:quiver/async.dart';
 import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
@@ -13,6 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'blocs/countdown_timer_bloc.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -25,8 +28,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<ThemeBloc>.value(value: themeBloc),
-        Provider<DateTime>(create: (_) => DateTime(2020, 1, 6)),
-        ListenableProvider<CupertinoTabController>(create: (_) => CupertinoTabController()),
+        Provider<CountdownTimerBloc>.value(value: CountdownTimerBloc()),
+        ChangeNotifierProvider<CupertinoTabController>(create: (_) => CupertinoTabController()),
         StreamProvider<Brightness>(
           initialData: Brightness.light,
           create: (context) => themeBloc.brightness,

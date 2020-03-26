@@ -47,7 +47,7 @@ class DroidconAppBar extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.title,
           ),
-        if (isHome && isBeforeEvent) CountdownTimer(),
+        if (isHome && isBeforeEvent) CountdownTimerWidget(),
         if (isHome && !isBeforeEvent)
           AppBarFeedbackButton(
             onTap: () {
