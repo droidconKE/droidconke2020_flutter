@@ -3,7 +3,9 @@ import 'package:droidconke2020_flutter/ui/home/call_to_action.dart';
 import 'package:droidconke2020_flutter/ui/home/featured_sessions.dart';
 import 'package:droidconke2020_flutter/ui/home/featured_speakers.dart';
 import 'package:droidconke2020_flutter/ui/home/keynote_speaker.dart';
+import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -102,6 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: CallToAction(
                     title: "Today's sessions",
                     subtitle: "View upcoming sessions.",
+                    onTap: () => Provider.of<CupertinoTabController>(context, listen: false).index = 2,
                   ),
                 ),
               if (!isBeforeEvent)

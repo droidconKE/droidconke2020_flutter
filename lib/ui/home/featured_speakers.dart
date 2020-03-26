@@ -1,4 +1,5 @@
 import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/passport.dart';
 import 'package:flutter/material.dart';
 
@@ -37,10 +38,15 @@ class FeaturedSpeakers extends StatelessWidget {
           ),
           itemCount: 4,
           itemBuilder: (context, index) {
-            return Passport(
-              image: NetworkImage(
-                  "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png"),
-            subtitle: "Name that's long kabisa",
+            return GestureDetector(
+              child: Passport(
+                image: NetworkImage(
+                    "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png"),
+                subtitle: "Speaker Name",
+              ),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => SpeakerDetailScreen()),
+              ),
             );
           },
         ),
