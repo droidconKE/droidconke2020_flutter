@@ -9,43 +9,40 @@ class CountdownTimerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var countdownTimerBloc = Provider.of<CountdownTimerBloc>(context);
-    return StreamBuilder<CountdownTimer>(
-        stream: countdownTimerBloc.countdown,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data.remaining.isNegative) {
-              countdownTimerBloc.setCountdownElapsed(true);
-              snapshot.data.cancel();
-            }
-            var n = snapshot.data.remaining.inSeconds;
-            int days = (n / (24 * 3600)).floor();
 
-            n = n % (24 * 3600);
-            int hours = (n / 3600).floor();
+    return Container(
+      height: 40,
+      width: MediaQuery.of(context).size.width * .6,
+      padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
+      decoration: BoxDecoration(
+        color: Palette.green[100],
+        borderRadius: BorderRadius.circular(25),
+        boxShadow: [
+          BoxShadow(
+            color: Palette.green[900],
+            offset: Offset(-2, -2),
+            // blurRadius: 20,
+            spreadRadius: 1,
+          ),
+        ],
+      ),
+      child: StreamBuilder<Duration>(
+          stream: countdownTimerBloc.countdown,
+          initialData: Duration(seconds: 0),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              var n = snapshot.data.inSeconds;
+              int days = (n / (24 * 3600)).floor();
 
-            n %= 3600;
-            int minutes = (n / 60).floor();
+              n = n % (24 * 3600);
+              int hours = (n / 3600).floor();
 
-            n %= 60;
-            int seconds = n;
+              n %= 3600;
+              int minutes = (n / 60).floor();
 
-            return Container(
-              height: 40,
-              width: MediaQuery.of(context).size.width * .6,
-              padding: EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-              decoration: BoxDecoration(
-                color: Palette.green[100],
-                borderRadius: BorderRadius.circular(25),
-                boxShadow: [
-                  BoxShadow(
-                    color: Palette.green[900],
-                    offset: Offset(-2, -2),
-                    // blurRadius: 20,
-                    spreadRadius: 1,
-                  ),
-                ],
-              ),
-              child: Row(
+              n %= 60;
+              int seconds = n;
+              return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -73,11 +70,11 @@ class CountdownTimerWidget extends StatelessWidget {
                       periodName: 'Seconds',
                     ),
                 ],
-              ),
-            );
-          }
-          return Container();
-        });
+              );
+            }
+            return Container();
+          }),
+    );
   }
 }
 

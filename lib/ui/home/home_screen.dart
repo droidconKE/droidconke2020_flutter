@@ -1,4 +1,5 @@
 import 'package:droidconke2020_flutter/blocs/countdown_timer_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/home/call_to_action.dart';
 import 'package:droidconke2020_flutter/ui/home/featured_sessions.dart';
@@ -22,8 +23,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    /*final theme = Provider.of<Brightness>(context);
-    final themeBloc = Provider.of<ThemeBloc>(context);*/
+    final theme = Provider.of<Brightness>(context);
+    final themeBloc = Provider.of<ThemeBloc>(context);
     final countdownTimerBloc = Provider.of<CountdownTimerBloc>(context);
 
     return Scaffold(
@@ -124,14 +125,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.symmetric(horizontal: 20),
                       child: FeaturedSpeakers(),
                     ),
-                  /*FlatButton(
+                  FlatButton(
                     child: Text("Toggle Theme"),
                     onPressed: () {
                       themeBloc.changeBrightness(theme == Brightness.light
                           ? Brightness.dark
                           : Brightness.light);
                     },
-                  ),*/
+                  ),
                 ],
               ),
             ),
