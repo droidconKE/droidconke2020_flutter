@@ -1,4 +1,3 @@
-import 'package:quiver/async.dart';
 import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
@@ -11,6 +10,7 @@ import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/tab_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +29,9 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<ThemeBloc>.value(value: themeBloc),
         Provider<CountdownTimerBloc>.value(value: CountdownTimerBloc()),
-        ChangeNotifierProvider<CupertinoTabController>(create: (_) => CupertinoTabController()),
+        ChangeNotifierProvider<CupertinoTabController>(
+          create: (_) => CupertinoTabController(),
+        ),
         StreamProvider<Brightness>(
           initialData: Brightness.light,
           create: (context) => themeBloc.brightness,
@@ -45,6 +47,11 @@ class MaterialAppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final brightness = Provider.of<Brightness>(context);
     final darkTheme = brightness == Brightness.dark;
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle.light.copyWith(
+        statusBarColor: darkTheme ? Palette.darkBlack : Palette.purple,
+      ),
+    );
 
     return MaterialApp(
       title: 'DroidconKE 2020',
