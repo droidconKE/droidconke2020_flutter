@@ -8,19 +8,14 @@ class FeedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: DroidconAppBar(title: "Feed"),
-              ),
-              FeedTile(),
-              FeedTile(),
-              FeedTile(),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            DroidconAppBar(title: "Feed"),
+            FeedTile(),
+            FeedTile(),
+            FeedTile(),
+          ],
         ),
       ),
     );

@@ -26,10 +26,7 @@ class EventFeedbackScreen extends StatelessWidget {
                         repeat: ImageRepeat.repeatX)),
                 child: Column(
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: DroidconAppBar(),
-                    ),
+                    DroidconAppBar(),
                     Text(
                       "Feedback",
                       style: Theme.of(context).textTheme.title,

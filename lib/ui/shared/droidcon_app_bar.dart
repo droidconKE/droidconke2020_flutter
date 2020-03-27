@@ -1,4 +1,3 @@
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/ui/feedback/event_feedback_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
@@ -21,57 +20,62 @@ class DroidconAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        if (Navigator.of(context).canPop())
+    return Container(
+      padding: EdgeInsets.only(top: 20 + MediaQuery.of(context).padding.top, right: 20, left: 20, bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          if (Navigator.of(context).canPop())
+            InkWell(
+              child: Afrikon('left'),
+              onTap: () => Navigator.of(context).pop(),
+            ),
           InkWell(
-            child: Afrikon('left'),
-            onTap: () => Navigator.of(context).pop(),
-          ),
-        InkWell(
-          child: Image.asset(
-            "assets/images/logo.png",
-            width: 27,
-            height: 27,
-          ),
-          onTap: () {
-            while (Navigator.of(context).canPop()) {
-              Navigator.of(context).pop();
-            }
-            Provider.of<CupertinoTabController>(context, listen: false).index = 0;
-          },
-        ),
-        if (title != null)
-          Text(
-            title,
-            style: Theme.of(context).textTheme.title,
-          ),
-        if (isHome && isBeforeEvent) CountdownTimerWidget(),
-        if (isHome && !isBeforeEvent)
-          AppBarFeedbackButton(
+            child: Image.asset(
+              "assets/images/logo.png",
+              width: 27,
+              height: 27,
+            ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return EventFeedbackScreen();
-              }));
+              while (Navigator.of(context).canPop()) {
+                Navigator.of(context).pop();
+              }
+              Provider.of<CupertinoTabController>(context, listen: false)
+                  .index = 0;
             },
           ),
-        GestureDetector(
-          // borderRadius: BorderRadius.circular(15),
-          child: Container(
-            height: 28,
-            width: 28,
-            child: Afrikon(
-              'man',
-              color: Theme.of(context).primaryColor,
-            ), // Afrikon("man", height: 21,),
+          if (title != null)
+            Text(
+              title,
+              style: Theme.of(context).textTheme.title,
+            ),
+          if (isHome && isBeforeEvent) CountdownTimerWidget(),
+          if (isHome && !isBeforeEvent)
+            AppBarFeedbackButton(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return EventFeedbackScreen();
+                }));
+              },
+            ),
+          GestureDetector(
+            // borderRadius: BorderRadius.circular(15),
+            child: Container(
+              height: 28,
+              width: 28,
+              child: Afrikon(
+                'man',
+                color: Theme.of(context).primaryColor,
+              ), // Afrikon("man", height: 21,),
 
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(14)),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(14)),
+            ),
+            onTap: () {},
           ),
-          onTap: () {},
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

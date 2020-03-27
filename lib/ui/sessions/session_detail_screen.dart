@@ -24,10 +24,7 @@ class SessionDetailScreen extends StatelessWidget {
                         repeat: ImageRepeat.repeatX)),
                 child: Column(
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: DroidconAppBar(),
-                    ),
+                    DroidconAppBar(),
                     Text(
                       "Session Details",
                       style: Theme

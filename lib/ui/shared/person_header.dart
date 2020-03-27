@@ -37,12 +37,10 @@ class PersonHeader extends StatelessWidget {
                 fit: BoxFit.fitWidth,
               ),
             ),
+            alignment: Alignment.center,
             child: Column(
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: DroidconAppBar(),
-                ),
+                DroidconAppBar(),
               ],
             ),
           ),
