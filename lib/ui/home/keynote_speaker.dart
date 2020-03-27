@@ -1,4 +1,5 @@
 import 'package:droidconke2020_flutter/ui/shared/passport_photo.dart';
+import 'package:droidconke2020_flutter/ui/shared/text_link.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -28,8 +29,8 @@ class KeynoteSpeaker extends StatelessWidget {
               style: Theme.of(context).textTheme.caption,
             ),
             SizedBox(height: 10),
-            InkWell(
-              child: Text("Become a speaker"),
+            TextLink(
+              text: "Become a speaker",
               onTap: () async {
                 const url = 'https://sessionize.com/droidconke/';
                 if (await canLaunch(url)) {
