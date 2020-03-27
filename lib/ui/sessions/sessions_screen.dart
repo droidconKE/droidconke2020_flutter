@@ -1,12 +1,14 @@
 import 'package:droidconke2020_flutter/models/models.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
-import 'package:droidconke2020_flutter/ui/shared/button_group.dart';
 import 'package:droidconke2020_flutter/ui/sessions/session_list.dart';
+import 'package:droidconke2020_flutter/ui/shared/button_group.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
+import 'package:droidconke2020_flutter/ui/shared/droidcon_switch.dart';
 import 'package:flutter/material.dart';
 
 class SessionsScreen extends StatelessWidget {
   static final String routeName = 'sessions';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +21,7 @@ class SessionsScreen extends StatelessWidget {
                 child: DroidconAppBar(),
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: <Widget>[
                     Expanded(
@@ -34,8 +35,11 @@ class SessionsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: <Widget>[
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: <Widget>[
-                              Switch.adaptive(value: true, onChanged: (val){},),
+                              DroidconSwitch(
+                                onChanged: (val) {},
+                              ),
                               Text(
                                 "My Sessions",
                                 style: Theme.of(context).textTheme.caption,
@@ -57,6 +61,7 @@ class SessionsScreen extends StatelessWidget {
                     speakers: [
                       Speaker(name: 'Harun'),
                     ],
+                    is_serviceSession: true,
                   ),
                   Session(
                     title: "Session Title",
