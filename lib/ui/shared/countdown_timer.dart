@@ -3,7 +3,6 @@ import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quiver/async.dart';
 
 class CountdownTimerWidget extends StatelessWidget {
   @override
@@ -28,7 +27,7 @@ class CountdownTimerWidget extends StatelessWidget {
       ),
       child: StreamBuilder<Duration>(
           stream: countdownTimerBloc.countdown,
-          initialData: Duration(seconds: 0),
+          // initialData: Duration(seconds: 0),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               var n = snapshot.data.inSeconds;

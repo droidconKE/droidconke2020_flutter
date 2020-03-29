@@ -1,33 +1,32 @@
+import 'package:flutter/foundation.dart';
 import 'package:quiver/async.dart';
 import 'package:rxdart/rxdart.dart';
 
 class CountdownTimerBloc {
-  Stream<Duration> get countdown => _countdownTimer.map((countdownTimer) => countdownTimer.remaining);
+  BehaviorSubject<Duration> _countdown = BehaviorSubject<Duration>();
   BehaviorSubject<bool> _isElapsed = BehaviorSubject<bool>();
-  Stream<CountdownTimer> _countdownTimer;
+  DateTime eventStart;
+
+  Stream<Duration> get countdown => _countdown.stream;
 
   Stream<bool> get isElapsed => _isElapsed.stream;
 
-  CountdownTimerBloc() {
-    var now = DateTime.now();
-    var eventDate = DateTime(2020, 8, 6, 8, 0, 0); // TODO: Move event date to config file
-    // var eventDate = DateTime(2020, 3, 27, 0, 33, 0);
-    var difference = eventDate.difference(now);
-    setCountdownElapsed(difference.isNegative);
-    _countdownTimer = CountdownTimer(difference, Duration(seconds: 1));
-    _countdownTimer.listen(
-      (data) {},
-      onDone: () {
-        setCountdownElapsed(true);
-      },
-    );
+  CountdownTimerBloc({@required this.eventStart}) {
+    var timeToGo = eventStart.difference(DateTime.now());
+    _countdown.sink.add(timeToGo);
+    setCountdownElapsed(timeToGo.isNegative);
+    var _countdownTimer =
+        CountdownTimer(timeToGo, Duration(seconds: 1)).doOnDone(() {
+      setCountdownElapsed(true);
+    });
+    _countdown.sink.addStream(
+        _countdownTimer.map((countdownTimer) => countdownTimer.remaining));
   }
 
-  setCountdownElapsed(bool val) {
-    _isElapsed.add(val);
-  }
+  setCountdownElapsed(bool val) => _isElapsed.add(val);
 
   dispose() {
     _isElapsed.close();
+    _countdown.close();
   }
 }

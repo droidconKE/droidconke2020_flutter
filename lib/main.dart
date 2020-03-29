@@ -28,7 +28,12 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<ThemeBloc>.value(value: themeBloc),
-        Provider<CountdownTimerBloc>.value(value: CountdownTimerBloc()),
+        Provider<CountdownTimerBloc>.value(
+          value: CountdownTimerBloc(
+            // eventStart: DateTime(2020, 3, 29, 18, 0, 0),
+            eventStart: DateTime(2020, 8, 6, 8, 0, 0),
+          ),
+        ),
         ChangeNotifierProvider<CupertinoTabController>(
           create: (_) => CupertinoTabController(),
         ),
