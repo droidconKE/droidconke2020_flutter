@@ -122,9 +122,11 @@ class HomeScreen extends StatelessWidget {
                   FlatButton(
                     child: Text("Toggle Theme"),
                     onPressed: () {
-                      themeBloc.changeBrightness(theme == Brightness.light
-                          ? Brightness.dark
-                          : Brightness.light);
+                      themeBloc.changeBrightness(
+                        theme == Brightness.light
+                            ? Brightness.dark
+                            : Brightness.light,
+                      );
                     },
                   ),
                 ],

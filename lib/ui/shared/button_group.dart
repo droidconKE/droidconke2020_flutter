@@ -1,9 +1,11 @@
+import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ButtonGroup extends StatefulWidget {
   final int selectedIndex;
-  final Function onSelectedIndexChanged;
+  final void Function(int) onSelectedIndexChanged;
 
   const ButtonGroup({
     Key key,

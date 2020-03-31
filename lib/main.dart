@@ -1,4 +1,5 @@
 import 'package:droidconke2020_flutter/blocs/auth_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         Provider<FirebaseAnalyticsObserver>.value(value: FirebaseAnalyticsObserver(analytics: analytics)),
         Provider<ThemeBloc>.value(value: themeBloc),
         Provider<AuthBloc>.value(value: authBloc),
+        Provider<SessionsBloc>.value(value: SessionsBloc()),
         Provider<CountdownTimerBloc>.value(
           value: CountdownTimerBloc(
             // eventStart: DateTime(2020, 3, 29, 18, 0, 0),

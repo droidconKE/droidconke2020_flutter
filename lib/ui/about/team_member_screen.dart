@@ -5,13 +5,11 @@ import 'package:droidconke2020_flutter/ui/shared/twitter_handle_copy.dart';
 import 'package:flutter/material.dart';
 
 class TeamMemberScreen extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   static final String routeName = 'team-member';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
-import 'package:droidconke2020_flutter/ui/sessions/session_card.dart';
-import 'package:droidconke2020_flutter/ui/sessions/session_list_divider.dart';
+import 'package:droidconke2020_flutter/ui/sessions/widgets/session_card.dart';
+import 'package:droidconke2020_flutter/ui/sessions/widgets/session_list_divider.dart';
 import 'package:flutter/material.dart';
 
 class SessionList extends StatelessWidget {

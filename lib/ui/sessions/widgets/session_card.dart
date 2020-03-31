@@ -1,7 +1,7 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
-import 'package:droidconke2020_flutter/ui/sessions/session_detail_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions/widgets/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 

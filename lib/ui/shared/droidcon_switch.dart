@@ -33,6 +33,8 @@ class _DroidconSwitchState extends State<DroidconSwitch> {
       onTap: () {
         setState(() {
           _value = !_value;
+          if(widget.onChanged != null)
+            widget.onChanged(_value);
         });
       },
       child: Stack(
