@@ -1,3 +1,6 @@
+import 'package:droidconke2020_flutter/blocs/auth_bloc.dart';
+import 'package:droidconke2020_flutter/config/palette.dart';
+import 'package:droidconke2020_flutter/ui/auth/login_screen.dart';
 import 'package:droidconke2020_flutter/ui/feedback/event_feedback_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
@@ -8,20 +11,30 @@ import 'package:provider/provider.dart';
 
 class DroidconAppBar extends StatelessWidget {
   final String title;
+  final String logoHeroTag;
+  final Widget trailing;
   final bool isHome;
   final bool isBeforeEvent;
+  final bool isLoginScreen;
 
   const DroidconAppBar({
     Key key,
     this.title,
     this.isHome = false,
     this.isBeforeEvent = true,
+    this.isLoginScreen = false,
+    this.trailing, this.logoHeroTag,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final authBloc = Provider.of<AuthBloc>(context);
     return Container(
-      padding: EdgeInsets.only(top: 20 + MediaQuery.of(context).padding.top, right: 20, left: 20, bottom: 20),
+      padding: EdgeInsets.only(
+          top: 20 + MediaQuery.of(context).padding.top,
+          right: 20,
+          left: 20,
+          bottom: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -30,20 +43,28 @@ class DroidconAppBar extends StatelessWidget {
               child: Afrikon('left'),
               onTap: () => Navigator.of(context).pop(),
             ),
-          InkWell(
-            child: Image.asset(
-              "assets/images/logo.png",
-              width: 27,
-              height: 27,
+          if (!isLoginScreen)
+            InkWell(
+              child: (logoHeroTag == null) ? Image.asset(
+                "assets/images/logo.png",
+                width: 27,
+                height: 27,
+              ) : Hero(
+                tag: logoHeroTag,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  width: 27,
+                  height: 27,
+                ),
+              ),
+              onTap: () {
+                while (Navigator.of(context).canPop()) {
+                  Navigator.of(context).pop();
+                }
+                Provider.of<CupertinoTabController>(context, listen: false)
+                    .index = 0;
+              },
             ),
-            onTap: () {
-              while (Navigator.of(context).canPop()) {
-                Navigator.of(context).pop();
-              }
-              Provider.of<CupertinoTabController>(context, listen: false)
-                  .index = 0;
-            },
-          ),
           if (title != null)
             Text(
               title,
@@ -59,21 +80,62 @@ class DroidconAppBar extends StatelessWidget {
                 }));
               },
             ),
-          GestureDetector(
-            // borderRadius: BorderRadius.circular(15),
-            child: Container(
-              height: 28,
-              width: 28,
-              child: Afrikon(
-                'man',
-                color: Theme.of(context).primaryColor,
-              ), // Afrikon("man", height: 21,),
-
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(14)),
+          if (!isLoginScreen && trailing == null)
+            StreamBuilder<bool>(
+              stream: authBloc.authenticated,
+              initialData: false,
+              builder: (context, snapshot) {
+                if (snapshot.hasData && snapshot.data)
+                  return GestureDetector(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: <Widget>[
+                        Container(
+                          height: 28,
+                          width: 28,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                        ),
+                        Afrikon(
+                          'man',
+                          color: Palette.purple,
+                          height: 20,
+                        )
+                      ],
+                    ),
+                    onTap: authBloc.signOut,
+                  );
+                return GestureDetector(
+                  // borderRadius: BorderRadius.circular(15),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Container(
+                        height: 28,
+                        width: 28,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                      Afrikon(
+                        'locked',
+                        color: Palette.green,
+                        height: 15,
+                      ),
+                    ],
+                  ),
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (_) => LoginScreen()));
+                  },
+                );
+              },
             ),
-            onTap: () {},
-          ),
+          if (isLoginScreen) Container(),
+          if(trailing != null) trailing,
         ],
       ),
     );

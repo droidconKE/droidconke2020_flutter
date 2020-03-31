@@ -1,4 +1,4 @@
-package com.example.droidconke2020_flutter
+package ke.co.droidcon.flutterAndroid2020
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
