@@ -1,3 +1,4 @@
+import 'package:debug_mode/debug_mode.dart';
 import 'package:droidconke2020_flutter/blocs/auth_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
@@ -6,9 +7,9 @@ import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
 import 'package:droidconke2020_flutter/ui/about/team_member_screen.dart';
 import 'package:droidconke2020_flutter/ui/feed/feed_screen.dart';
 import 'package:droidconke2020_flutter/ui/home/home_screen.dart';
-import 'package:droidconke2020_flutter/ui/sessions/widgets/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/sessions_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
+import 'package:droidconke2020_flutter/ui/sessions/widgets/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/tab_scaffold.dart';
 import 'package:droidconke2020_flutter/ui/splash/splash_screen.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -17,6 +18,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_stetho/flutter_stetho.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +27,9 @@ import 'blocs/countdown_timer_bloc.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   Crashlytics.instance.enableInDevMode = true;
+  if (DebugMode.isInDebugMode) {
+    Stetho.initialize();
+  }
   // Pass all uncaught errors from the framework to Crashlytics.
   FlutterError.onError = Crashlytics.instance.recordFlutterError;
   runApp(MyApp());
@@ -40,14 +45,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<FirebaseAnalytics>.value(value: analytics),
-        Provider<FirebaseAnalyticsObserver>.value(value: FirebaseAnalyticsObserver(analytics: analytics)),
+        Provider<FirebaseAnalyticsObserver>.value(
+          value: FirebaseAnalyticsObserver(analytics: analytics),
+        ),
         Provider<ThemeBloc>.value(value: themeBloc),
         Provider<AuthBloc>.value(value: authBloc),
         Provider<SessionsBloc>.value(value: SessionsBloc()),
         Provider<CountdownTimerBloc>.value(
           value: CountdownTimerBloc(
-            // eventStart: DateTime(2020, 3, 29, 18, 0, 0),
-            eventStart: DateTime(2020, 8, 6, 8, 0, 0),
+            eventStart: DateTime(2020, 4, 20, 18, 0, 0),
+            // eventStart: DateTime(2020, 8, 6, 8, 0, 0),
           ),
         ),
         ChangeNotifierProvider<CupertinoTabController>(

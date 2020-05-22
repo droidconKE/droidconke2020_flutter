@@ -84,7 +84,7 @@ class SessionsScreen extends StatelessWidget {
                           builder: (context, snapshot) {
                             return ButtonGroup(
                               selectedIndex: snapshot.data,
-                              onSelectedIndexChanged: (val){
+                              onSelectedIndexChanged: (val) {
                                 sessionsBloc.setSelectedDay(val);
                               },
                             );
@@ -109,12 +109,12 @@ class SessionsScreen extends StatelessWidget {
                                               FavoritedSessionsScreen(),
                                         ),*/
                                         PageRouteBuilder(
-                                          pageBuilder:
-                                              (context, animation1, animation2) {
+                                          pageBuilder: (context, animation1,
+                                              animation2) {
                                             return FavoritedSessionsScreen();
                                           },
-                                          transitionsBuilder: (context, animation1,
-                                              animation2, child) {
+                                          transitionsBuilder: (context,
+                                              animation1, animation2, child) {
                                             return FadeTransition(
                                               opacity: animation1,
                                               child: child,
@@ -144,14 +144,15 @@ class SessionsScreen extends StatelessWidget {
               ),
             ),
             StreamBuilder<List<Session>>(
-                stream: sessionsBloc.sessions,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData)
-                    return SessionList(
-                      list: snapshot.data,
-                    );
-                  return LinearProgressIndicator();
-                }),
+              stream: sessionsBloc.sessions,
+              builder: (context, snapshot) {
+                if (snapshot.hasData)
+                  return SessionList(
+                    list: snapshot.data,
+                  );
+                return LinearProgressIndicator();
+              },
+            ),
           ],
         ),
       ),
