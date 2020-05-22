@@ -11,6 +11,7 @@ class AuthBloc {
   final _authenticated = BehaviorSubject<bool>();
 
   Stream<bool> get authenticated => _authenticated.stream;
+
   Stream<bool> get loading => _loading.stream;
 
   AuthBloc() {
@@ -29,9 +30,9 @@ class AuthBloc {
       final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;
-      /*var response =
-          await AuthService.socialLogin(accessToken: googleAuth.idToken);
-      print(response);*/
+      var response =
+          await AuthService.socialLogin(accessToken: googleAuth.accessToken);
+      AuthService.setToken(response['token']);
       _authenticated.sink.add(true);
     } catch (e) {
       throw e;
@@ -41,6 +42,7 @@ class AuthBloc {
   }
 
   signOut() {
+    AuthService.clearToken();
     _authenticated.sink.add(false);
   }
 

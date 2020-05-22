@@ -36,61 +36,63 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 50),
                     StreamBuilder<bool>(
-                        stream: authBloc.loading,
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData && snapshot.data)
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          return FlatButton(
-                            padding: EdgeInsets.all(0),
-                            child: Container(
-                                width: 200,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    Container(
-                                      height: 40,
-                                      width: 40,
-                                      color: Colors.white,
-                                      child: Container(
+                      stream: authBloc.loading,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData && snapshot.data)
+                          return Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        return FlatButton(
+                          padding: EdgeInsets.all(0),
+                          child: Container(
+                              width: 200,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Container(
+                                    height: 40,
+                                    width: 40,
+                                    color: Colors.white,
+                                    child: Container(
+                                      height: 10,
+                                      width: 10,
+                                      child: Image.asset(
+                                        "assets/images/google-signin.png",
                                         height: 10,
-                                        width: 10,
-                                        child: Image.asset(
-                                          "assets/images/google-signin.png",
-                                          height: 10,
-                                        ),
                                       ),
                                     ),
-                                    Text(
-                                      "Signin With Google",
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .body2
-                                          .copyWith(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                    Container(),
-                                  ],
-                                )),
-                            onPressed: () async {
-                              try {
-                                await authBloc.signInWithGoogle();
-                                Navigator.of(context).pop();
-                              } catch (e) {
-                                _scaffoldKey.currentState?.showSnackBar(
-                                    SnackBar(content: Text(e.toString())));
-                              }
-                            },
-                          );
-                        }),
+                                  ),
+                                  Text(
+                                    "Signin With Google",
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .body2
+                                        .copyWith(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                  Container(),
+                                ],
+                              )),
+                          onPressed: () async {
+                            try {
+                              await authBloc.signInWithGoogle();
+                              Navigator.of(context).pop();
+                            } catch (e) {
+                              print(e);
+                              _scaffoldKey.currentState?.showSnackBar(
+                                  SnackBar(content: Text(e.toString())));
+                            }
+                          },
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
