@@ -8,6 +8,9 @@ part of 'organizer.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+Organizer _$OrganizerFromJson(Map<String, dynamic> json) {
+  return _Organizer.fromJson(json);
+}
 
 class _$OrganizerTearOff {
   const _$OrganizerTearOff();
@@ -62,6 +65,7 @@ mixin _$Organizer {
   int get upcoming_events_count;
   int get total_events_count;
 
+  Map<String, dynamic> toJson();
   $OrganizerCopyWith<Organizer> get copyWith;
 }
 
@@ -200,6 +204,7 @@ class __$OrganizerCopyWithImpl<$Res> extends _$OrganizerCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
 class _$_Organizer implements _Organizer {
   _$_Organizer(
       {this.id,
@@ -215,6 +220,9 @@ class _$_Organizer implements _Organizer {
       this.created_at,
       this.upcoming_events_count,
       this.total_events_count});
+
+  factory _$_Organizer.fromJson(Map<String, dynamic> json) =>
+      _$_$_OrganizerFromJson(json);
 
   @override
   final int id;
@@ -307,6 +315,11 @@ class _$_Organizer implements _Organizer {
   @override
   _$OrganizerCopyWith<_Organizer> get copyWith =>
       __$OrganizerCopyWithImpl<_Organizer>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_OrganizerToJson(this);
+  }
 }
 
 abstract class _Organizer implements Organizer {
@@ -324,6 +337,9 @@ abstract class _Organizer implements Organizer {
       String created_at,
       int upcoming_events_count,
       int total_events_count}) = _$_Organizer;
+
+  factory _Organizer.fromJson(Map<String, dynamic> json) =
+      _$_Organizer.fromJson;
 
   @override
   int get id;

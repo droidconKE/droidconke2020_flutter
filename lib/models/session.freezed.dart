@@ -8,6 +8,9 @@ part of 'session.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+Session _$SessionFromJson(Map<String, dynamic> json) {
+  return _Session.fromJson(json);
+}
 
 class _$SessionTearOff {
   const _$SessionTearOff();
@@ -62,6 +65,7 @@ mixin _$Session {
   String get end_date_time;
   String get end_time;
 
+  Map<String, dynamic> toJson();
   $SessionCopyWith<Session> get copyWith;
 }
 
@@ -213,6 +217,7 @@ class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
 class _$_Session implements _Session {
   _$_Session(
       {this.id,
@@ -228,6 +233,9 @@ class _$_Session implements _Session {
       this.start_time,
       this.end_date_time,
       this.end_time});
+
+  factory _$_Session.fromJson(Map<String, dynamic> json) =>
+      _$_$_SessionFromJson(json);
 
   @override
   final int id;
@@ -322,6 +330,11 @@ class _$_Session implements _Session {
   @override
   _$SessionCopyWith<_Session> get copyWith =>
       __$SessionCopyWithImpl<_Session>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SessionToJson(this);
+  }
 }
 
 abstract class _Session implements Session {
@@ -339,6 +352,8 @@ abstract class _Session implements Session {
       String start_time,
       String end_date_time,
       String end_time}) = _$_Session;
+
+  factory _Session.fromJson(Map<String, dynamic> json) = _$_Session.fromJson;
 
   @override
   int get id;

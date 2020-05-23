@@ -29,6 +29,10 @@ dependencies:
   google_sign_in: ^4.5.1
   dio_firebase_performance: ^0.1.0
   dio_http_cache: ^0.2.6
+  json_serializable: ^3.3.0
+  flutter_bloc: ^4.0.0
+  equatable: ^1.1.1
+  hydrated_bloc: ^4.0.0
 
 dev_dependencies:
   flutter_test:

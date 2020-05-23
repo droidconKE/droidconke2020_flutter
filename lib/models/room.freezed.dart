@@ -9,6 +9,10 @@ part of 'room.dart';
 
 T _$identity<T>(T value) => value;
 
+Room _$RoomFromJson(Map<String, dynamic> json) {
+  return _Room.fromJson(json);
+}
+
 class _$RoomTearOff {
   const _$RoomTearOff();
 
@@ -25,7 +29,10 @@ const $Room = _$RoomTearOff();
 
 mixin _$Room {
   String get title;
+
   int get id;
+
+  Map<String, dynamic> toJson();
 
   $RoomCopyWith<Room> get copyWith;
 }
@@ -33,6 +40,7 @@ mixin _$Room {
 abstract class $RoomCopyWith<$Res> {
   factory $RoomCopyWith(Room value, $Res Function(Room) then) =
       _$RoomCopyWithImpl<$Res>;
+
   $Res call({String title, int id});
 }
 
@@ -40,6 +48,7 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   _$RoomCopyWithImpl(this._value, this._then);
 
   final Room _value;
+
   // ignore: unused_field
   final $Res Function(Room) _then;
 
@@ -58,6 +67,7 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
 abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
   factory _$RoomCopyWith(_Room value, $Res Function(_Room) then) =
       __$RoomCopyWithImpl<$Res>;
+
   @override
   $Res call({String title, int id});
 }
@@ -82,8 +92,12 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
 class _$_Room implements _Room {
   _$_Room({this.title, this.id});
+
+  factory _$_Room.fromJson(Map<String, dynamic> json) =>
+      _$_$_RoomFromJson(json);
 
   @override
   final String title;
@@ -114,15 +128,24 @@ class _$_Room implements _Room {
   @override
   _$RoomCopyWith<_Room> get copyWith =>
       __$RoomCopyWithImpl<_Room>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_RoomToJson(this);
+  }
 }
 
 abstract class _Room implements Room {
   factory _Room({String title, int id}) = _$_Room;
 
+  factory _Room.fromJson(Map<String, dynamic> json) = _$_Room.fromJson;
+
   @override
   String get title;
+
   @override
   int get id;
+
   @override
   _$RoomCopyWith<_Room> get copyWith;
 }

@@ -8,6 +8,9 @@ part of 'speaker.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+Speaker _$SpeakerFromJson(Map<String, dynamic> json) {
+  return _Speaker.fromJson(json);
+}
 
 class _$SpeakerTearOff {
   const _$SpeakerTearOff();
@@ -53,6 +56,7 @@ mixin _$Speaker {
   String get blog;
   String get company_website;
 
+  Map<String, dynamic> toJson();
   $SpeakerCopyWith<Speaker> get copyWith;
 }
 
@@ -164,6 +168,7 @@ class __$SpeakerCopyWithImpl<$Res> extends _$SpeakerCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
 class _$_Speaker implements _Speaker {
   _$_Speaker(
       {this.name,
@@ -176,6 +181,9 @@ class _$_Speaker implements _Speaker {
       this.instagram,
       this.blog,
       this.company_website});
+
+  factory _$_Speaker.fromJson(Map<String, dynamic> json) =>
+      _$_$_SpeakerFromJson(json);
 
   @override
   final String name;
@@ -253,6 +261,11 @@ class _$_Speaker implements _Speaker {
   @override
   _$SpeakerCopyWith<_Speaker> get copyWith =>
       __$SpeakerCopyWithImpl<_Speaker>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_SpeakerToJson(this);
+  }
 }
 
 abstract class _Speaker implements Speaker {
@@ -267,6 +280,8 @@ abstract class _Speaker implements Speaker {
       String instagram,
       String blog,
       String company_website}) = _$_Speaker;
+
+  factory _Speaker.fromJson(Map<String, dynamic> json) = _$_Speaker.fromJson;
 
   @override
   String get name;

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'speaker.freezed.dart';
+part 'speaker.g.dart';
 
 @freezed
 abstract class Speaker with _$Speaker {
@@ -16,4 +17,7 @@ abstract class Speaker with _$Speaker {
     String blog,
     String company_website,
   }) = _Speaker;
+
+  factory Speaker.fromJson(Map<String, dynamic> json) =>
+      _$SpeakerFromJson(json);
 }

@@ -8,6 +8,9 @@ part of 'event_type.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+EventType _$EventTypeFromJson(Map<String, dynamic> json) {
+  return _EventType.fromJson(json);
+}
 
 class _$EventTypeTearOff {
   const _$EventTypeTearOff();
@@ -34,6 +37,7 @@ mixin _$EventType {
   String get slug;
   bool get status;
 
+  Map<String, dynamic> toJson();
   $EventTypeCopyWith<EventType> get copyWith;
 }
 
@@ -106,8 +110,12 @@ class __$EventTypeCopyWithImpl<$Res> extends _$EventTypeCopyWithImpl<$Res>
   }
 }
 
+@JsonSerializable()
 class _$_EventType implements _EventType {
   _$_EventType({this.id, this.name, this.description, this.slug, this.status});
+
+  factory _$_EventType.fromJson(Map<String, dynamic> json) =>
+      _$_$_EventTypeFromJson(json);
 
   @override
   final int id;
@@ -154,6 +162,11 @@ class _$_EventType implements _EventType {
   @override
   _$EventTypeCopyWith<_EventType> get copyWith =>
       __$EventTypeCopyWithImpl<_EventType>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_EventTypeToJson(this);
+  }
 }
 
 abstract class _EventType implements EventType {
@@ -163,6 +176,9 @@ abstract class _EventType implements EventType {
       String description,
       String slug,
       bool status}) = _$_EventType;
+
+  factory _EventType.fromJson(Map<String, dynamic> json) =
+      _$_EventType.fromJson;
 
   @override
   int get id;
