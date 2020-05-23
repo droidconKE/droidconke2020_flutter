@@ -1,4 +1,4 @@
-import 'package:droidconke2020_flutter/blocs/auth_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/auth/login_screen.dart';
 import 'package:droidconke2020_flutter/ui/feedback/event_feedback_screen.dart';
@@ -7,6 +7,7 @@ import 'package:droidconke2020_flutter/ui/shared/app_bar_feedback_button.dart';
 import 'package:droidconke2020_flutter/ui/shared/countdown_timer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
 class DroidconAppBar extends StatelessWidget {
@@ -23,12 +24,12 @@ class DroidconAppBar extends StatelessWidget {
     this.isHome = false,
     this.isBeforeEvent = true,
     this.isLoginScreen = false,
-    this.trailing, this.logoHeroTag,
+    this.trailing,
+    this.logoHeroTag,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final authBloc = Provider.of<AuthBloc>(context);
     return Container(
       padding: EdgeInsets.only(
           top: 20 + MediaQuery.of(context).padding.top,
@@ -45,18 +46,20 @@ class DroidconAppBar extends StatelessWidget {
             ),
           if (!isLoginScreen)
             InkWell(
-              child: (logoHeroTag == null) ? Image.asset(
-                "assets/images/logo.png",
-                width: 27,
-                height: 27,
-              ) : Hero(
-                tag: logoHeroTag,
-                child: Image.asset(
-                  "assets/images/logo.png",
-                  width: 27,
-                  height: 27,
-                ),
-              ),
+              child: (logoHeroTag == null)
+                  ? Image.asset(
+                      "assets/images/logo.png",
+                      width: 27,
+                      height: 27,
+                    )
+                  : Hero(
+                      tag: logoHeroTag,
+                      child: Image.asset(
+                        "assets/images/logo.png",
+                        width: 27,
+                        height: 27,
+                      ),
+                    ),
               onTap: () {
                 while (Navigator.of(context).canPop()) {
                   Navigator.of(context).pop();
@@ -81,11 +84,9 @@ class DroidconAppBar extends StatelessWidget {
               },
             ),
           if (!isLoginScreen && trailing == null)
-            StreamBuilder<bool>(
-              stream: authBloc.authenticated,
-              initialData: false,
-              builder: (context, snapshot) {
-                if (snapshot.hasData && snapshot.data)
+            BlocBuilder<AuthBloc, AuthState>(
+              builder: (context, state) {
+                if (state is AuthStateAuthenticated)
                   return GestureDetector(
                     child: Stack(
                       alignment: Alignment.center,
@@ -105,7 +106,7 @@ class DroidconAppBar extends StatelessWidget {
                         )
                       ],
                     ),
-                    onTap: authBloc.signOut,
+                    onTap: () => BlocProvider.of<AuthBloc>(context).add(AuthEventLogout()),
                   );
                 return GestureDetector(
                   // borderRadius: BorderRadius.circular(15),
@@ -135,7 +136,7 @@ class DroidconAppBar extends StatelessWidget {
               },
             ),
           if (isLoginScreen) Container(),
-          if(trailing != null) trailing,
+          if (trailing != null) trailing,
         ],
       ),
     );

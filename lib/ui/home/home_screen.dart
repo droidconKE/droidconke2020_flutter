@@ -1,5 +1,5 @@
 import 'package:droidconke2020_flutter/blocs/countdown_timer_bloc.dart';
-import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/theme/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/home/call_to_action.dart';
 import 'package:droidconke2020_flutter/ui/home/featured_sessions.dart';
@@ -9,6 +9,7 @@ import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,8 +18,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Provider.of<Brightness>(context);
-    final themeBloc = Provider.of<ThemeBloc>(context);
     final countdownTimerBloc = Provider.of<CountdownTimerBloc>(context);
 
     return Scaffold(
@@ -122,11 +121,7 @@ class HomeScreen extends StatelessWidget {
                   FlatButton(
                     child: Text("Toggle Theme"),
                     onPressed: () {
-                      themeBloc.changeBrightness(
-                        theme == Brightness.light
-                            ? Brightness.dark
-                            : Brightness.light,
-                      );
+                      BlocProvider.of<ThemeBloc>(context).add(ThemeEventToggle());
                     },
                   ),
                 ],

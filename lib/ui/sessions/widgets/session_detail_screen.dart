@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 class SessionDetailScreen extends StatelessWidget {
   static final String routeName = 'session-detail';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -27,10 +28,7 @@ class SessionDetailScreen extends StatelessWidget {
                     DroidconAppBar(),
                     Text(
                       "Session Details",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .title,
+                      style: Theme.of(context).textTheme.title,
                     ),
                   ],
                 ),
@@ -46,16 +44,8 @@ class SessionDetailScreen extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           "9:00AM - 9:30AM",
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .overline
-                              .copyWith(
-                              color: Theme
-                                  .of(context)
-                                  .textTheme
-                                  .body1
-                                  .color),
+                          style: Theme.of(context).textTheme.overline.copyWith(
+                              color: Theme.of(context).textTheme.body1.color),
                         ),
                         Row(
                           children: <Widget>[
@@ -67,16 +57,14 @@ class SessionDetailScreen extends StatelessWidget {
                             SizedBox(width: 5),
                             Text(
                               "ROOM 1",
-                              style: Theme
-                                  .of(context)
+                              style: Theme.of(context)
                                   .textTheme
                                   .overline
                                   .copyWith(
-                                  color: Theme
-                                      .of(context)
-                                      .textTheme
-                                      .body1
-                                      .color),
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .body1
+                                          .color),
                             ),
                           ],
                         ),
@@ -85,8 +73,7 @@ class SessionDetailScreen extends StatelessWidget {
                           alignment: Alignment.center,
                           child: Text(
                             '#BEGINNER',
-                            style: Theme
-                                .of(context)
+                            style: Theme.of(context)
                                 .textTheme
                                 .overline
                                 .copyWith(color: Colors.white),
@@ -114,19 +101,12 @@ class SessionDetailScreen extends StatelessWidget {
                         Icon(
                           CommunityMaterialIcons.android_head,
                           size: 14,
-                          color: Theme
-                              .of(context)
-                              .textTheme
-                              .caption
-                              .color,
+                          color: Theme.of(context).textTheme.caption.color,
                         ),
                         SizedBox(width: 5),
                         Text(
                           "Speaker",
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .caption,
+                          style: Theme.of(context).textTheme.caption,
                         ),
                         Expanded(
                           child: Container(),
@@ -139,33 +119,26 @@ class SessionDetailScreen extends StatelessWidget {
                         tag: "speaker-name",
                         child: Text(
                           "Greg Fawson",
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .display1,
+                          style: Theme.of(context).textTheme.display1,
                         ),
                       ),
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) {
-                              return SpeakerDetailScreen();
-                            }
-                        ));
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return SpeakerDetailScreen();
+                        }));
                       },
                     ),
                     SizedBox(height: 20),
                     Text(
                       "Description",
-                      style: Theme
-                          .of(context)
-                          .textTheme
-                          .subhead,
+                      style: Theme.of(context).textTheme.subhead,
                     ),
                     SizedBox(height: 20),
                     Text(
                       "Been in the tech industry for over 20 years. "
-                          "Am passionate about developer communities, "
-                          "motivating people and building successful",
+                      "Am passionate about developer communities, "
+                      "motivating people and building successful",
                     ),
                   ],
                 ),

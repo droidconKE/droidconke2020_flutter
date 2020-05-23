@@ -1,10 +1,11 @@
 import 'package:debug_mode/debug_mode.dart';
-import 'package:droidconke2020_flutter/blocs/auth_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
-import 'package:droidconke2020_flutter/blocs/theme_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/theme/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
 import 'package:droidconke2020_flutter/ui/about/team_member_screen.dart';
+import 'package:droidconke2020_flutter/ui/auth/bloc/login_bloc.dart';
 import 'package:droidconke2020_flutter/ui/feed/feed_screen.dart';
 import 'package:droidconke2020_flutter/ui/home/home_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/sessions_screen.dart';
@@ -18,14 +19,17 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stetho/flutter_stetho.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:provider/provider.dart';
 
 import 'blocs/countdown_timer_bloc.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  BlocSupervisor.delegate = await HydratedBlocDelegate.build();
   Crashlytics.instance.enableInDevMode = true;
   if (DebugMode.isInDebugMode) {
     Stetho.initialize();
@@ -36,8 +40,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final themeBloc = ThemeBloc();
-  final authBloc = AuthBloc();
   final analytics = FirebaseAnalytics();
 
   @override
@@ -48,8 +50,6 @@ class MyApp extends StatelessWidget {
         Provider<FirebaseAnalyticsObserver>.value(
           value: FirebaseAnalyticsObserver(analytics: analytics),
         ),
-        Provider<ThemeBloc>.value(value: themeBloc),
-        Provider<AuthBloc>.value(value: authBloc),
         Provider<SessionsBloc>.value(value: SessionsBloc()),
         Provider<CountdownTimerBloc>.value(
           value: CountdownTimerBloc(
@@ -60,22 +60,38 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CupertinoTabController>(
           create: (_) => CupertinoTabController(),
         ),
-        StreamProvider<Brightness>(
-          initialData: Brightness.light,
-          create: (context) => themeBloc.brightness,
-        ),
       ],
-      child: MaterialAppWidget(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<ThemeBloc>(
+            create: (BuildContext context) => ThemeBloc(),
+          ),
+          BlocProvider<AuthBloc>(
+            create: (BuildContext context) => AuthBloc(),
+          ),
+          BlocProvider<LoginBloc>(
+            create: (BuildContext context) => LoginBloc(),
+          ),
+        ],
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) => MaterialAppWidget(
+            brightness: state.brightness,
+          ),
+        ),
+      ),
     );
   }
 }
 
 class MaterialAppWidget extends StatelessWidget {
+  final Brightness brightness;
+
+  const MaterialAppWidget({Key key, this.brightness}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final brightness = Provider.of<Brightness>(context);
-    final authBloc = Provider.of<AuthBloc>(context);
     final darkTheme = brightness == Brightness.dark;
+
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle.light.copyWith(
         statusBarColor: darkTheme ? Palette.darkBlack : Palette.purple,
@@ -147,10 +163,9 @@ class MaterialAppWidget extends StatelessWidget {
         SessionsScreen.routeName: (context) => SessionsScreen(),
         SpeakerDetailScreen.routeName: (context) => SpeakerDetailScreen(),
       },
-      home: StreamBuilder<bool>(
-        stream: authBloc.authenticated,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
+      home: BlocBuilder<AuthBloc, AuthState>(
+        builder: (context, state) {
+          if (!(state is AuthStateInitial)) {
             return TabScaffold();
           }
           return SplashScreen();
