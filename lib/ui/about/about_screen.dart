@@ -14,13 +14,12 @@ class AboutScreen extends StatelessWidget {
             Container(
               height: 250,
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: NetworkImage(
-                    "https://techweez.com/wp-content/uploads/2019/08/DroidconKE-2019-1365x1024.jpg",
-                  ),
-                  fit: BoxFit.cover,
-                )
-              ),
+                  image: DecorationImage(
+                image: NetworkImage(
+                  "https://techweez.com/wp-content/uploads/2019/08/DroidconKE-2019-1365x1024.jpg",
+                ),
+                fit: BoxFit.cover,
+              )),
             ),
             SizedBox(height: 20),
             Container(

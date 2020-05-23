@@ -1,5 +1,4 @@
 import 'package:droidconke2020_flutter/config/palette.dart';
-import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
 
 class DroidconSwitch extends StatefulWidget {
@@ -33,8 +32,7 @@ class _DroidconSwitchState extends State<DroidconSwitch> {
       onTap: () {
         setState(() {
           _value = !_value;
-          if(widget.onChanged != null)
-            widget.onChanged(_value);
+          if (widget.onChanged != null) widget.onChanged(_value);
         });
       },
       child: Stack(
@@ -71,7 +69,11 @@ class _DroidconSwitchState extends State<DroidconSwitch> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(Icons.star, size: 15, color: Palette.purple,),
+                child: Icon(
+                  Icons.star,
+                  size: 15,
+                  color: Palette.purple,
+                ),
               ),
             ),
           ),

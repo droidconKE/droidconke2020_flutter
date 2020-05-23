@@ -20,7 +20,8 @@ class TeamMemberScreen extends StatelessWidget {
               avatarFrameColor: Palette.yellow[800],
               backgroundColor: Palette.yellow,
               name: "Frank Tamre",
-              shortBio: "Kenya Partner Lead at droidcon Berlin | Android | Kotlin | Flutter | C++",
+              shortBio:
+                  "Kenya Partner Lead at droidcon Berlin | Android | Kotlin | Flutter | C++",
             ),
             SizedBox(height: 20),
             Text(

@@ -14,17 +14,21 @@ class SessionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: list.map((s) => Column(
-        children: <Widget>[
-          SessionCard(session: s),
-          if (s != list.last)
-            SessionListDivider(color: Palette.colors[Random().nextInt(Palette.colors.length)])
-        ],
-      )).toList(growable: false),
+      children: list
+          .map((s) => Column(
+                children: <Widget>[
+                  SessionCard(session: s),
+                  if (s != list.last)
+                    SessionListDivider(
+                        color: Palette
+                            .colors[Random().nextInt(Palette.colors.length)])
+                ],
+              ))
+          .toList(growable: false),
     );
   }
 
-  /*List<Widget> _buildList(){
+/*List<Widget> _buildList(){
     List<Widget> _list = [];
     for(var i = 0; i < list.length; i++) {
       _list.add(Column(

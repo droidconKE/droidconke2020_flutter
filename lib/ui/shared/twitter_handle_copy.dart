@@ -1,5 +1,4 @@
 import 'package:clipboard_manager/clipboard_manager.dart';
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +31,7 @@ class TwitterHandleCopy extends StatelessWidget {
             Expanded(
               child: InkWell(
                 onTap: () {
-                  ClipboardManager.copyToClipBoard(handle)
-                      .then((result) {
+                  ClipboardManager.copyToClipBoard(handle).then((result) {
                     final snackBar = SnackBar(
                       content: Text('Copied to Clipboard'),
                       action: SnackBarAction(

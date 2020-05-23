@@ -1,4 +1,3 @@
-import 'package:community_material_icon/community_material_icon.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,10 @@ class CallToAction extends StatelessWidget {
   final String subtitle;
   final Function onTap;
 
-  const CallToAction({Key key, @required this.title, @required this.subtitle, this.onTap}) : super(key: key);
+  const CallToAction(
+      {Key key, @required this.title, @required this.subtitle, this.onTap})
+      : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

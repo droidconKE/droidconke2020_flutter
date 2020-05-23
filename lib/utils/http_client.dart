@@ -1,7 +1,7 @@
 import 'package:debug_mode/debug_mode.dart';
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:dio_firebase_performance/dio_firebase_performance.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:droidconke2020_flutter/utils/http_interceptors/auth_interceptor.dart';
 import 'package:droidconke2020_flutter/utils/http_interceptors/error_interceptor.dart';
 
