@@ -8,6 +8,7 @@ part of 'organizer.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
 Organizer _$OrganizerFromJson(Map<String, dynamic> json) {
   return _Organizer.fromJson(json);
 }
@@ -52,26 +53,40 @@ const $Organizer = _$OrganizerTearOff();
 
 mixin _$Organizer {
   int get id;
+
   String get name;
+
   String get email;
+
   String get description;
+
   String get facebook;
+
   String get twitter;
+
   String get instagram;
+
   String get logo;
+
   String get slug;
+
   String get status;
+
   String get created_at;
+
   int get upcoming_events_count;
+
   int get total_events_count;
 
   Map<String, dynamic> toJson();
+
   $OrganizerCopyWith<Organizer> get copyWith;
 }
 
 abstract class $OrganizerCopyWith<$Res> {
   factory $OrganizerCopyWith(Organizer value, $Res Function(Organizer) then) =
       _$OrganizerCopyWithImpl<$Res>;
+
   $Res call(
       {int id,
       String name,
@@ -92,6 +107,7 @@ class _$OrganizerCopyWithImpl<$Res> implements $OrganizerCopyWith<$Res> {
   _$OrganizerCopyWithImpl(this._value, this._then);
 
   final Organizer _value;
+
   // ignore: unused_field
   final $Res Function(Organizer) _then;
 
@@ -139,6 +155,7 @@ abstract class _$OrganizerCopyWith<$Res> implements $OrganizerCopyWith<$Res> {
   factory _$OrganizerCopyWith(
           _Organizer value, $Res Function(_Organizer) then) =
       __$OrganizerCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {int id,
@@ -343,30 +360,43 @@ abstract class _Organizer implements Organizer {
 
   @override
   int get id;
+
   @override
   String get name;
+
   @override
   String get email;
+
   @override
   String get description;
+
   @override
   String get facebook;
+
   @override
   String get twitter;
+
   @override
   String get instagram;
+
   @override
   String get logo;
+
   @override
   String get slug;
+
   @override
   String get status;
+
   @override
   String get created_at;
+
   @override
   int get upcoming_events_count;
+
   @override
   int get total_events_count;
+
   @override
   _$OrganizerCopyWith<_Organizer> get copyWith;
 }

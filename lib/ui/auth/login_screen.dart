@@ -42,8 +42,8 @@ class LoginScreen extends StatelessWidget {
                           Navigator.of(context).pop();
                         }
                         if (state is LoginStateFailed) {
-                          _scaffoldKey.currentState?.showSnackBar(SnackBar(
-                              content: Text(state.error.toString())));
+                          _scaffoldKey.currentState?.showSnackBar(
+                              SnackBar(content: Text(state.error.toString())));
                         }
                       },
                       builder: (context, state) {

@@ -5,22 +5,22 @@ abstract class AuthEvent {
   Stream<AuthState> eventHandler({AuthState currentState, AuthBloc bloc});
 }
 
-class AuthEventLogIn extends AuthEvent{
+class AuthEventLogIn extends AuthEvent {
   final CurrentUser user;
 
   AuthEventLogIn(this.user);
 
   @override
-  Stream<AuthState> eventHandler({AuthState currentState, AuthBloc bloc}) async* {
+  Stream<AuthState> eventHandler(
+      {AuthState currentState, AuthBloc bloc}) async* {
     yield AuthStateAuthenticated(currentUser: user);
   }
-
-
 }
 
-class AuthEventLogout extends AuthEvent{
+class AuthEventLogout extends AuthEvent {
   @override
-  Stream<AuthState> eventHandler({AuthState currentState, AuthBloc bloc}) async* {
+  Stream<AuthState> eventHandler(
+      {AuthState currentState, AuthBloc bloc}) async* {
     yield AuthStateUnauthenticated();
   }
 }

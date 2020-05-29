@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:droidconke2020_flutter/models/models.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -6,7 +7,6 @@ import 'package:meta/meta.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
-
 
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   @override
@@ -38,5 +38,3 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
     }
   }
 }
-
-

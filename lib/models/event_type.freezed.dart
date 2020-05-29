@@ -8,6 +8,7 @@ part of 'event_type.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
 EventType _$EventTypeFromJson(Map<String, dynamic> json) {
   return _EventType.fromJson(json);
 }
@@ -32,18 +33,24 @@ const $EventType = _$EventTypeTearOff();
 
 mixin _$EventType {
   int get id;
+
   String get name;
+
   String get description;
+
   String get slug;
+
   bool get status;
 
   Map<String, dynamic> toJson();
+
   $EventTypeCopyWith<EventType> get copyWith;
 }
 
 abstract class $EventTypeCopyWith<$Res> {
   factory $EventTypeCopyWith(EventType value, $Res Function(EventType) then) =
       _$EventTypeCopyWithImpl<$Res>;
+
   $Res call(
       {int id, String name, String description, String slug, bool status});
 }
@@ -52,6 +59,7 @@ class _$EventTypeCopyWithImpl<$Res> implements $EventTypeCopyWith<$Res> {
   _$EventTypeCopyWithImpl(this._value, this._then);
 
   final EventType _value;
+
   // ignore: unused_field
   final $Res Function(EventType) _then;
 
@@ -78,6 +86,7 @@ abstract class _$EventTypeCopyWith<$Res> implements $EventTypeCopyWith<$Res> {
   factory _$EventTypeCopyWith(
           _EventType value, $Res Function(_EventType) then) =
       __$EventTypeCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {int id, String name, String description, String slug, bool status});
@@ -182,14 +191,19 @@ abstract class _EventType implements EventType {
 
   @override
   int get id;
+
   @override
   String get name;
+
   @override
   String get description;
+
   @override
   String get slug;
+
   @override
   bool get status;
+
   @override
   _$EventTypeCopyWith<_EventType> get copyWith;
 }

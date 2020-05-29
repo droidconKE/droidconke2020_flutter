@@ -7,17 +7,17 @@ abstract class LoginEvent extends Equatable {
 
 class LoginEventWithGoogle extends LoginEvent {
   @override
-  Stream<LoginState> eventHandler({LoginState currentState, LoginBloc bloc}) async* {
+  Stream<LoginState> eventHandler(
+      {LoginState currentState, LoginBloc bloc}) async* {
     yield LoginStateLoading();
     try {
       final user = await bloc.authRepository.signInWithGoogle();
       yield LoginStateSuccessful(user);
-    }catch(e){
+    } catch (e) {
       yield LoginStateFailed(e);
     }
   }
 
   @override
   List<Object> get props => [];
-
 }

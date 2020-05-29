@@ -8,6 +8,7 @@ part of 'speaker.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
 Speaker _$SpeakerFromJson(Map<String, dynamic> json) {
   return _Speaker.fromJson(json);
 }
@@ -46,23 +47,34 @@ const $Speaker = _$SpeakerTearOff();
 
 mixin _$Speaker {
   String get name;
+
   String get tagline;
+
   String get biography;
+
   String get avatar;
+
   String get twitter;
+
   String get facebook;
+
   String get linkedin;
+
   String get instagram;
+
   String get blog;
+
   String get company_website;
 
   Map<String, dynamic> toJson();
+
   $SpeakerCopyWith<Speaker> get copyWith;
 }
 
 abstract class $SpeakerCopyWith<$Res> {
   factory $SpeakerCopyWith(Speaker value, $Res Function(Speaker) then) =
       _$SpeakerCopyWithImpl<$Res>;
+
   $Res call(
       {String name,
       String tagline,
@@ -80,6 +92,7 @@ class _$SpeakerCopyWithImpl<$Res> implements $SpeakerCopyWith<$Res> {
   _$SpeakerCopyWithImpl(this._value, this._then);
 
   final Speaker _value;
+
   // ignore: unused_field
   final $Res Function(Speaker) _then;
 
@@ -116,6 +129,7 @@ class _$SpeakerCopyWithImpl<$Res> implements $SpeakerCopyWith<$Res> {
 abstract class _$SpeakerCopyWith<$Res> implements $SpeakerCopyWith<$Res> {
   factory _$SpeakerCopyWith(_Speaker value, $Res Function(_Speaker) then) =
       __$SpeakerCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {String name,
@@ -285,24 +299,34 @@ abstract class _Speaker implements Speaker {
 
   @override
   String get name;
+
   @override
   String get tagline;
+
   @override
   String get biography;
+
   @override
   String get avatar;
+
   @override
   String get twitter;
+
   @override
   String get facebook;
+
   @override
   String get linkedin;
+
   @override
   String get instagram;
+
   @override
   String get blog;
+
   @override
   String get company_website;
+
   @override
   _$SpeakerCopyWith<_Speaker> get copyWith;
 }
