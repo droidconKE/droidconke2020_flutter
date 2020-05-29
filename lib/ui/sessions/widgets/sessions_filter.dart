@@ -174,7 +174,7 @@ class SessionsFilter extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        //TODO: Submit value
+                        //TODO: Filter sessions
                       },
                       child: Container(
                         width: double.maxFinite,

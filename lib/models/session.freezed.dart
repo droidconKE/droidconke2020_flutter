@@ -24,7 +24,7 @@ class _$SessionTearOff {
       String session_level,
       List<Speaker> speakers,
       List<Room> rooms,
-      bool is_serviceSession,
+      int is_serviceSession,
       String start_date_time,
       String start_time,
       String end_date_time,
@@ -59,7 +59,7 @@ mixin _$Session {
   String get session_level;
   List<Speaker> get speakers;
   List<Room> get rooms;
-  bool get is_serviceSession;
+  int get is_serviceSession;
   String get start_date_time;
   String get start_time;
   String get end_date_time;
@@ -81,7 +81,7 @@ abstract class $SessionCopyWith<$Res> {
       String session_level,
       List<Speaker> speakers,
       List<Room> rooms,
-      bool is_serviceSession,
+      int is_serviceSession,
       String start_date_time,
       String start_time,
       String end_date_time,
@@ -128,7 +128,7 @@ class _$SessionCopyWithImpl<$Res> implements $SessionCopyWith<$Res> {
       rooms: rooms == freezed ? _value.rooms : rooms as List<Room>,
       is_serviceSession: is_serviceSession == freezed
           ? _value.is_serviceSession
-          : is_serviceSession as bool,
+          : is_serviceSession as int,
       start_date_time: start_date_time == freezed
           ? _value.start_date_time
           : start_date_time as String,
@@ -155,7 +155,7 @@ abstract class _$SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       String session_level,
       List<Speaker> speakers,
       List<Room> rooms,
-      bool is_serviceSession,
+      int is_serviceSession,
       String start_date_time,
       String start_time,
       String end_date_time,
@@ -203,7 +203,7 @@ class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
       rooms: rooms == freezed ? _value.rooms : rooms as List<Room>,
       is_serviceSession: is_serviceSession == freezed
           ? _value.is_serviceSession
-          : is_serviceSession as bool,
+          : is_serviceSession as int,
       start_date_time: start_date_time == freezed
           ? _value.start_date_time
           : start_date_time as String,
@@ -254,7 +254,7 @@ class _$_Session implements _Session {
   @override
   final List<Room> rooms;
   @override
-  final bool is_serviceSession;
+  final int is_serviceSession;
   @override
   final String start_date_time;
   @override
@@ -347,7 +347,7 @@ abstract class _Session implements Session {
       String session_level,
       List<Speaker> speakers,
       List<Room> rooms,
-      bool is_serviceSession,
+      int is_serviceSession,
       String start_date_time,
       String start_time,
       String end_date_time,
@@ -372,7 +372,7 @@ abstract class _Session implements Session {
   @override
   List<Room> get rooms;
   @override
-  bool get is_serviceSession;
+  int get is_serviceSession;
   @override
   String get start_date_time;
   @override

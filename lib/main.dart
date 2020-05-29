@@ -1,6 +1,7 @@
 import 'package:debug_mode/debug_mode.dart';
 import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
-import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/countdown/countdown_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/theme/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
@@ -25,17 +26,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:provider/provider.dart';
 
-import 'blocs/countdown_timer_bloc.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   BlocSupervisor.delegate = await HydratedBlocDelegate.build();
   Crashlytics.instance.enableInDevMode = true;
   if (DebugMode.isInDebugMode) {
     Stetho.initialize();
+    // BlocSupervisor.delegate = SimpleBlocDelegate();
+  } else {
+    FlutterError.onError = Crashlytics.instance.recordFlutterError;
   }
-  // Pass all uncaught errors from the framework to Crashlytics.
-  FlutterError.onError = Crashlytics.instance.recordFlutterError;
   runApp(MyApp());
 }
 
@@ -44,33 +44,27 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
-        Provider<FirebaseAnalytics>.value(value: analytics),
-        Provider<FirebaseAnalyticsObserver>.value(
-          value: FirebaseAnalyticsObserver(analytics: analytics),
+        BlocProvider<CountdownBloc>(
+          create: (BuildContext context) =>
+              CountdownBloc(DateTime(2020, 5, 24, 16, 31, 0)),
         ),
-        Provider<SessionsBloc>.value(value: SessionsBloc()),
-        Provider<CountdownTimerBloc>.value(
-          value: CountdownTimerBloc(
-            eventStart: DateTime(2020, 4, 20, 18, 0, 0),
-            // eventStart: DateTime(2020, 8, 6, 8, 0, 0),
-          ),
-        ),
-        ChangeNotifierProvider<CupertinoTabController>(
-          create: (_) => CupertinoTabController(),
+        BlocProvider<ThemeBloc>(create: (BuildContext context) => ThemeBloc()),
+        BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
+        BlocProvider<LoginBloc>(create: (BuildContext context) => LoginBloc()),
+        BlocProvider<ScheduleBloc>(
+          create: (BuildContext context) => ScheduleBloc(),
         ),
       ],
-      child: MultiBlocProvider(
+      child: MultiProvider(
         providers: [
-          BlocProvider<ThemeBloc>(
-            create: (BuildContext context) => ThemeBloc(),
+          Provider<FirebaseAnalytics>.value(value: analytics),
+          Provider<FirebaseAnalyticsObserver>.value(
+            value: FirebaseAnalyticsObserver(analytics: analytics),
           ),
-          BlocProvider<AuthBloc>(
-            create: (BuildContext context) => AuthBloc(),
-          ),
-          BlocProvider<LoginBloc>(
-            create: (BuildContext context) => LoginBloc(),
+          ChangeNotifierProvider<CupertinoTabController>(
+            create: (_) => CupertinoTabController(),
           ),
         ],
         child: BlocBuilder<ThemeBloc, ThemeState>(
@@ -90,6 +84,7 @@ class MaterialAppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // BlocProvider.of<CountdownBloc>(context).add(CountdownEventCount());
     final darkTheme = brightness == Brightness.dark;
 
     SystemChrome.setSystemUIOverlayStyle(

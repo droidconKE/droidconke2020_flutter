@@ -1,7 +1,9 @@
+export 'current_user.dart';
+export 'day_schedule.dart';
 export 'event_type.dart';
+export 'grouped_schedule.dart';
 export 'organizer.dart';
 export 'room.dart';
 export 'session.dart';
 export 'speaker.dart';
 export 'user.dart';
-export 'current_user.dart';

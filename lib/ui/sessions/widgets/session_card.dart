@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 class SessionCard extends StatelessWidget {
   final Session session;
 
-  const SessionCard({Key key, this.session, favorited = false})
+  const SessionCard({Key key, this.session})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class SessionCard extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return SessionDetailScreen();
+              return SessionDetailScreen(session: session);
             },
           ),
         );
@@ -34,12 +34,12 @@ class SessionCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    "10:00",
+                    "${session.start_time}", //TODO: Convert to AM/PM
                     textAlign: TextAlign.end,
                     style: Theme.of(context).textTheme.title,
                   ),
                   Text(
-                    "AM",
+                    "AM", //TODO: Convert to AM/PM
                     textAlign: TextAlign.end,
                     style: Theme.of(context).textTheme.title,
                   ),
@@ -53,22 +53,28 @@ class SessionCard extends StatelessWidget {
                   children: <Widget>[
                     Text(session.title,
                         style: Theme.of(context).textTheme.subhead),
-                    Text(session.description),
+                    Text(
+                      session.description,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     SizedBox(height: 5),
-                    Row(
+                    Wrap(
                       children: <Widget>[
                         Text(
-                          '${session.description ?? ''} - ${session.description ?? ''}',
+                          '${session.start_time ?? ''} - ${session.end_time ?? ''}', //TODO: Convert to AM/PM
                           style: Theme.of(context).textTheme.caption,
                         ),
                         VerticalDivider(
                           color: Theme.of(context).textTheme.caption.color,
                           thickness: 3,
                         ),
-                        Text(
-                          '${session.description ?? ''}',
-                          style: Theme.of(context).textTheme.caption,
-                        ),
+                        ...session.rooms
+                            .map((r) => Text(
+                                  '${r.title ?? ''}',
+                                  style: Theme.of(context).textTheme.caption,
+                                ))
+                            .toList()
                       ],
                     ),
                     SizedBox(height: 3),
@@ -100,7 +106,9 @@ class SessionCard extends StatelessWidget {
                   height: 32,
                   color: Palette.gray[100],
                 ),
-                onTap: () {},
+                onTap: () {
+                  //TODO: Toggle bookmark
+                },
               ),
             ],
           ),

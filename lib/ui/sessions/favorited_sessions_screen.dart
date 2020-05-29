@@ -1,14 +1,12 @@
-import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
-import 'package:droidconke2020_flutter/models/models.dart';
-import 'package:droidconke2020_flutter/models/session.dart';
 import 'package:droidconke2020_flutter/ui/sessions/widgets/session_list.dart';
 import 'package:droidconke2020_flutter/ui/shared/button_group.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoritedSessionsScreen extends StatelessWidget {
   static final String routeName = 'sessions';
@@ -16,8 +14,6 @@ class FavoritedSessionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sessionsBloc = Provider.of<SessionsBloc>(context);
-
     return Scaffold(
       key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -60,17 +56,18 @@ class FavoritedSessionsScreen extends StatelessWidget {
                         flex: 1,
                       ),
                       Expanded(
-                        child: StreamBuilder<int>(
-                            stream: sessionsBloc.favoritesSelectedDay,
-                            initialData: 0,
-                            builder: (context, snapshot) {
-                              return ButtonGroup(
-                                selectedIndex: snapshot.data,
-                                onSelectedIndexChanged: (val) {
-                                  sessionsBloc.setFavoritesSelectedDay(val);
-                                },
-                              );
-                            }),
+                        child: BlocBuilder<ScheduleBloc, ScheduleState>(
+                          builder: (context, state) {
+                            return ButtonGroup(
+                              selectedIndex:
+                                  state is ScheduleStateLoaded ? state.day : 0,
+                              onSelectedIndexChanged: (val) {
+                                BlocProvider.of<ScheduleBloc>(context)
+                                    .add(ScheduleEventSelectDay(val));
+                              },
+                            );
+                          },
+                        ),
                         flex: 1,
                       ),
                     ],
@@ -79,16 +76,21 @@ class FavoritedSessionsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            StreamBuilder<List<Session>>(
-              stream: sessionsBloc.favoriteSessions,
-              builder: (context, snapshot) {
-                if (snapshot.hasData)
-                  return SessionList(
-                    list: snapshot.data,
-                  );
-                return LinearProgressIndicator();
-              },
-            ),
+            BlocBuilder<ScheduleBloc, ScheduleState>(builder: (context, state) {
+              if (state is ScheduleStateError) {
+                return Center(
+                  child: Text(state.error.toString()),
+                );
+              }
+              if (state is ScheduleStateLoaded) {
+                return SessionList(
+                  list: state.favorites.daySchedules.isNotEmpty
+                      ? state.favorites.daySchedules[state.day].schedule
+                      : [],
+                );
+              }
+              return Center(child: CircularProgressIndicator());
+            })
           ],
         ),
       ),

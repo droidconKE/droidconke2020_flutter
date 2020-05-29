@@ -1,6 +1,5 @@
-import 'package:droidconke2020_flutter/blocs/sessions_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
-import 'package:droidconke2020_flutter/models/models.dart';
 import 'package:droidconke2020_flutter/ui/sessions/favorited_sessions_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/widgets/session_list.dart';
 import 'package:droidconke2020_flutter/ui/sessions/widgets/sessions_filter.dart';
@@ -10,16 +9,27 @@ import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_switch.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
-class SessionsScreen extends StatelessWidget {
+class SessionsScreen extends StatefulWidget {
   static final String routeName = 'sessions';
+
+  @override
+  _SessionsScreenState createState() => _SessionsScreenState();
+}
+
+class _SessionsScreenState extends State<SessionsScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
+  void initState() {
+    BlocProvider.of<ScheduleBloc>(context).add(ScheduleEventFetch());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final sessionsBloc = Provider.of<SessionsBloc>(context);
     return Scaffold(
       key: _scaffoldKey,
       body: SingleChildScrollView(
@@ -78,14 +88,14 @@ class SessionsScreen extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Expanded(
-                        child: StreamBuilder<int>(
-                          stream: sessionsBloc.selectedDay,
-                          initialData: 0,
-                          builder: (context, snapshot) {
+                        child: BlocBuilder<ScheduleBloc, ScheduleState>(
+                          builder: (context, state) {
                             return ButtonGroup(
-                              selectedIndex: snapshot.data,
+                              selectedIndex:
+                                  state is ScheduleStateLoaded ? state.day : 0,
                               onSelectedIndexChanged: (val) {
-                                sessionsBloc.setSelectedDay(val);
+                                BlocProvider.of<ScheduleBloc>(context)
+                                    .add(ScheduleEventSelectDay(val));
                               },
                             );
                           },
@@ -143,14 +153,18 @@ class SessionsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            StreamBuilder<List<Session>>(
-              stream: sessionsBloc.sessions,
-              builder: (context, snapshot) {
-                if (snapshot.hasData)
-                  return SessionList(
-                    list: snapshot.data,
+            BlocBuilder<ScheduleBloc, ScheduleState>(
+              builder: (context, state) {
+                if (state is ScheduleStateError) {
+                  return Center(
+                    child: Text(state.error.toString()),
                   );
-                return LinearProgressIndicator();
+                }
+                if (state is ScheduleStateLoaded)
+                  return SessionList(
+                    list: state.schedule.daySchedules[state.day].schedule,
+                  );
+                return Center(child: CircularProgressIndicator());
               },
             ),
           ],

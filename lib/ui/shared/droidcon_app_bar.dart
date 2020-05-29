@@ -41,7 +41,10 @@ class DroidconAppBar extends StatelessWidget {
         children: <Widget>[
           if (Navigator.of(context).canPop())
             InkWell(
-              child: Afrikon('left'),
+              child: Afrikon(
+                'left',
+                color: Theme.of(context).textTheme.bodyText1.color,
+              ),
               onTap: () => Navigator.of(context).pop(),
             ),
           if (!isLoginScreen)
@@ -106,7 +109,8 @@ class DroidconAppBar extends StatelessWidget {
                         )
                       ],
                     ),
-                    onTap: () => BlocProvider.of<AuthBloc>(context).add(AuthEventLogout()),
+                    onTap: () => BlocProvider.of<AuthBloc>(context)
+                        .add(AuthEventLogout()),
                   );
                 return GestureDetector(
                   // borderRadius: BorderRadius.circular(15),

@@ -22,7 +22,7 @@ _$_Session _$_$_SessionFromJson(Map<String, dynamic> json) {
         ?.map(
             (e) => e == null ? null : Room.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    is_serviceSession: json['is_serviceSession'] as bool,
+    is_serviceSession: json['is_serviceSession'] as int,
     start_date_time: json['start_date_time'] as String,
     start_time: json['start_time'] as String,
     end_date_time: json['end_date_time'] as String,

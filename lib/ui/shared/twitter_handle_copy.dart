@@ -33,13 +33,13 @@ class TwitterHandleCopy extends StatelessWidget {
                 onTap: () {
                   ClipboardManager.copyToClipBoard(handle).then((result) {
                     final snackBar = SnackBar(
-                      content: Text('Copied to Clipboard'),
-                      action: SnackBarAction(
+                      content: Text('Twitter handle copied to clipboard'),
+                      /*action: SnackBarAction(
                         label: 'Undo',
                         onPressed: () {
                           // ClipboardManager.copyToClipBoard(null);
                         },
-                      ),
+                      ),*/
                     );
                     Scaffold.of(context).showSnackBar(snackBar);
                   });
@@ -51,9 +51,9 @@ class TwitterHandleCopy extends StatelessWidget {
                     horizontal: 20,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: Palette.gray[50])),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -79,7 +79,9 @@ class TwitterHandleCopy extends StatelessWidget {
         SizedBox(height: 2),
         Text(
           "Tap to copy handle",
-          style: Theme.of(context).textTheme.caption,
+          style: Theme.of(context).textTheme.caption.copyWith(
+                fontStyle: FontStyle.italic,
+              ),
         ),
       ],
     );
