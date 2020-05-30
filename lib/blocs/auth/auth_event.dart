@@ -21,6 +21,7 @@ class AuthEventLogout extends AuthEvent {
   @override
   Stream<AuthState> eventHandler(
       {AuthState currentState, AuthBloc bloc}) async* {
+    await bloc.clear();
     yield AuthStateUnauthenticated();
   }
 }
