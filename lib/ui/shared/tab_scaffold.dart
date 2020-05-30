@@ -17,51 +17,27 @@ class TabScaffold extends StatelessWidget {
       tabBar: CupertinoTabBar(
         backgroundColor: Palette.darkBlack,
         activeColor: Palette.yellow,
-        inactiveColor: Palette.gray,
-        iconSize: 25,
+        inactiveColor: Palette.white,
+        iconSize: 20,
         items: [
           BottomNavigationBarItem(
-            activeIcon: Afrikon(
-              'home',
-              color: Palette.yellow,
-            ),
-            icon: Afrikon(
-              'home',
-              color: Palette.gray,
-            ),
+            activeIcon: Afrikon('home', color: Palette.yellow),
+            icon: Afrikon('home', color: Palette.white),
             title: Text("Home"),
           ),
           BottomNavigationBarItem(
-            activeIcon: Afrikon(
-              'bell',
-              color: Palette.yellow,
-            ),
-            icon: Afrikon(
-              'bell',
-              color: Palette.gray,
-            ),
+            activeIcon: Afrikon('bell', color: Palette.yellow),
+            icon: Afrikon('bell', color: Palette.white),
             title: Text("Feed"),
           ),
           BottomNavigationBarItem(
-            activeIcon: Afrikon(
-              'time',
-              color: Palette.yellow,
-            ),
-            icon: Afrikon(
-              'time',
-              color: Palette.gray,
-            ),
+            activeIcon: Afrikon('time', color: Palette.yellow),
+            icon: Afrikon('time', color: Palette.white),
             title: Text("Sessions"),
           ),
           BottomNavigationBarItem(
-            activeIcon: Afrikon(
-              'flower',
-              color: Palette.yellow,
-            ),
-            icon: Afrikon(
-              'flower',
-              color: Palette.gray,
-            ),
+            activeIcon: Afrikon('flower', color: Palette.yellow),
+            icon: Afrikon('flower', color: Palette.white),
             title: Text("About"),
           ),
         ],
