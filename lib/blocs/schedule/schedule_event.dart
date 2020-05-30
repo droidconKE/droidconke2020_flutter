@@ -12,10 +12,10 @@ class ScheduleEventFetch extends ScheduleEvent {
       {ScheduleState currentState, ScheduleBloc bloc}) async* {
     try {
       var schedule = await ScheduleService.getGroupedSchedule();
-      //TODO: Fetch bookmarked sessions
+      var bookmarked = await ScheduleService.getGroupedBookmarks();
       yield ScheduleStateLoaded(
         schedule: schedule,
-        favorites: GroupedSchedule([]),
+        favorites: bookmarked,
         day: 0,
       );
     } catch (e) {
@@ -34,6 +34,22 @@ class ScheduleEventSelectDay extends ScheduleEvent {
       {ScheduleState currentState, ScheduleBloc bloc}) async* {
     if (currentState is ScheduleStateLoaded) {
       yield currentState.copyWith(day: day);
+    }
+  }
+}
+
+class ScheduleEventToggleBookmark extends ScheduleEvent {
+  final int sessionId;
+
+  ScheduleEventToggleBookmark(this.sessionId);
+
+  @override
+  Stream<ScheduleState> eventHandler(
+      {ScheduleState currentState, ScheduleBloc bloc}) async* {
+    await ScheduleService.toggleBookmark(sessionId);
+    var bookmarked = await ScheduleService.getGroupedBookmarks();
+    if (currentState is ScheduleStateLoaded) {
+      yield currentState.copyWith(favorites: bookmarked);
     }
   }
 }

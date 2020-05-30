@@ -1,15 +1,18 @@
 import 'package:community_material_icon/community_material_icon.dart';
+import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/session.dart';
+import 'package:droidconke2020_flutter/ui/auth/login_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/widgets/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SessionCard extends StatelessWidget {
   final Session session;
 
-  const SessionCard({Key key, this.session})
-      : super(key: key);
+  const SessionCard({Key key, this.session}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,9 +73,15 @@ class SessionCard extends StatelessWidget {
                           thickness: 3,
                         ),
                         ...session.rooms
-                            .map((r) => Text(
-                                  '${r.title ?? ''}',
-                                  style: Theme.of(context).textTheme.caption,
+                            .map((r) => Wrap(
+                                  children: <Widget>[
+                                    Text(
+                                      '${r.title ?? ''}',
+                                      style:
+                                          Theme.of(context).textTheme.caption,
+                                    ),
+                                    SizedBox(width: 5),
+                                  ],
                                 ))
                             .toList()
                       ],
@@ -100,14 +109,32 @@ class SessionCard extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 20),
-              InkWell(
-                child: Afrikon(
-                  'star-outline',
-                  height: 32,
-                  color: Palette.gray[100],
-                ),
-                onTap: () {
-                  //TODO: Toggle bookmark
+              BlocBuilder<ScheduleBloc, ScheduleState>(
+                builder: (context, state) {
+                  var isBookmarked = state is ScheduleStateLoaded &&
+                      state.bookmarkList.contains(session);
+                  return InkWell(
+                    child: Afrikon(
+                      isBookmarked ? 'star' : 'star-outline',
+                      height: 24,
+                      color: isBookmarked ? Palette.yellow : Palette.gray[100],
+                    ),
+                    onTap: () {
+                      if (BlocProvider.of<AuthBloc>(context).state
+                          is AuthStateAuthenticated) {
+                        BlocProvider.of<ScheduleBloc>(context)
+                            .add(ScheduleEventToggleBookmark(session.id));
+                      } else {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(
+                                builder: (context) => LoginScreen()))
+                            .then((value) {
+                          BlocProvider.of<ScheduleBloc>(context)
+                              .add(ScheduleEventToggleBookmark(session.id));
+                        });
+                      }
+                    },
+                  );
                 },
               ),
             ],

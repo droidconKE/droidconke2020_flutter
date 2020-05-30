@@ -13,7 +13,13 @@ class ScheduleStateLoaded extends ScheduleState {
   final GroupedSchedule favorites;
   final int day;
 
-  ScheduleStateLoaded({@required this.schedule, @required this.favorites, this.day = 0});
+  List<Session> get bookmarkList => favorites.daySchedules
+      .map((e) => e.schedule)
+      .reduce((value, element) => [...value, ...element])
+      .toList();
+
+  ScheduleStateLoaded(
+      {@required this.schedule, @required this.favorites, this.day = 0});
 
   ScheduleStateLoaded copyWith({
     GroupedSchedule schedule,

@@ -1,10 +1,14 @@
 import 'package:community_material_icon/community_material_icon.dart';
+import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/models/models.dart';
+import 'package:droidconke2020_flutter/ui/auth/login_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/afrikon.dart';
 import 'package:droidconke2020_flutter/ui/shared/droidcon_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SessionDetailScreen extends StatelessWidget {
   static final String routeName = 'session-detail';
@@ -120,7 +124,34 @@ class SessionDetailScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.caption,
                         ),
                         Expanded(child: Container()),
-                        Afrikon('star-outline'), //TODO: Toggle bookmark
+                        BlocBuilder<ScheduleBloc, ScheduleState>(
+                            builder: (context, state) {
+                          var isBookmarked = state is ScheduleStateLoaded &&
+                              state.bookmarkList.contains(session);
+                          return InkWell(
+                            child: Afrikon(
+                              isBookmarked ? 'star' : 'star-outline',
+                              color: isBookmarked
+                                  ? Palette.yellow
+                                  : Theme.of(context).textTheme.bodyText1.color,
+                            ),
+                            onTap: () {
+                              if (BlocProvider.of<AuthBloc>(context).state
+                                  is AuthStateAuthenticated) {
+                                BlocProvider.of<ScheduleBloc>(context).add(
+                                    ScheduleEventToggleBookmark(session.id));
+                              } else {
+                                Navigator.of(context)
+                                    .push(MaterialPageRoute(
+                                        builder: (context) => LoginScreen()))
+                                    .then((value) {
+                                  BlocProvider.of<ScheduleBloc>(context).add(
+                                      ScheduleEventToggleBookmark(session.id));
+                                });
+                              }
+                            },
+                          );
+                        }),
                       ],
                     ),
                     Wrap(
