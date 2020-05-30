@@ -14,6 +14,7 @@ import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/sessions/widgets/session_detail_screen.dart';
 import 'package:droidconke2020_flutter/ui/shared/tab_scaffold.dart';
 import 'package:droidconke2020_flutter/ui/splash/splash_screen.dart';
+import 'package:droidconke2020_flutter/utils/rest_client.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
@@ -22,6 +23,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_stetho/flutter_stetho.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +41,10 @@ void main() async {
   runApp(MyApp());
 }
 
+void setupLocation() {
+  // GetIt.I.registerLazySingleton(() => App)
+}
+
 class MyApp extends StatelessWidget {
   final analytics = FirebaseAnalytics();
 
@@ -48,10 +54,14 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<CountdownBloc>(
           create: (BuildContext context) =>
-              CountdownBloc(DateTime(2020, 5, 24, 16, 31, 0)),
+              CountdownBloc(DateTime(2020, 8, 6, 8, 0, 0)),
         ),
         BlocProvider<ThemeBloc>(create: (BuildContext context) => ThemeBloc()),
-        BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
+        BlocProvider<AuthBloc>(create: (BuildContext context) {
+          var authBloc = AuthBloc();
+          GetIt.I.registerLazySingleton(() => RestClient(authBloc));
+          return authBloc;
+        }),
         BlocProvider<LoginBloc>(create: (BuildContext context) => LoginBloc()),
         BlocProvider<ScheduleBloc>(
           create: (BuildContext context) => ScheduleBloc(),
@@ -84,7 +94,6 @@ class MaterialAppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // BlocProvider.of<CountdownBloc>(context).add(CountdownEventCount());
     final darkTheme = brightness == Brightness.dark;
 
     SystemChrome.setSystemUIOverlayStyle(

@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:droidconke2020_flutter/config/api.dart';
 import 'package:droidconke2020_flutter/models/models.dart';
-import 'package:droidconke2020_flutter/utils/http_client.dart';
+import 'package:droidconke2020_flutter/utils/rest_client.dart';
+import 'package:get_it/get_it.dart';
 
 class ScheduleService {
   static Future<List<Session>> getSchedule() async {
     String url = '${ApiConfig.serverUrl}events/${ApiConfig.eventSlug}/schedule';
-    Response response = await HttpClient.create().get(
-      url,
-    );
+    Response response = await GetIt.I<RestClient>().dio.get(
+          url,
+        );
     return response.data['data']
         .map<Session>((e) => Session.fromJson(e))
         .toList();
@@ -16,7 +17,7 @@ class ScheduleService {
 
   static Future<GroupedSchedule> getGroupedSchedule() async {
     String url = '${ApiConfig.serverUrl}events/${ApiConfig.eventSlug}/schedule';
-    Response response = await HttpClient.create().get(
+    Response response = await GetIt.I<RestClient>().dio.get(
       url,
       queryParameters: {'grouped': true},
     );
@@ -35,9 +36,10 @@ class ScheduleService {
     return GroupedSchedule(daySchedules);
   }
 
-  static Future<GroupedSchedule> getGroupedBookMarks() async {
-    String url = '${ApiConfig.serverUrl}events/${ApiConfig.eventSlug}/schedule';
-    Response response = await HttpClient.create().get(
+  static Future<GroupedSchedule> getGroupedBookmarks() async {
+    String url =
+        '${ApiConfig.serverUrl}events/${ApiConfig.eventSlug}/bookmarked_schedule';
+    Response response = await GetIt.I<RestClient>().dio.get(
       url,
       queryParameters: {'grouped': true},
     );
@@ -54,5 +56,11 @@ class ScheduleService {
             .values
             .toList();
     return GroupedSchedule(daySchedules);
+  }
+
+  static Future<Response> toggleBookmark(int sessionId) async {
+    String url =
+        '${ApiConfig.serverUrl}events/${ApiConfig.eventSlug}/bookmark_schedule/$sessionId';
+    return await GetIt.I<RestClient>().dio.post(url);
   }
 }
