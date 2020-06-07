@@ -50,6 +50,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MultiBlocProvider(
       providers: [
         BlocProvider<CountdownBloc>(
@@ -58,7 +59,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ThemeBloc>(create: (BuildContext context) => ThemeBloc()),
         BlocProvider<AuthBloc>(create: (BuildContext context) {
-          var authBloc = AuthBloc();
+          final AuthBloc authBloc = AuthBloc();
+          GetIt.I.registerLazySingleton(() => authBloc);
           GetIt.I.registerLazySingleton(() => RestClient(authBloc));
           return authBloc;
         }),

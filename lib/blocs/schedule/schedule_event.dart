@@ -12,7 +12,9 @@ class ScheduleEventFetch extends ScheduleEvent {
       {ScheduleState currentState, ScheduleBloc bloc}) async* {
     try {
       var schedule = await ScheduleService.getGroupedSchedule();
-      var bookmarked = await ScheduleService.getGroupedBookmarks();
+      var authBlocState = GetIt.I<AuthBloc>().state;
+      var bookmarked = (authBlocState is AuthStateAuthenticated) ? await ScheduleService.getGroupedBookmarks(): GroupedSchedule([]);
+      // var bookmarked = GroupedSchedule([]);
       yield ScheduleStateLoaded(
         schedule: schedule,
         favorites: bookmarked,

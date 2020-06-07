@@ -138,16 +138,12 @@ class SessionDetailScreen extends StatelessWidget {
                             onTap: () {
                               if (BlocProvider.of<AuthBloc>(context).state
                                   is AuthStateAuthenticated) {
-                                BlocProvider.of<ScheduleBloc>(context).add(
-                                    ScheduleEventToggleBookmark(session.id));
+                                _favorite(context);
                               } else {
                                 Navigator.of(context)
                                     .push(MaterialPageRoute(
                                         builder: (context) => LoginScreen()))
-                                    .then((value) {
-                                  BlocProvider.of<ScheduleBloc>(context).add(
-                                      ScheduleEventToggleBookmark(session.id));
-                                });
+                                    .then((value) => _favorite(context));
                               }
                             },
                           );
@@ -205,5 +201,12 @@ class SessionDetailScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _favorite(BuildContext context) {
+    if (BlocProvider.of<AuthBloc>(context).state is AuthStateAuthenticated) {
+      BlocProvider.of<ScheduleBloc>(context)
+          .add(ScheduleEventToggleBookmark(session.id));
+    }
   }
 }

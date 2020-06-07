@@ -62,8 +62,9 @@ class FavoritedSessionsScreen extends StatelessWidget {
                               selectedIndex:
                                   state is ScheduleStateLoaded ? state.day : 0,
                               onSelectedIndexChanged: (val) {
-                                BlocProvider.of<ScheduleBloc>(context)
-                                    .add(ScheduleEventSelectDay(val));
+                                BlocProvider.of<ScheduleBloc>(context).add(
+                                  ScheduleEventSelectDay(val),
+                                );
                               },
                             );
                           },
