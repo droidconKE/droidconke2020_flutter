@@ -1,4 +1,5 @@
 import 'package:droidconke2020_flutter/blocs/countdown/countdown_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/speakers/speakers_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/theme/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/home/call_to_action.dart';
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<SpeakersBloc>(context).add(SpeakersEventFetch()); //TODO: Move to initState to run once
 
     return Scaffold(
       body:

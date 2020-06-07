@@ -52,7 +52,7 @@ class SessionDetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
                         Text(
-                          "${session.start_time} - ${session.end_time}",
+                          "${session?.start_time} - ${session?.end_time}",
                           //TODO: Convert to AM/PM
                           style: Theme.of(context).textTheme.overline.copyWith(
                               color: Theme.of(context).textTheme.body1.color),

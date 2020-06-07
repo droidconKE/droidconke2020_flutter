@@ -2,6 +2,7 @@ import 'package:debug_mode/debug_mode.dart';
 import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/countdown/countdown_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
+import 'package:droidconke2020_flutter/blocs/speakers/speakers_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/theme/theme_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/about/about_screen.dart';
@@ -55,7 +56,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<CountdownBloc>(
           create: (BuildContext context) =>
-              CountdownBloc(DateTime(2020, 8, 6, 8, 0, 0)),
+              CountdownBloc(DateTime(2020, 4, 6, 8, 0, 0)),
         ),
         BlocProvider<ThemeBloc>(create: (BuildContext context) => ThemeBloc()),
         BlocProvider<AuthBloc>(create: (BuildContext context) {
@@ -67,6 +68,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<LoginBloc>(create: (BuildContext context) => LoginBloc()),
         BlocProvider<ScheduleBloc>(
           create: (BuildContext context) => ScheduleBloc(),
+        ),
+        BlocProvider<SpeakersBloc>(
+          create: (BuildContext context) => SpeakersBloc(),
         ),
       ],
       child: MultiProvider(
