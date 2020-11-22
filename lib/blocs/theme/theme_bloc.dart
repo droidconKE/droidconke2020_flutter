@@ -9,9 +9,7 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends HydratedBloc<ThemeEvent, ThemeState> {
-  @override
-  ThemeState get initialState =>
-      super.initialState ?? ThemeState(Brightness.light);
+  ThemeBloc() :super(ThemeState(Brightness.light));
 
   @override
   Stream<ThemeState> mapEventToState(ThemeEvent event) async* {

@@ -6,13 +6,12 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'auth_event.dart';
+
 part 'auth_state.dart';
 
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
-  @override
-  AuthState get initialState {
-    return super.initialState ?? AuthStateUnauthenticated();
-  }
+
+  AuthBloc() :super(AuthStateUnauthenticated());
 
   @override
   Stream<AuthState> mapEventToState(AuthEvent event) async* {

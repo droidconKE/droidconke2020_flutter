@@ -11,16 +11,13 @@ part 'countdown_state.dart';
 class CountdownBloc extends Bloc<CountdownEvent, CountdownState> {
   final DateTime eventStartTime;
 
-  CountdownBloc(this.eventStartTime) {
+  CountdownBloc(this.eventStartTime) : super(CountdownStateInitial()) {
     if (DateTime.now().isBefore(eventStartTime)) {
       this.add(CountdownEventCount());
     } else {
       this.add(CountdownEventFinish());
     }
   }
-
-  @override
-  CountdownState get initialState => CountdownStateInitial();
 
   @override
   Stream<CountdownState> mapEventToState(CountdownEvent event) async* {

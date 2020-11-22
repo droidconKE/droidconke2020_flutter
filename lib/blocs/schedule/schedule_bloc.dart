@@ -12,8 +12,8 @@ part 'schedule_event.dart';
 part 'schedule_state.dart';
 
 class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
-  @override
-  ScheduleState get initialState => ScheduleStateInitial();
+
+  ScheduleBloc() :super(ScheduleStateInitial());
 
   @override
   Stream<ScheduleState> mapEventToState(ScheduleEvent event) async* {

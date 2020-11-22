@@ -18,12 +18,12 @@ import 'package:droidconke2020_flutter/ui/splash/splash_screen.dart';
 import 'package:droidconke2020_flutter/utils/rest_client.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_stetho/flutter_stetho.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -31,14 +31,9 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  BlocSupervisor.delegate = await HydratedBlocDelegate.build();
-  Crashlytics.instance.enableInDevMode = true;
-  if (DebugMode.isInDebugMode) {
-    Stetho.initialize();
-    // BlocSupervisor.delegate = SimpleBlocDelegate();
-  } else {
-    FlutterError.onError = Crashlytics.instance.recordFlutterError;
-  }
+  HydratedBloc.storage = await HydratedStorage.build();
+  await Firebase.initializeApp();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
   runApp(MyApp());
 }
 
@@ -51,7 +46,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MultiBlocProvider(
       providers: [
         BlocProvider<CountdownBloc>(

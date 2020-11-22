@@ -11,8 +11,8 @@ part 'speakers_event.dart';
 part 'speakers_state.dart';
 
 class SpeakersBloc extends Bloc<SpeakersEvent, SpeakersState> {
-  @override
-  SpeakersState get initialState => SpeakersStateInitial();
+
+  SpeakersBloc() :super(SpeakersStateInitial());
 
   @override
   Stream<SpeakersState> mapEventToState(SpeakersEvent event) async* {
