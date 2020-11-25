@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:droidconke2020_flutter/models/models.dart';
 import 'package:droidconke2020_flutter/ui/shared/person_header.dart';
 import 'package:droidconke2020_flutter/ui/shared/twitter_handle.dart';
@@ -22,7 +23,7 @@ class SpeakerDetailScreen extends StatelessWidget {
               PersonHeader(
                 name: "${speaker.name}",
                 shortBio: "${speaker.tagline ?? ''}",
-                avatar: NetworkImage("${speaker.avatar}"),
+                avatar: CachedNetworkImageProvider("${speaker.avatar}"),
               ),
               TwitterHandle(handle: "${speaker.twitter ?? ''}"), //TODO: Get handle only from twitter link
               Padding(

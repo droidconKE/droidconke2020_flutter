@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/shared/person_header.dart';
 import 'package:droidconke2020_flutter/ui/shared/twitter_handle.dart';
@@ -14,7 +15,7 @@ class TeamMemberScreen extends StatelessWidget {
         child: Column(
           children: <Widget>[
             PersonHeader(
-              avatar: NetworkImage(
+              avatar: CachedNetworkImageProvider(
                 "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png",
               ),
               avatarFrameColor: Palette.yellow[800],

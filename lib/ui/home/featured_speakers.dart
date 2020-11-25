@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:droidconke2020_flutter/blocs/speakers/speakers_bloc.dart';
 import 'package:droidconke2020_flutter/config/palette.dart';
 import 'package:droidconke2020_flutter/ui/sessions/speaker_detail_screen.dart';
@@ -59,7 +60,7 @@ class FeaturedSpeakers extends StatelessWidget {
                   return GestureDetector(
                     key: ObjectKey(featuredSpeakers[index]),
                     child: Passport(
-                      image: NetworkImage(
+                      image: CachedNetworkImageProvider(
                         featuredSpeakers[index].avatar,
                         // key: Key(featuredSpeakers[index].avatar),
                       ),

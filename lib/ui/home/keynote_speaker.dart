@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:droidconke2020_flutter/ui/shared/passport_photo.dart';
 import 'package:droidconke2020_flutter/ui/shared/text_link.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class KeynoteSpeaker extends StatelessWidget {
             ),
             SizedBox(height: 10),
             PassportPhoto(
-              image: NetworkImage(
+              image: CachedNetworkImageProvider(
                   "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png"),
               imageFrameSize: 100,
               imageSize: 95,
