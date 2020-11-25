@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'event_type.dart';
 
@@ -8,14 +8,15 @@ part of 'event_type.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 EventType _$EventTypeFromJson(Map<String, dynamic> json) {
   return _EventType.fromJson(json);
 }
 
+/// @nodoc
 class _$EventTypeTearOff {
   const _$EventTypeTearOff();
 
+// ignore: unused_element
   _EventType call(
       {int id, String name, String description, String slug, bool status}) {
     return _EventType(
@@ -26,40 +27,42 @@ class _$EventTypeTearOff {
       status: status,
     );
   }
+
+// ignore: unused_element
+  EventType fromJson(Map<String, Object> json) {
+    return EventType.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $EventType = _$EventTypeTearOff();
 
+/// @nodoc
 mixin _$EventType {
   int get id;
-
   String get name;
-
   String get description;
-
   String get slug;
-
   bool get status;
 
   Map<String, dynamic> toJson();
-
   $EventTypeCopyWith<EventType> get copyWith;
 }
 
+/// @nodoc
 abstract class $EventTypeCopyWith<$Res> {
   factory $EventTypeCopyWith(EventType value, $Res Function(EventType) then) =
       _$EventTypeCopyWithImpl<$Res>;
-
   $Res call(
       {int id, String name, String description, String slug, bool status});
 }
 
+/// @nodoc
 class _$EventTypeCopyWithImpl<$Res> implements $EventTypeCopyWith<$Res> {
   _$EventTypeCopyWithImpl(this._value, this._then);
 
   final EventType _value;
-
   // ignore: unused_field
   final $Res Function(EventType) _then;
 
@@ -82,16 +85,17 @@ class _$EventTypeCopyWithImpl<$Res> implements $EventTypeCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$EventTypeCopyWith<$Res> implements $EventTypeCopyWith<$Res> {
   factory _$EventTypeCopyWith(
           _EventType value, $Res Function(_EventType) then) =
       __$EventTypeCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {int id, String name, String description, String slug, bool status});
 }
 
+/// @nodoc
 class __$EventTypeCopyWithImpl<$Res> extends _$EventTypeCopyWithImpl<$Res>
     implements _$EventTypeCopyWith<$Res> {
   __$EventTypeCopyWithImpl(_EventType _value, $Res Function(_EventType) _then)
@@ -120,6 +124,8 @@ class __$EventTypeCopyWithImpl<$Res> extends _$EventTypeCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_EventType implements _EventType {
   _$_EventType({this.id, this.name, this.description, this.slug, this.status});
 
@@ -191,19 +197,14 @@ abstract class _EventType implements EventType {
 
   @override
   int get id;
-
   @override
   String get name;
-
   @override
   String get description;
-
   @override
   String get slug;
-
   @override
   bool get status;
-
   @override
   _$EventTypeCopyWith<_EventType> get copyWith;
 }

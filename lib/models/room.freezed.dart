@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'room.dart';
 
@@ -8,47 +8,53 @@ part of 'room.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 Room _$RoomFromJson(Map<String, dynamic> json) {
   return _Room.fromJson(json);
 }
 
+/// @nodoc
 class _$RoomTearOff {
   const _$RoomTearOff();
 
+// ignore: unused_element
   _Room call({String title, int id}) {
     return _Room(
       title: title,
       id: id,
     );
   }
+
+// ignore: unused_element
+  Room fromJson(Map<String, Object> json) {
+    return Room.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Room = _$RoomTearOff();
 
+/// @nodoc
 mixin _$Room {
   String get title;
-
   int get id;
 
   Map<String, dynamic> toJson();
-
   $RoomCopyWith<Room> get copyWith;
 }
 
+/// @nodoc
 abstract class $RoomCopyWith<$Res> {
   factory $RoomCopyWith(Room value, $Res Function(Room) then) =
       _$RoomCopyWithImpl<$Res>;
-
   $Res call({String title, int id});
 }
 
+/// @nodoc
 class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   _$RoomCopyWithImpl(this._value, this._then);
 
   final Room _value;
-
   // ignore: unused_field
   final $Res Function(Room) _then;
 
@@ -64,14 +70,15 @@ class _$RoomCopyWithImpl<$Res> implements $RoomCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$RoomCopyWith<$Res> implements $RoomCopyWith<$Res> {
   factory _$RoomCopyWith(_Room value, $Res Function(_Room) then) =
       __$RoomCopyWithImpl<$Res>;
-
   @override
   $Res call({String title, int id});
 }
 
+/// @nodoc
 class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
     implements _$RoomCopyWith<$Res> {
   __$RoomCopyWithImpl(_Room _value, $Res Function(_Room) _then)
@@ -93,6 +100,8 @@ class __$RoomCopyWithImpl<$Res> extends _$RoomCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Room implements _Room {
   _$_Room({this.title, this.id});
 
@@ -142,10 +151,8 @@ abstract class _Room implements Room {
 
   @override
   String get title;
-
   @override
   int get id;
-
   @override
   _$RoomCopyWith<_Room> get copyWith;
 }

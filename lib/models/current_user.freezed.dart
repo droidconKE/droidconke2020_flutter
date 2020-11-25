@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'current_user.dart';
 
@@ -12,20 +12,29 @@ CurrentUser _$CurrentUserFromJson(Map<String, dynamic> json) {
   return _CurrentUser.fromJson(json);
 }
 
+/// @nodoc
 class _$CurrentUserTearOff {
   const _$CurrentUserTearOff();
 
+// ignore: unused_element
   _CurrentUser call({@required User user, @required String token}) {
     return _CurrentUser(
       user: user,
       token: token,
     );
   }
+
+// ignore: unused_element
+  CurrentUser fromJson(Map<String, Object> json) {
+    return CurrentUser.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $CurrentUser = _$CurrentUserTearOff();
 
+/// @nodoc
 mixin _$CurrentUser {
   User get user;
   String get token;
@@ -34,6 +43,7 @@ mixin _$CurrentUser {
   $CurrentUserCopyWith<CurrentUser> get copyWith;
 }
 
+/// @nodoc
 abstract class $CurrentUserCopyWith<$Res> {
   factory $CurrentUserCopyWith(
           CurrentUser value, $Res Function(CurrentUser) then) =
@@ -43,6 +53,7 @@ abstract class $CurrentUserCopyWith<$Res> {
   $UserCopyWith<$Res> get user;
 }
 
+/// @nodoc
 class _$CurrentUserCopyWithImpl<$Res> implements $CurrentUserCopyWith<$Res> {
   _$CurrentUserCopyWithImpl(this._value, this._then);
 
@@ -72,6 +83,7 @@ class _$CurrentUserCopyWithImpl<$Res> implements $CurrentUserCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$CurrentUserCopyWith<$Res>
     implements $CurrentUserCopyWith<$Res> {
   factory _$CurrentUserCopyWith(
@@ -84,6 +96,7 @@ abstract class _$CurrentUserCopyWith<$Res>
   $UserCopyWith<$Res> get user;
 }
 
+/// @nodoc
 class __$CurrentUserCopyWithImpl<$Res> extends _$CurrentUserCopyWithImpl<$Res>
     implements _$CurrentUserCopyWith<$Res> {
   __$CurrentUserCopyWithImpl(
@@ -106,6 +119,8 @@ class __$CurrentUserCopyWithImpl<$Res> extends _$CurrentUserCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_CurrentUser implements _CurrentUser {
   _$_CurrentUser({@required this.user, @required this.token})
       : assert(user != null),

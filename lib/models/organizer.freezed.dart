@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'organizer.dart';
 
@@ -8,14 +8,15 @@ part of 'organizer.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 Organizer _$OrganizerFromJson(Map<String, dynamic> json) {
   return _Organizer.fromJson(json);
 }
 
+/// @nodoc
 class _$OrganizerTearOff {
   const _$OrganizerTearOff();
 
+// ignore: unused_element
   _Organizer call(
       {int id,
       String name,
@@ -46,47 +47,41 @@ class _$OrganizerTearOff {
       total_events_count: total_events_count,
     );
   }
+
+// ignore: unused_element
+  Organizer fromJson(Map<String, Object> json) {
+    return Organizer.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Organizer = _$OrganizerTearOff();
 
+/// @nodoc
 mixin _$Organizer {
   int get id;
-
   String get name;
-
   String get email;
-
   String get description;
-
   String get facebook;
-
   String get twitter;
-
   String get instagram;
-
   String get logo;
-
   String get slug;
-
   String get status;
-
   String get created_at;
-
   int get upcoming_events_count;
-
   int get total_events_count;
 
   Map<String, dynamic> toJson();
-
   $OrganizerCopyWith<Organizer> get copyWith;
 }
 
+/// @nodoc
 abstract class $OrganizerCopyWith<$Res> {
   factory $OrganizerCopyWith(Organizer value, $Res Function(Organizer) then) =
       _$OrganizerCopyWithImpl<$Res>;
-
   $Res call(
       {int id,
       String name,
@@ -103,11 +98,11 @@ abstract class $OrganizerCopyWith<$Res> {
       int total_events_count});
 }
 
+/// @nodoc
 class _$OrganizerCopyWithImpl<$Res> implements $OrganizerCopyWith<$Res> {
   _$OrganizerCopyWithImpl(this._value, this._then);
 
   final Organizer _value;
-
   // ignore: unused_field
   final $Res Function(Organizer) _then;
 
@@ -151,11 +146,11 @@ class _$OrganizerCopyWithImpl<$Res> implements $OrganizerCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$OrganizerCopyWith<$Res> implements $OrganizerCopyWith<$Res> {
   factory _$OrganizerCopyWith(
           _Organizer value, $Res Function(_Organizer) then) =
       __$OrganizerCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {int id,
@@ -173,6 +168,7 @@ abstract class _$OrganizerCopyWith<$Res> implements $OrganizerCopyWith<$Res> {
       int total_events_count});
 }
 
+/// @nodoc
 class __$OrganizerCopyWithImpl<$Res> extends _$OrganizerCopyWithImpl<$Res>
     implements _$OrganizerCopyWith<$Res> {
   __$OrganizerCopyWithImpl(_Organizer _value, $Res Function(_Organizer) _then)
@@ -222,6 +218,8 @@ class __$OrganizerCopyWithImpl<$Res> extends _$OrganizerCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Organizer implements _Organizer {
   _$_Organizer(
       {this.id,
@@ -360,43 +358,30 @@ abstract class _Organizer implements Organizer {
 
   @override
   int get id;
-
   @override
   String get name;
-
   @override
   String get email;
-
   @override
   String get description;
-
   @override
   String get facebook;
-
   @override
   String get twitter;
-
   @override
   String get instagram;
-
   @override
   String get logo;
-
   @override
   String get slug;
-
   @override
   String get status;
-
   @override
   String get created_at;
-
   @override
   int get upcoming_events_count;
-
   @override
   int get total_events_count;
-
   @override
   _$OrganizerCopyWith<_Organizer> get copyWith;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'session.dart';
 
@@ -12,9 +12,11 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
   return _Session.fromJson(json);
 }
 
+/// @nodoc
 class _$SessionTearOff {
   const _$SessionTearOff();
 
+// ignore: unused_element
   _Session call(
       {int id,
       String title,
@@ -45,11 +47,18 @@ class _$SessionTearOff {
       end_time: end_time,
     );
   }
+
+// ignore: unused_element
+  Session fromJson(Map<String, Object> json) {
+    return Session.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Session = _$SessionTearOff();
 
+/// @nodoc
 mixin _$Session {
   int get id;
   String get title;
@@ -69,6 +78,7 @@ mixin _$Session {
   $SessionCopyWith<Session> get copyWith;
 }
 
+/// @nodoc
 abstract class $SessionCopyWith<$Res> {
   factory $SessionCopyWith(Session value, $Res Function(Session) then) =
       _$SessionCopyWithImpl<$Res>;
@@ -88,6 +98,7 @@ abstract class $SessionCopyWith<$Res> {
       String end_time});
 }
 
+/// @nodoc
 class _$SessionCopyWithImpl<$Res> implements $SessionCopyWith<$Res> {
   _$SessionCopyWithImpl(this._value, this._then);
 
@@ -142,6 +153,7 @@ class _$SessionCopyWithImpl<$Res> implements $SessionCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$SessionCopyWith(_Session value, $Res Function(_Session) then) =
       __$SessionCopyWithImpl<$Res>;
@@ -162,6 +174,7 @@ abstract class _$SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
       String end_time});
 }
 
+/// @nodoc
 class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
     implements _$SessionCopyWith<$Res> {
   __$SessionCopyWithImpl(_Session _value, $Res Function(_Session) _then)
@@ -218,6 +231,8 @@ class __$SessionCopyWithImpl<$Res> extends _$SessionCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Session implements _Session {
   _$_Session(
       {this.id,

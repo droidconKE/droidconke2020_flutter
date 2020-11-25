@@ -18,6 +18,9 @@ abstract class Speaker with _$Speaker {
     String company_website,
   }) = _Speaker;
 
+  @late
+  String get twitterHandle => twitter?.split('/')?.last;
+
   factory Speaker.fromJson(Map<String, dynamic> json) =>
       _$SpeakerFromJson(json);
 }

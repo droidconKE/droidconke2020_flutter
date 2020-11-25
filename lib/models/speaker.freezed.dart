@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'speaker.dart';
 
@@ -8,14 +8,15 @@ part of 'speaker.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-
 Speaker _$SpeakerFromJson(Map<String, dynamic> json) {
   return _Speaker.fromJson(json);
 }
 
+/// @nodoc
 class _$SpeakerTearOff {
   const _$SpeakerTearOff();
 
+// ignore: unused_element
   _Speaker call(
       {String name,
       String tagline,
@@ -40,41 +41,38 @@ class _$SpeakerTearOff {
       company_website: company_website,
     );
   }
+
+// ignore: unused_element
+  Speaker fromJson(Map<String, Object> json) {
+    return Speaker.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Speaker = _$SpeakerTearOff();
 
+/// @nodoc
 mixin _$Speaker {
   String get name;
-
   String get tagline;
-
   String get biography;
-
   String get avatar;
-
   String get twitter;
-
   String get facebook;
-
   String get linkedin;
-
   String get instagram;
-
   String get blog;
-
   String get company_website;
 
   Map<String, dynamic> toJson();
-
   $SpeakerCopyWith<Speaker> get copyWith;
 }
 
+/// @nodoc
 abstract class $SpeakerCopyWith<$Res> {
   factory $SpeakerCopyWith(Speaker value, $Res Function(Speaker) then) =
       _$SpeakerCopyWithImpl<$Res>;
-
   $Res call(
       {String name,
       String tagline,
@@ -88,11 +86,11 @@ abstract class $SpeakerCopyWith<$Res> {
       String company_website});
 }
 
+/// @nodoc
 class _$SpeakerCopyWithImpl<$Res> implements $SpeakerCopyWith<$Res> {
   _$SpeakerCopyWithImpl(this._value, this._then);
 
   final Speaker _value;
-
   // ignore: unused_field
   final $Res Function(Speaker) _then;
 
@@ -126,10 +124,10 @@ class _$SpeakerCopyWithImpl<$Res> implements $SpeakerCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SpeakerCopyWith<$Res> implements $SpeakerCopyWith<$Res> {
   factory _$SpeakerCopyWith(_Speaker value, $Res Function(_Speaker) then) =
       __$SpeakerCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {String name,
@@ -144,6 +142,7 @@ abstract class _$SpeakerCopyWith<$Res> implements $SpeakerCopyWith<$Res> {
       String company_website});
 }
 
+/// @nodoc
 class __$SpeakerCopyWithImpl<$Res> extends _$SpeakerCopyWithImpl<$Res>
     implements _$SpeakerCopyWith<$Res> {
   __$SpeakerCopyWithImpl(_Speaker _value, $Res Function(_Speaker) _then)
@@ -183,6 +182,8 @@ class __$SpeakerCopyWithImpl<$Res> extends _$SpeakerCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Speaker implements _Speaker {
   _$_Speaker(
       {this.name,
@@ -220,9 +221,21 @@ class _$_Speaker implements _Speaker {
   @override
   final String company_website;
 
+  bool _didtwitterHandle = false;
+  String _twitterHandle;
+
+  @override
+  String get twitterHandle {
+    if (_didtwitterHandle == false) {
+      _didtwitterHandle = true;
+      _twitterHandle = twitter?.split('/')?.last;
+    }
+    return _twitterHandle;
+  }
+
   @override
   String toString() {
-    return 'Speaker(name: $name, tagline: $tagline, biography: $biography, avatar: $avatar, twitter: $twitter, facebook: $facebook, linkedin: $linkedin, instagram: $instagram, blog: $blog, company_website: $company_website)';
+    return 'Speaker(name: $name, tagline: $tagline, biography: $biography, avatar: $avatar, twitter: $twitter, facebook: $facebook, linkedin: $linkedin, instagram: $instagram, blog: $blog, company_website: $company_website, twitterHandle: $twitterHandle)';
   }
 
   @override
@@ -299,34 +312,24 @@ abstract class _Speaker implements Speaker {
 
   @override
   String get name;
-
   @override
   String get tagline;
-
   @override
   String get biography;
-
   @override
   String get avatar;
-
   @override
   String get twitter;
-
   @override
   String get facebook;
-
   @override
   String get linkedin;
-
   @override
   String get instagram;
-
   @override
   String get blog;
-
   @override
   String get company_website;
-
   @override
   _$SpeakerCopyWith<_Speaker> get copyWith;
 }

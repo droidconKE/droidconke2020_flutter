@@ -16,14 +16,10 @@ class TwitterHandle extends StatelessWidget {
     return InkWell(
       child: Row(
         children: <Widget>[
-          Icon(
-            CommunityMaterialIcons.twitter,
-            color: Palette.green,
-            size: 16,
-          ),
+          Icon(CommunityMaterialIcons.twitter, color: Palette.green, size: 16),
           SizedBox(width: 5),
           Text(
-            "$handle",
+            "@$handle",
             style: Theme.of(context)
                 .textTheme
                 .body2

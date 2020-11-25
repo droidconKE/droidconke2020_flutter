@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'grouped_schedule.dart';
 
@@ -12,19 +12,28 @@ GroupedSchedule _$GroupedScheduleFromJson(Map<String, dynamic> json) {
   return _GroupedSchedule.fromJson(json);
 }
 
+/// @nodoc
 class _$GroupedScheduleTearOff {
   const _$GroupedScheduleTearOff();
 
+// ignore: unused_element
   _GroupedSchedule call(List<DaySchedule> daySchedules) {
     return _GroupedSchedule(
       daySchedules,
     );
   }
+
+// ignore: unused_element
+  GroupedSchedule fromJson(Map<String, Object> json) {
+    return GroupedSchedule.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $GroupedSchedule = _$GroupedScheduleTearOff();
 
+/// @nodoc
 mixin _$GroupedSchedule {
   List<DaySchedule> get daySchedules;
 
@@ -32,6 +41,7 @@ mixin _$GroupedSchedule {
   $GroupedScheduleCopyWith<GroupedSchedule> get copyWith;
 }
 
+/// @nodoc
 abstract class $GroupedScheduleCopyWith<$Res> {
   factory $GroupedScheduleCopyWith(
           GroupedSchedule value, $Res Function(GroupedSchedule) then) =
@@ -39,6 +49,7 @@ abstract class $GroupedScheduleCopyWith<$Res> {
   $Res call({List<DaySchedule> daySchedules});
 }
 
+/// @nodoc
 class _$GroupedScheduleCopyWithImpl<$Res>
     implements $GroupedScheduleCopyWith<$Res> {
   _$GroupedScheduleCopyWithImpl(this._value, this._then);
@@ -59,6 +70,7 @@ class _$GroupedScheduleCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$GroupedScheduleCopyWith<$Res>
     implements $GroupedScheduleCopyWith<$Res> {
   factory _$GroupedScheduleCopyWith(
@@ -68,6 +80,7 @@ abstract class _$GroupedScheduleCopyWith<$Res>
   $Res call({List<DaySchedule> daySchedules});
 }
 
+/// @nodoc
 class __$GroupedScheduleCopyWithImpl<$Res>
     extends _$GroupedScheduleCopyWithImpl<$Res>
     implements _$GroupedScheduleCopyWith<$Res> {
@@ -91,6 +104,8 @@ class __$GroupedScheduleCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_GroupedSchedule implements _GroupedSchedule {
   _$_GroupedSchedule(this.daySchedules) : assert(daySchedules != null);
 

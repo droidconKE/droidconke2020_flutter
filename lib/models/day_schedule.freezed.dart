@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'day_schedule.dart';
 
@@ -12,9 +12,11 @@ DaySchedule _$DayScheduleFromJson(Map<String, dynamic> json) {
   return _DaySchedule.fromJson(json);
 }
 
+/// @nodoc
 class _$DayScheduleTearOff {
   const _$DayScheduleTearOff();
 
+// ignore: unused_element
   _DaySchedule call(
       {@required String dateString, @required List<Session> schedule}) {
     return _DaySchedule(
@@ -22,11 +24,18 @@ class _$DayScheduleTearOff {
       schedule: schedule,
     );
   }
+
+// ignore: unused_element
+  DaySchedule fromJson(Map<String, Object> json) {
+    return DaySchedule.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $DaySchedule = _$DayScheduleTearOff();
 
+/// @nodoc
 mixin _$DaySchedule {
   String get dateString;
   List<Session> get schedule;
@@ -35,6 +44,7 @@ mixin _$DaySchedule {
   $DayScheduleCopyWith<DaySchedule> get copyWith;
 }
 
+/// @nodoc
 abstract class $DayScheduleCopyWith<$Res> {
   factory $DayScheduleCopyWith(
           DaySchedule value, $Res Function(DaySchedule) then) =
@@ -42,6 +52,7 @@ abstract class $DayScheduleCopyWith<$Res> {
   $Res call({String dateString, List<Session> schedule});
 }
 
+/// @nodoc
 class _$DayScheduleCopyWithImpl<$Res> implements $DayScheduleCopyWith<$Res> {
   _$DayScheduleCopyWithImpl(this._value, this._then);
 
@@ -63,6 +74,7 @@ class _$DayScheduleCopyWithImpl<$Res> implements $DayScheduleCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$DayScheduleCopyWith<$Res>
     implements $DayScheduleCopyWith<$Res> {
   factory _$DayScheduleCopyWith(
@@ -72,6 +84,7 @@ abstract class _$DayScheduleCopyWith<$Res>
   $Res call({String dateString, List<Session> schedule});
 }
 
+/// @nodoc
 class __$DayScheduleCopyWithImpl<$Res> extends _$DayScheduleCopyWithImpl<$Res>
     implements _$DayScheduleCopyWith<$Res> {
   __$DayScheduleCopyWithImpl(
@@ -96,6 +109,8 @@ class __$DayScheduleCopyWithImpl<$Res> extends _$DayScheduleCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_DaySchedule implements _DaySchedule {
   _$_DaySchedule({@required this.dateString, @required this.schedule})
       : assert(dateString != null),

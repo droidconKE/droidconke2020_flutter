@@ -25,7 +25,7 @@ class SpeakerDetailScreen extends StatelessWidget {
                 shortBio: "${speaker.tagline ?? ''}",
                 avatar: CachedNetworkImageProvider("${speaker.avatar}"),
               ),
-              TwitterHandle(handle: "${speaker.twitter ?? ''}"), //TODO: Get handle only from twitter link
+              TwitterHandle(handle: "${speaker.twitterHandle ?? ''}"),
               Padding(
                 padding: EdgeInsets.all(20),
                 child: Column(
@@ -35,7 +35,7 @@ class SpeakerDetailScreen extends StatelessWidget {
                     SizedBox(height: 20),
                     Text("${speaker.biography ?? ''}"),
                     SizedBox(height: 20),
-                    TwitterHandleCopy(handle: '${speaker.twitter ?? ''}'), //TODO: Get handle only from twitter link
+                    TwitterHandleCopy(handle: '@${speaker.twitterHandle ?? ''}'),
                   ],
                 ),
               )

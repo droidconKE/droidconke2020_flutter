@@ -10,8 +10,8 @@ class SpeakersService {
     String url = '${ApiConfig.serverUrl}events/${ApiConfig.eventSlug}/speakers';
     Response response = await GetIt.I<RestClient>().dio.get(
           url,
-          options: buildCacheOptions(Duration(minutes: 5)),
-        ); //TODO: Consider caching the request for a few minutes
+          options: buildCacheOptions(Duration(hours: 24)),
+        );
     return response.data['data']
         .map<Speaker>((e) => Speaker.fromJson(e))
         .toList();
