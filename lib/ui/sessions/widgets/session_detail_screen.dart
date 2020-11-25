@@ -36,7 +36,7 @@ class SessionDetailScreen extends StatelessWidget {
                   children: <Widget>[
                     DroidconAppBar(),
                     Text(
-                      "Session Details",
+                      'Session Details',
                       style: Theme.of(context).textTheme.title,
                     ),
                   ],
@@ -52,7 +52,7 @@ class SessionDetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
                         Text(
-                          "${session?.start_time} - ${session?.end_time}",
+                          '${session?.start_time} - ${session?.end_time}',
                           //TODO: Convert to AM/PM
                           style: Theme.of(context).textTheme.overline.copyWith(
                               color: Theme.of(context).textTheme.body1.color),
@@ -68,7 +68,7 @@ class SessionDetailScreen extends StatelessWidget {
                             ...session.rooms
                                 .map(
                                   (e) => Text(
-                                    "${e.title}",
+                                    '${e.title}',
                                     style: Theme.of(context)
                                         .textTheme
                                         .overline
@@ -120,7 +120,7 @@ class SessionDetailScreen extends StatelessWidget {
                         ),
                         SizedBox(width: 5),
                         Text(
-                          "Speaker(s)",
+                          'Speaker(s)',
                           style: Theme.of(context).textTheme.caption,
                         ),
                         Expanded(child: Container()),
@@ -156,9 +156,9 @@ class SessionDetailScreen extends StatelessWidget {
                               children: <Widget>[
                                 InkWell(
                                   child: Hero(
-                                    tag: "${s.name}",
+                                    tag: '${s.name}',
                                     child: Text(
-                                      "${s.name}",
+                                      '${s.name}',
                                       style:
                                           Theme.of(context).textTheme.display1,
                                     ),
@@ -177,11 +177,11 @@ class SessionDetailScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Description",
+                      'Description',
                       style: Theme.of(context).textTheme.subhead,
                     ),
                     SizedBox(height: 20),
-                    Text("${session.description}"),
+                    Text('${session.description}'),
                   ],
                 ),
               )

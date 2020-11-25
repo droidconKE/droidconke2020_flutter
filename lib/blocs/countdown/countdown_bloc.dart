@@ -13,9 +13,9 @@ class CountdownBloc extends Bloc<CountdownEvent, CountdownState> {
 
   CountdownBloc(this.eventStartTime) : super(CountdownStateInitial()) {
     if (DateTime.now().isBefore(eventStartTime)) {
-      this.add(CountdownEventCount());
+      add(CountdownEventCount());
     } else {
-      this.add(CountdownEventFinish());
+      add(CountdownEventFinish());
     }
   }
 

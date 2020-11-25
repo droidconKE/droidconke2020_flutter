@@ -21,7 +21,7 @@ class RestClient {
   final AuthBloc authBloc;
 
   Dio create([BaseOptions options]) {
-    Dio dio = Dio(options);
+    var dio = Dio(options);
 
     dio.interceptors
       ..add(AuthInterceptor())

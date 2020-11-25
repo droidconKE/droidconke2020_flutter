@@ -33,7 +33,7 @@ class FavoritedSessionsScreen extends StatelessWidget {
                       },
                     ),
                     Text(
-                      "My Sessions",
+                      'My Sessions',
                       style: Theme.of(context).textTheme.caption,
                     ),
                   ],
@@ -48,7 +48,7 @@ class FavoritedSessionsScreen extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: Text(
-                          "My Sessions",
+                          'My Sessions',
                           style: Theme.of(context).textTheme.subhead.copyWith(
                                 fontSize: 18,
                               ),

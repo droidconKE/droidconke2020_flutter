@@ -56,7 +56,7 @@ class TwitterHandleCopy extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "$handle",
+                        '$handle',
                         style: Theme.of(context)
                             .textTheme
                             .body2
@@ -76,7 +76,7 @@ class TwitterHandleCopy extends StatelessWidget {
         ),
         SizedBox(height: 2),
         Text(
-          "Tap to copy handle",
+          'Tap to copy handle',
           style: Theme.of(context).textTheme.caption.copyWith(
                 fontStyle: FontStyle.italic,
               ),

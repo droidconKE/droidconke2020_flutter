@@ -12,11 +12,11 @@ class FeaturedSessions extends StatelessWidget {
       children: <Widget>[
         Row(
           children: <Widget>[
-            Text("Sessions", style: Theme.of(context).textTheme.subhead),
+            Text('Sessions', style: Theme.of(context).textTheme.subhead),
             Expanded(child: Container()),
             InkWell(
               child: Text(
-                "Veiw All",
+                'View All',
                 style: TextStyle(color: Palette.purple, fontSize: 12),
               ),
               onTap: () {
@@ -27,7 +27,7 @@ class FeaturedSessions extends StatelessWidget {
             SizedBox(width: 10),
             Chip(
               label: Text(
-                "+45",
+                '+45', //TODO: Replace hard-coded value
                 style: TextStyle(color: Palette.purple[200], fontSize: 12),
               ),
               backgroundColor: Palette.purple[50],
@@ -64,7 +64,7 @@ class FeaturedSessions extends StatelessWidget {
                               topRight: Radius.circular(10),
                             ),
                             image: DecorationImage(
-                              image: AssetImage("assets/images/other.png"),
+                              image: AssetImage('assets/images/other.png'),
                               fit: BoxFit.fitWidth,
                             ),
                           ),
@@ -78,13 +78,13 @@ class FeaturedSessions extends StatelessWidget {
                             Row(
                               children: <Widget>[
                                 Afrikon(
-                                  "time",
+                                  'time',
                                   color: Palette.green,
                                   height: 10,
                                 ),
                                 SizedBox(width: 5),
                                 Text(
-                                  "10:30",
+                                  '10:30',
                                   style: TextStyle(fontSize: 8),
                                 ),
                                 Expanded(
@@ -97,14 +97,14 @@ class FeaturedSessions extends StatelessWidget {
                                 ),
                                 SizedBox(width: 5),
                                 Text(
-                                  "Room 1",
+                                  'Room 1',
                                   style: TextStyle(fontSize: 8),
                                 ),
                               ],
                             ),
                             SizedBox(height: 5),
                             Text(
-                              "Text here",
+                              'Text here',
                               maxLines: 2,
                             ),
                           ],

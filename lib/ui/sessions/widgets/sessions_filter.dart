@@ -44,7 +44,7 @@ class SessionsFilter extends StatelessWidget {
                             ),
                             SizedBox(width: 10),
                             Text(
-                              "Filter",
+                              'Filter',
                               style: GoogleFonts.robotoSlab(
                                 fontSize: 16,
                                 color: Palette.green,

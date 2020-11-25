@@ -138,7 +138,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
                                     },
                                   ),
                                   Text(
-                                    "My Sessions",
+                                    'My Sessions',
                                     style: Theme.of(context).textTheme.caption,
                                   ),
                                 ],
@@ -160,10 +160,11 @@ class _SessionsScreenState extends State<SessionsScreen> {
                     child: Text(state.error.toString(), textAlign: TextAlign.center,),
                   );
                 }
-                if (state is ScheduleStateLoaded)
+                if (state is ScheduleStateLoaded) {
                   return SessionList(
                     list: state.schedule.daySchedules[state.day].schedule,
                   );
+                }
                 return Center(child: CircularProgressIndicator());
               },
             ),

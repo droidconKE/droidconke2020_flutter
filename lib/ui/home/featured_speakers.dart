@@ -20,11 +20,11 @@ class FeaturedSpeakers extends StatelessWidget {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  Text("Speakers", style: Theme.of(context).textTheme.subhead),
+                  Text('Speakers', style: Theme.of(context).textTheme.subhead),
                   Expanded(child: Container()),
                   Text.rich(
                     TextSpan(
-                      text: "Veiw All",
+                      text: 'Veiw All',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           /* TODO: Go to Speakers page - doesn't exist in design? */
@@ -35,7 +35,7 @@ class FeaturedSpeakers extends StatelessWidget {
                   SizedBox(width: 10),
                   Chip(
                     label: Text(
-                      "+${state.all.length - 4}",
+                      '+${state.all.length - 4}',
                       style: TextStyle(
                         color: Palette.purple[200],
                         fontSize: 12,
@@ -64,7 +64,7 @@ class FeaturedSpeakers extends StatelessWidget {
                         featuredSpeakers[index].avatar,
                         // key: Key(featuredSpeakers[index].avatar),
                       ),
-                      subtitle: "${featuredSpeakers[index].name}",
+                      subtitle: '${featuredSpeakers[index].name}',
                     ),
                     onTap: () => Navigator.of(context).push(
                       MaterialPageRoute(

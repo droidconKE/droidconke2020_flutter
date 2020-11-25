@@ -19,7 +19,7 @@ class TwitterHandle extends StatelessWidget {
           Icon(CommunityMaterialIcons.twitter, color: Palette.green, size: 16),
           SizedBox(width: 5),
           Text(
-            "@$handle",
+            '@$handle',
             style: Theme.of(context)
                 .textTheme
                 .body2
@@ -29,7 +29,7 @@ class TwitterHandle extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
       ),
       onTap: () async {
-        var url = "https://twitter.com/$handle";
+        var url = 'https://twitter.com/$handle';
         if (await canLaunch(url)) {
           await launch(url);
         } else {

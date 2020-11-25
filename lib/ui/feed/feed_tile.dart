@@ -12,10 +12,10 @@ class FeedTile extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Text(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non "
-              "quis exercitationem culpa nesciunt nihil aut nostrum explicabo "
-              "reprehenderit optio amet ab temporibus asperiores quasi cupiditate. "
-              "Voluptatum ducimus voluptates voluptas?",
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non '
+              'quis exercitationem culpa nesciunt nihil aut nostrum explicabo '
+              'reprehenderit optio amet ab temporibus asperiores quasi cupiditate. '
+              'Voluptatum ducimus voluptates voluptas?',
               maxLines: 4,
               overflow: TextOverflow.ellipsis,
             ),
@@ -26,7 +26,7 @@ class FeedTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(
-                    "https://techweez.com/wp-content/uploads/2019/08/DroidconKE-2019-1365x1024.jpg",
+                    'https://techweez.com/wp-content/uploads/2019/08/DroidconKE-2019-1365x1024.jpg',
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -39,7 +39,7 @@ class FeedTile extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Afrikon(
-                      "time",
+                      'time',
                       height: Theme.of(context).textTheme.caption.fontSize,
                       color: Theme.of(context).textTheme.caption.color,
                     ),

@@ -17,8 +17,8 @@ class DroidconSwitch extends StatefulWidget {
 
 class _DroidconSwitchState extends State<DroidconSwitch> {
   bool _value = false;
-  Duration _animationDuration = Duration(milliseconds: 300);
-  Curve _animationCurve = Curves.easeIn;
+  final _animationDuration = Duration(milliseconds: 300);
+  final _animationCurve = Curves.easeIn;
 
   @override
   void initState() {

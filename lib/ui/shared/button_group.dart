@@ -24,11 +24,12 @@ class _ButtonGroupState extends State<ButtonGroup> {
     super.initState();
   }
 
-  updateSelectedIndex(index) {
+  void updateSelectedIndex(index) {
     setState(() {
       _selectedIndex = index;
-      if (widget.onSelectedIndexChanged != null)
+      if (widget.onSelectedIndexChanged != null) {
         widget.onSelectedIndexChanged(index);
+      }
     });
   }
 

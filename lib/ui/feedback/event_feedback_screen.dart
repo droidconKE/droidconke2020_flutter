@@ -28,7 +28,7 @@ class EventFeedbackScreen extends StatelessWidget {
                   children: <Widget>[
                     DroidconAppBar(),
                     Text(
-                      "Feedback",
+                      'Feedback',
                       style: Theme.of(context).textTheme.title,
                     ),
                   ],
@@ -41,21 +41,22 @@ class EventFeedbackScreen extends StatelessWidget {
                   child: Column(
                     children: <Widget>[
                       Text(
-                        "Kindly leave your honest feedback to help "
-                        "us make it even better. Cheers : )",
+                        'Kindly leave your honest feedback to help '
+                        'us make it even better. Cheers : )',
                       ),
                       SizedBox(height: 20),
                       FormBuilderTextField(
                         name: 'feedback',
                         decoration: InputDecoration(
-                          hintText: "Type Here",
+                          hintText: 'Type Here',
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
                         maxLines: 4,
                       ),
                       SizedBox(height: 30),
-                      Text("Rating:"),
+                      Text('Rating:'),
                       SizedBox(height: 20),
                       FormBuilderRating(
                         name: 'rating',
@@ -75,7 +76,7 @@ class EventFeedbackScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "Submit Feedback",
+                              'Submit Feedback',
                               style:
                                   Theme.of(context).textTheme.subhead.copyWith(
                                         color: Colors.white,

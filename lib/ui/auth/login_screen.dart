@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage("assets/images/Asset-1.png"),
+          image: AssetImage('assets/images/Asset-1.png'),
           alignment: Alignment.bottomCenter,
         )),
         child: Column(
@@ -31,7 +31,7 @@ class LoginScreen extends StatelessWidget {
                     Container(
                       width: 200,
                       height: 200,
-                      child: Image.asset("assets/images/logo.png"),
+                      child: Image.asset('assets/images/logo.png'),
                     ),
                     SizedBox(height: 50),
                     BlocConsumer<LoginBloc, LoginState>(
@@ -47,10 +47,11 @@ class LoginScreen extends StatelessWidget {
                         }
                       },
                       builder: (context, state) {
-                        if (state is LoginStateLoading)
+                        if (state is LoginStateLoading) {
                           return Center(
                             child: CircularProgressIndicator(),
                           );
+                        }
                         return FlatButton(
                           padding: EdgeInsets.all(0),
                           child: Container(
@@ -70,13 +71,13 @@ class LoginScreen extends StatelessWidget {
                                     height: 10,
                                     width: 10,
                                     child: Image.asset(
-                                      "assets/images/google-signin.png",
+                                      'assets/images/google-signin.png',
                                       height: 10,
                                     ),
                                   ),
                                 ),
                                 Text(
-                                  "Signin With Google",
+                                  'Signin With Google',
                                   style: Theme.of(context)
                                       .textTheme
                                       .body2

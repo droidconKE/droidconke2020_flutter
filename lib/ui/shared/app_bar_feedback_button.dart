@@ -30,7 +30,7 @@ class AppBarFeedbackButton extends StatelessWidget {
             ),
             SizedBox(width: 30),
             Text(
-              "Feedback",
+              'Feedback',
               style: GoogleFonts.robotoSlab(
                 color: Palette.purple,
                 fontSize: 16,

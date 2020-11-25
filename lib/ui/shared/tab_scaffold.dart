@@ -23,22 +23,22 @@ class TabScaffold extends StatelessWidget {
           BottomNavigationBarItem(
             activeIcon: Afrikon('home', color: Palette.yellow),
             icon: Afrikon('home', color: Palette.white),
-            title: Text("Home"),
+            title: Text('Home'),
           ),
           BottomNavigationBarItem(
             activeIcon: Afrikon('bell', color: Palette.yellow),
             icon: Afrikon('bell', color: Palette.white),
-            title: Text("Feed"),
+            title: Text('Feed'),
           ),
           BottomNavigationBarItem(
             activeIcon: Afrikon('time', color: Palette.yellow),
             icon: Afrikon('time', color: Palette.white),
-            title: Text("Sessions"),
+            title: Text('Sessions'),
           ),
           BottomNavigationBarItem(
             activeIcon: Afrikon('flower', color: Palette.yellow),
             icon: Afrikon('flower', color: Palette.white),
-            title: Text("About"),
+            title: Text('About'),
           ),
         ],
       ),

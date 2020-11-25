@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:droidconke2020_flutter/config/api.dart';
 import 'package:droidconke2020_flutter/utils/rest_client.dart';
 import 'package:flutter/foundation.dart';
@@ -9,8 +8,8 @@ class AuthService {
     @required String accessToken,
     String provider = 'google',
   }) async {
-    String url = '${ApiConfig.serverUrl}social_login/$provider';
-    Response response = await GetIt.I<RestClient>().dio.post(
+    final url = '${ApiConfig.serverUrl}social_login/$provider';
+    final response = await GetIt.I<RestClient>().dio.post(
       url,
       data: {'access_token': accessToken},
     );

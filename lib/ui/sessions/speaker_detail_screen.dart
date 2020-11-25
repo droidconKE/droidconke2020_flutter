@@ -21,9 +21,9 @@ class SpeakerDetailScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               PersonHeader(
-                name: "${speaker.name}",
+                name: '${speaker.name}',
                 shortBio: "${speaker.tagline ?? ''}",
-                avatar: CachedNetworkImageProvider("${speaker.avatar}"),
+                avatar: CachedNetworkImageProvider('${speaker.avatar}'),
               ),
               TwitterHandle(handle: "${speaker.twitterHandle ?? ''}"),
               Padding(
@@ -31,7 +31,7 @@ class SpeakerDetailScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text("Bio", style: Theme.of(context).textTheme.subhead),
+                    Text('Bio', style: Theme.of(context).textTheme.subhead),
                     SizedBox(height: 20),
                     Text("${speaker.biography ?? ''}"),
                     SizedBox(height: 20),

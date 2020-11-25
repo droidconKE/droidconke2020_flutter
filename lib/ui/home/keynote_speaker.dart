@@ -14,24 +14,24 @@ class KeynoteSpeaker extends StatelessWidget {
           children: <Widget>[
             SizedBox(height: 10),
             Text(
-              "Keynote Speaker",
+              'Keynote Speaker',
               style: Theme.of(context).textTheme.subhead,
             ),
             SizedBox(height: 10),
             PassportPhoto(
               image: CachedNetworkImageProvider(
-                  "https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png"),
+                  'https://sessionize.com/image?f=e5a4a871123344b5ae1b8a5aa36f3728,400,400,1,0,b1-61e5-4a26-9ca3-c9f30e3eaa08.3e7b5602-cf0d-4f47-b510-f789a00b4cbf.png'),
               imageFrameSize: 100,
               imageSize: 95,
             ),
             SizedBox(height: 10),
             Text(
-              "Marcin Szalek",
+              'Marcin Szalek',
               style: Theme.of(context).textTheme.caption,
             ),
             SizedBox(height: 10),
             TextLink(
-              text: "Become a speaker",
+              text: 'Become a speaker',
               onTap: () async {
                 const url = 'https://sessionize.com/droidconke/';
                 if (await canLaunch(url)) {

@@ -13,13 +13,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static final String routeName = 'home';
 
   @override
-  Widget build(BuildContext context) {
-    BlocProvider.of<SpeakersBloc>(context).add(SpeakersEventFetch()); //TODO: Move to initState to run once
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
+class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<SpeakersBloc>(context).add(SpeakersEventFetch());
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body:
           BlocBuilder<CountdownBloc, CountdownState>(builder: (context, state) {
@@ -73,8 +83,8 @@ class HomeScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: CallToAction(
-                    title: "Call for Speakers",
-                    subtitle: "Apply to be a speaker.",
+                    title: 'Call for Speakers',
+                    subtitle: 'Apply to be a speaker.',
                     onTap: () async {
                       const url = 'https://sessionize.com/droidconke/';
                       if (await canLaunch(url)) {
@@ -95,7 +105,7 @@ class HomeScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: CallToAction(
                     title: "Today's sessions",
-                    subtitle: "View upcoming sessions.",
+                    subtitle: 'View upcoming sessions.',
                     onTap: () => Provider.of<CupertinoTabController>(context,
                             listen: false)
                         .index = 2,
@@ -112,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                   child: FeaturedSpeakers(),
                 ),
               FlatButton(
-                child: Text("Toggle Theme"),
+                child: Text('Toggle Theme'),
                 onPressed: () {
                   BlocProvider.of<ThemeBloc>(context).add(ThemeEventToggle());
                 },

@@ -29,16 +29,16 @@ class CountdownTimerWidget extends StatelessWidget {
           builder: (context, state) {
         if (state is CountdownStateRunning) {
           var n = state.duration.inSeconds;
-          int days = (n / (24 * 3600)).floor();
+          var days = (n / (24 * 3600)).floor();
 
           n = n % (24 * 3600);
-          int hours = (n / 3600).floor();
+          var hours = (n / 3600).floor();
 
           n %= 3600;
-          int minutes = (n / 60).floor();
+          var minutes = (n / 60).floor();
 
           n %= 60;
-          int seconds = n;
+          var seconds = n;
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,11 +90,11 @@ class TimerPeriod extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          "$periodCount".padLeft(2, '0'),
+          '$periodCount'.padLeft(2, '0'),
           style: Theme.of(context).textTheme.subhead,
         ),
         Text(
-          "$periodName",
+          '$periodName',
           style: Theme.of(context).textTheme.overline,
         ),
       ],

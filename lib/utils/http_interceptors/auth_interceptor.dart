@@ -8,8 +8,8 @@ import '../rest_client.dart';
 
 class AuthInterceptor extends Interceptor {
   @override
-  onRequest(RequestOptions options) async {
-    if (!options.path.contains("/social_login")) {
+  Future<RequestOptions> onRequest(RequestOptions options) async {
+    if (!options.path.contains('/social_login')) {
       var authBlocState = GetIt.I<RestClient>().authBloc.state;
       if (authBlocState is AuthStateAuthenticated) {
         var token = authBlocState.currentUser.token;

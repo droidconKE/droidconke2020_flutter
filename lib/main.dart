@@ -51,12 +51,13 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<CountdownBloc>(
-          create: (BuildContext context) =>
-              CountdownBloc(DateTime(2020, 4, 6, 8, 0, 0)),
+          create: (BuildContext context) => CountdownBloc(
+            DateTime(2020, 5, 6, 8, 0, 0), //TODO: Store event date in environment variable
+          ),
         ),
         BlocProvider<ThemeBloc>(create: (BuildContext context) => ThemeBloc()),
         BlocProvider<AuthBloc>(create: (BuildContext context) {
-          final AuthBloc authBloc = AuthBloc();
+          final authBloc = AuthBloc();
           GetIt.I.registerLazySingleton(() => authBloc);
           GetIt.I.registerLazySingleton(
             () => RestClient(

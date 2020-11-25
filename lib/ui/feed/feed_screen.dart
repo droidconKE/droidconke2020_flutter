@@ -11,7 +11,7 @@ class FeedScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            DroidconAppBar(title: "Feed"),
+            DroidconAppBar(title: 'Feed'),
             FeedTile(),
             FeedTile(),
             FeedTile(),

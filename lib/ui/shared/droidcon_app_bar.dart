@@ -51,14 +51,14 @@ class DroidconAppBar extends StatelessWidget {
             InkWell(
               child: (logoHeroTag == null)
                   ? Image.asset(
-                      "assets/images/logo.png",
+                      'assets/images/logo.png',
                       width: 27,
                       height: 27,
                     )
                   : Hero(
                       tag: logoHeroTag,
                       child: Image.asset(
-                        "assets/images/logo.png",
+                        'assets/images/logo.png',
                         width: 27,
                         height: 27,
                       ),
@@ -89,7 +89,7 @@ class DroidconAppBar extends StatelessWidget {
           if (!isLoginScreen && trailing == null)
             BlocBuilder<AuthBloc, AuthState>(
               builder: (context, state) {
-                if (state is AuthStateAuthenticated)
+                if (state is AuthStateAuthenticated) {
                   return GestureDetector(
                     child: Stack(
                       alignment: Alignment.center,
@@ -112,6 +112,7 @@ class DroidconAppBar extends StatelessWidget {
                     onTap: () => BlocProvider.of<AuthBloc>(context)
                         .add(AuthEventLogout()),
                   );
+                }
                 return GestureDetector(
                   // borderRadius: BorderRadius.circular(15),
                   child: Stack(

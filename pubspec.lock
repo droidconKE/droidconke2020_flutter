@@ -757,12 +757,12 @@ packages:
     source: hosted
     version: "0.0.4+3"
   pedantic:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.0"
+    version: "1.9.2"
   permission_handler:
     dependency: transitive
     description:

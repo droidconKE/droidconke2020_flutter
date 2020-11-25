@@ -20,7 +20,7 @@ class Afrikon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      "assets/images/afrikons/$name.svg",
+      'assets/images/afrikons/$name.svg',
       semanticsLabel: semanticsLabel,
       color: color ?? IconTheme.of(context).color,
       height: height ?? IconTheme.of(context).size,

@@ -37,12 +37,12 @@ class SessionCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Text(
-                    "${session.start_time}", //TODO: Convert to AM/PM
+                    '${session.start_time}', //TODO: Convert to AM/PM
                     textAlign: TextAlign.end,
                     style: Theme.of(context).textTheme.title,
                   ),
                   Text(
-                    "AM", //TODO: Convert to AM/PM
+                    'AM', //TODO: Convert to AM/PM
                     textAlign: TextAlign.end,
                     style: Theme.of(context).textTheme.title,
                   ),
