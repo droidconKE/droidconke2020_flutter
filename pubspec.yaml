@@ -34,7 +34,8 @@ dependencies:
   equatable: ^1.2.5
   hydrated_bloc: ^6.1.0
   get_it: ^5.0.1
-  firebase_core: ^0.5.2
+  firebase_core: ^0.5.2+1
+  pretty_dio_logger: ^1.1.1
 
 dev_dependencies:
   flutter_test:

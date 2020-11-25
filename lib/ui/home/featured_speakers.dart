@@ -35,8 +35,10 @@ class FeaturedSpeakers extends StatelessWidget {
                   Chip(
                     label: Text(
                       "+${state.all.length - 4}",
-                      style:
-                          TextStyle(color: Palette.purple[200], fontSize: 12),
+                      style: TextStyle(
+                        color: Palette.purple[200],
+                        fontSize: 12,
+                      ),
                     ),
                     backgroundColor: Palette.purple[50],
                   ),

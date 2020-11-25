@@ -1,6 +1,6 @@
 class ApiConfig {
-  static String _serverUrl = "https://droidcon-api.appslab.tech/v1/";
-  static String _eventSlug = "droidconke2020-645";
+  static String _serverUrl = "https://api.droidcon.co.ke/v1/";
+  static String _eventSlug = "droidconke2021-957";
 
   static String get serverUrl => _serverUrl;
 

@@ -5,6 +5,7 @@ import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
 import 'package:droidconke2020_flutter/utils/http_interceptors/auth_interceptor.dart';
 import 'package:droidconke2020_flutter/utils/http_interceptors/error_interceptor.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class RestClient {
   static final CacheConfig cacheConfig = CacheConfig();
@@ -29,7 +30,7 @@ class RestClient {
       ..add(DioFirebasePerformanceInterceptor());
 
     if (DebugMode.isInDebugMode) {
-      dio.interceptors.add(LogInterceptor(
+      dio.interceptors.add(PrettyDioLogger(
         requestHeader: true,
         responseHeader: true,
         responseBody: true,

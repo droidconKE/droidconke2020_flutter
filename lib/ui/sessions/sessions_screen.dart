@@ -103,6 +103,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
                         flex: 1,
                       ),
                       Expanded(
+                        flex: 1,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
@@ -145,7 +146,6 @@ class _SessionsScreenState extends State<SessionsScreen> {
                             ),
                           ],
                         ),
-                        flex: 1,
                       ),
                     ],
                   ),
@@ -157,7 +157,7 @@ class _SessionsScreenState extends State<SessionsScreen> {
               builder: (context, state) {
                 if (state is ScheduleStateError) {
                   return Center(
-                    child: Text(state.error.toString()),
+                    child: Text(state.error.toString(), textAlign: TextAlign.center,),
                   );
                 }
                 if (state is ScheduleStateLoaded)
