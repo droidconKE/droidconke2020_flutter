@@ -76,7 +76,7 @@ class SessionsFilter extends StatelessWidget {
                           ),
                         ),
                         FormBuilderFilterChip(
-                          attribute: 'level',
+                          name: 'level',
                           options: ['Beginner', 'Intermediate', 'Expert']
                               .map((v) => FormBuilderFieldOption(
                                     value: v,
@@ -100,7 +100,7 @@ class SessionsFilter extends StatelessWidget {
                           ),
                         ),
                         FormBuilderFilterChip(
-                          attribute: 'topic',
+                          name: 'topic',
                           options: [
                             'UI/UI Design',
                             'Backend',
@@ -130,7 +130,7 @@ class SessionsFilter extends StatelessWidget {
                           ),
                         ),
                         FormBuilderFilterChip(
-                          attribute: 'rooms',
+                          name: 'rooms',
                           options: ['Room 1', 'Room 2', 'Room 3']
                               .map((v) => FormBuilderFieldOption(
                                     value: v,
@@ -154,7 +154,7 @@ class SessionsFilter extends StatelessWidget {
                           ),
                         ),
                         FormBuilderFilterChip(
-                          attribute: 'level',
+                          name: 'level',
                           options: [
                             'Keynote',
                             'Codelab',

@@ -46,7 +46,7 @@ class EventFeedbackScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 20),
                       FormBuilderTextField(
-                        attribute: 'feedback',
+                        name: 'feedback',
                         decoration: InputDecoration(
                           hintText: "Type Here",
                           border: OutlineInputBorder(
@@ -57,8 +57,8 @@ class EventFeedbackScreen extends StatelessWidget {
                       SizedBox(height: 30),
                       Text("Rating:"),
                       SizedBox(height: 20),
-                      FormBuilderRate(
-                        attribute: 'rating',
+                      FormBuilderRating(
+                        name: 'rating',
                         initialValue: 1,
                         max: 5,
                         decoration: InputDecoration(
