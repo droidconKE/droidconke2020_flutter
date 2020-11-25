@@ -114,7 +114,7 @@ class SessionDetailScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Icon(
-                          CommunityMaterialIcons.android_head,
+                          CommunityMaterialIcons.android,
                           size: 14,
                           color: Theme.of(context).textTheme.caption.color,
                         ),

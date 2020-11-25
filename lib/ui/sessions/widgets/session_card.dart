@@ -92,7 +92,7 @@ class SessionCard extends StatelessWidget {
                         return Row(
                           children: <Widget>[
                             Icon(
-                              CommunityMaterialIcons.android_head,
+                              CommunityMaterialIcons.android,
                               color: Theme.of(context).textTheme.overline.color,
                               size: 16,
                             ),
