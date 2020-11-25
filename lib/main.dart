@@ -1,4 +1,6 @@
-import 'package:debug_mode/debug_mode.dart';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:droidconke2020_flutter/blocs/auth/auth_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/countdown/countdown_bloc.dart';
 import 'package:droidconke2020_flutter/blocs/schedule/schedule_bloc.dart';
@@ -56,7 +58,17 @@ class MyApp extends StatelessWidget {
         BlocProvider<AuthBloc>(create: (BuildContext context) {
           final AuthBloc authBloc = AuthBloc();
           GetIt.I.registerLazySingleton(() => authBloc);
-          GetIt.I.registerLazySingleton(() => RestClient(authBloc));
+          GetIt.I.registerLazySingleton(
+            () => RestClient(
+              authBloc,
+              options: BaseOptions(
+                headers: {
+                  HttpHeaders.acceptHeader: 'application/json',
+                  'Api-Authorization-Key': 'droidconKe-2020',
+                },
+              ),
+            ),
+          );
           return authBloc;
         }),
         BlocProvider<LoginBloc>(create: (BuildContext context) => LoginBloc()),
